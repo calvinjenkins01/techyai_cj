@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Upload, Download, Play, Pause, X } from 'lucide-react'
 import Canvas from './Canvas'
 import OverlayControls from './OverlayControls'
+import AnimationControls from './AnimationControls'
 import Timeline from './Timeline'
 import ExportDialog from './ExportDialog'
 
@@ -23,6 +24,7 @@ export default function VideoEditor() {
     borderRadius: 0,
     scale: 1,
   })
+  const [animations, setAnimations] = useState([])
 
   const mainVideoRef = useRef(null)
   const overlayVideoRef = useRef(null)
@@ -192,6 +194,7 @@ export default function VideoEditor() {
               mainVideoUrl={mainVideo.url}
               overlayVideoUrl={overlayVideo?.url}
               overlay={overlay}
+              animations={animations}
               currentTime={currentTime}
             />
 
@@ -221,7 +224,14 @@ export default function VideoEditor() {
 
             {/* Overlay Controls */}
             {overlayVideo && (
-              <OverlayControls overlay={overlay} onChange={handleOverlayChange} />
+              <>
+                <OverlayControls overlay={overlay} onChange={handleOverlayChange} />
+                <AnimationControls
+                  animations={animations}
+                  onAnimationsChange={setAnimations}
+                  duration={duration}
+                />
+              </>
             )}
           </>
         )}
