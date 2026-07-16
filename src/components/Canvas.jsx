@@ -1,85 +1,27 @@
 import React, { useRef, useEffect, useState } from 'react'
 
-const EASING_FUNCTIONS = {
-  linear: (t) => t,
-  'ease-in': (t) => t * t,
-  'ease-out': (t) => t * (2 - t),
-  'ease-in-out': (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
-  'ease-in-quad': (t) => t * t,
-  'ease-out-quad': (t) => t * (2 - t),
-}
-
-const getAnimationValue = (animations, currentTime, baseValue, animationType) => {
-  let animatedValue = baseValue
-
-  animations.forEach((anim) => {
-    const animStart = anim.startTime
-    const animEnd = anim.startTime + anim.duration
-
-    if (currentTime >= animStart && currentTime <= animEnd) {
-      const progress = (currentTime - animStart) / anim.duration
-      const easedProgress = EASING_FUNCTIONS[anim.easing] ? EASING_FUNCTIONS[anim.easing](progress) : progress
-
-      // Fade animations affect opacity
-      if (animationType === 'opacity' && (anim.type === 'fadeIn' || anim.type === 'fadeOut')) {
-        if (anim.type === 'fadeIn') animatedValue = baseValue * easedProgress
-        if (anim.type === 'fadeOut') animatedValue = baseValue * (1 - easedProgress)
-      }
-
-      // Scale animations affect scale
-      if (animationType === 'scale' && ['zoomIn', 'zoomOut', 'bounce', 'pulse'].includes(anim.type)) {
-        if (anim.type === 'zoomIn') animatedValue = baseValue + (1 - baseValue) * easedProgress
-        if (anim.type === 'zoomOut') animatedValue = baseValue - (baseValue - 0.5) * easedProgress
-        if (anim.type === 'bounce') animatedValue = baseValue + Math.sin(easedProgress * Math.PI * 2) * 0.2
-        if (anim.type === 'pulse') animatedValue = baseValue + Math.sin(easedProgress * Math.PI) * 0.15
-      }
-
-      // Rotation animations
-      if (animationType === 'rotation' && ['rotateClockwise', 'rotateCounterClockwise'].includes(anim.type)) {
-        if (anim.type === 'rotateClockwise') animatedValue = baseValue + 360 * easedProgress
-        if (anim.type === 'rotateCounterClockwise') animatedValue = baseValue - 360 * easedProgress
-      }
-
-      // Slide animations (X position)
-      if (animationType === 'x' && ['slideLeft', 'slideRight'].includes(anim.type)) {
-        if (anim.type === 'slideLeft') animatedValue = baseValue - 50 * easedProgress
-        if (anim.type === 'slideRight') animatedValue = baseValue + 50 * easedProgress
-      }
-
-      // Slide animations (Y position)
-      if (animationType === 'y' && ['slideUp', 'slideDown'].includes(anim.type)) {
-        if (anim.type === 'slideUp') animatedValue = baseValue - 50 * easedProgress
-        if (anim.type === 'slideDown') animatedValue = baseValue + 50 * easedProgress
-      }
-    }
-  })
-
-  return animatedValue
-}
-
 export default function Canvas({ mainVideoUrl, overlayVideoUrl, overlay, animations = [], currentTime }) {
   const canvasRef = useRef(null)
   const mainVideoRef = useRef(null)
   const overlayVideoRef = useRef(null)
-  const [videoDimensions, setVideoDimensions] = useState({ width: 1280, height: 720 })
-
-  const CANVAS_WIDTH = Math.min(window.innerWidth - 48, 960)
-  const CANVAS_HEIGHT = (CANVAS_WIDTH / 16) * 9
 
   useEffect(() => {
     if (!mainVideoRef.current) {
-      mainVideoRef.current = new Image()
+      mainVideoRef.current = document.createElement('video')
+      mainVideoRef.current.crossOrigin = 'anonymous'
     }
     mainVideoRef.current.src = mainVideoUrl
-    mainVideoRef.current.onloadedmetadata = () => {
-      if (mainVideoRef.current instanceof HTMLVideoElement) {
-        setVideoDimensions({
-          width: mainVideoRef.current.videoWidth,
-          height: mainVideoRef.current.videoHeight,
-        })
-      }
-    }
   }, [mainVideoUrl])
+
+  useEffect(() => {
+    if (!overlayVideoRef.current && overlayVideoUrl) {
+      overlayVideoRef.current = document.createElement('video')
+      overlayVideoRef.current.crossOrigin = 'anonymous'
+    }
+    if (overlayVideoRef.current) {
+      overlayVideoRef.current.src = overlayVideoUrl
+    }
+  }, [overlayVideoUrl])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -88,99 +30,73 @@ export default function Canvas({ mainVideoUrl, overlayVideoUrl, overlay, animati
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const drawFrame = () => {
-      const scaleX = CANVAS_WIDTH / videoDimensions.width
-      const scaleY = CANVAS_HEIGHT / videoDimensions.height
-      const scale = Math.min(scaleX, scaleY)
+    const animate = () => {
+      if (mainVideoRef.current && mainVideoRef.current.readyState >= 2) {
+        ctx.fillStyle = '#000000'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      const scaledWidth = videoDimensions.width * scale
-      const scaledHeight = videoDimensions.height * scale
-      const offsetX = (CANVAS_WIDTH - scaledWidth) / 2
-      const offsetY = (CANVAS_HEIGHT - scaledHeight) / 2
+        const video = mainVideoRef.current
+        const hRatio = canvas.width / video.videoWidth
+        const vRatio = canvas.height / video.videoHeight
+        const ratio = Math.min(hRatio, vRatio)
 
-      // Clear canvas
-      ctx.fillStyle = '#000'
-      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+        const centerShift_x = (canvas.width - video.videoWidth * ratio) / 2
+        const centerShift_y = (canvas.height - video.videoHeight * ratio) / 2
 
-      // Draw main video
-      const mainVideo = document.querySelector('video[style*="none"]')
-      if (mainVideo && mainVideo.readyState === mainVideo.HAVE_ENOUGH_DATA) {
-        ctx.drawImage(mainVideo, offsetX, offsetY, scaledWidth, scaledHeight)
-      }
+        ctx.drawImage(
+          video,
+          centerShift_x,
+          centerShift_y,
+          video.videoWidth * ratio,
+          video.videoHeight * ratio
+        )
 
-      // Draw overlay with animations
-      if (overlayVideoUrl) {
-        const overlayVideo = document.querySelectorAll('video')[1]
-        if (overlayVideo && overlayVideo.readyState === overlayVideo.HAVE_ENOUGH_DATA) {
+        // Draw overlay if available
+        if (overlayVideoUrl && overlayVideoRef.current && overlayVideoRef.current.readyState >= 2) {
           ctx.save()
 
-          // Apply animations
-          const animatedX = getAnimationValue(animations, currentTime, overlay.x, 'x')
-          const animatedY = getAnimationValue(animations, currentTime, overlay.y, 'y')
-          const animatedOpacity = getAnimationValue(animations, currentTime, overlay.opacity, 'opacity')
-          const animatedRotation = getAnimationValue(animations, currentTime, overlay.rotation, 'rotation')
-          const animatedScale = getAnimationValue(animations, currentTime, overlay.scale, 'scale')
-
-          const overlayX = (animatedX / 100) * CANVAS_WIDTH
-          const overlayY = (animatedY / 100) * CANVAS_HEIGHT
+          const overlayX = (overlay.x / 100) * canvas.width
+          const overlayY = (overlay.y / 100) * canvas.height
           const overlayWidth = overlay.width
           const overlayHeight = overlay.height
 
-          ctx.globalAlpha = animatedOpacity
+          ctx.globalAlpha = overlay.opacity
           ctx.translate(overlayX + overlayWidth / 2, overlayY + overlayHeight / 2)
-          ctx.rotate((animatedRotation * Math.PI) / 180)
-          ctx.scale(animatedScale, animatedScale)
+          ctx.rotate((overlay.rotation * Math.PI) / 180)
+          ctx.scale(overlay.scale, overlay.scale)
 
-          // Rounded rectangle with fallback
-          const x = -overlayWidth / 2
-          const y = -overlayHeight / 2
-          const w = overlayWidth
-          const h = overlayHeight
-          const r = overlay.borderRadius
+          ctx.fillStyle = 'rgba(0,0,0,0.1)'
+          ctx.fillRect(-overlayWidth / 2, -overlayHeight / 2, overlayWidth, overlayHeight)
 
-          ctx.beginPath()
-          if (typeof ctx.roundRect === 'function') {
-            ctx.roundRect(x, y, w, h, r)
-          } else {
-            // Fallback for browsers that don't support roundRect
-            ctx.moveTo(x + r, y)
-            ctx.lineTo(x + w - r, y)
-            ctx.quadraticCurveTo(x + w, y, x + w, y + r)
-            ctx.lineTo(x + w, y + h - r)
-            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h)
-            ctx.lineTo(x + r, y + h)
-            ctx.quadraticCurveTo(x, y + h, x, y + h - r)
-            ctx.lineTo(x, y + r)
-            ctx.quadraticCurveTo(x, y, x + r, y)
-            ctx.closePath()
+          try {
+            ctx.drawImage(
+              overlayVideoRef.current,
+              -overlayWidth / 2,
+              -overlayHeight / 2,
+              overlayWidth,
+              overlayHeight
+            )
+          } catch (e) {
+            // Overlay not ready yet
           }
-          ctx.clip()
-
-          ctx.drawImage(
-            overlayVideo,
-            -overlayWidth / 2,
-            -overlayHeight / 2,
-            overlayWidth,
-            overlayHeight
-          )
 
           ctx.restore()
         }
       }
     }
 
-    drawFrame()
-  }, [currentTime, overlayVideoUrl, overlay, animations, CANVAS_WIDTH, videoDimensions])
+    animate()
+  }, [currentTime, overlayVideoUrl, overlay])
 
   return (
     <div className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
       <div className="flex justify-center bg-black p-4 sm:p-6">
         <canvas
           ref={canvasRef}
-          width={CANVAS_WIDTH}
-          height={CANVAS_HEIGHT}
+          width={960}
+          height={540}
           className="w-full max-w-full rounded-lg shadow-2xl"
-          style={{ maxHeight: '70vh' }}
+          style={{ maxHeight: '70vh', display: 'block' }}
         />
       </div>
     </div>
