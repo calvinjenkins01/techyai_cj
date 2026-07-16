@@ -9,56 +9,60 @@
     --muted: #8e95a3;
     --accent: #ff5c49;
     --accent-soft: rgba(255, 92, 73, 0.16);
-    --ok: #4fc98c;
     --radius: 12px;
     --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --tabbar-h: 62px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html, body { background: var(--ground); color: var(--text); font-family: var(--sans); }
   body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
   button, input, select { font: inherit; color: inherit; }
-  button { cursor: pointer; }
+  button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* ---------- header ---------- */
   header {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 16px;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
     border-bottom: 1px solid var(--line);
     position: sticky; top: 0; z-index: 30;
-    background: rgba(19, 21, 25, 0.92);
+    background: rgba(19, 21, 25, 0.94);
     backdrop-filter: blur(12px);
   }
-  .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.02em; font-size: 17px; }
-  .rec-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); flex: none; }
+  .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.02em; font-size: 16px; }
+  .rec-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); flex: none; }
   .spacer { flex: 1; }
 
   .seg { display: flex; background: var(--surface); border: 1px solid var(--line); border-radius: 9px; padding: 2px; }
   .seg button {
     background: none; border: 0; border-radius: 7px;
-    padding: 6px 10px; font-family: var(--mono); font-size: 12px; color: var(--muted);
+    padding: 7px 9px; font-family: var(--mono); font-size: 12px; color: var(--muted);
   }
   .seg button[aria-pressed="true"] { background: var(--surface-2); color: var(--text); }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 7px;
     border: 1px solid var(--line); background: var(--surface);
-    border-radius: 10px; padding: 9px 14px; font-weight: 600; font-size: 14px;
+    border-radius: 10px; padding: 10px 14px; font-weight: 600; font-size: 14px;
+    min-height: 42px;
   }
   .btn:disabled { opacity: 0.4; cursor: not-allowed; }
   .btn-accent { background: var(--accent); border-color: var(--accent); color: #16090a; }
   .btn-ghost { background: none; border-color: var(--line); color: var(--muted); }
-  .btn-sm { padding: 6px 10px; font-size: 13px; border-radius: 8px; }
+  .btn-sm { padding: 8px 12px; font-size: 13px; border-radius: 9px; min-height: 38px; }
 
   /* ---------- layout ---------- */
-  main { max-width: 1160px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+  main {
+    max-width: 1160px; margin: 0 auto; padding: 14px;
+    padding-bottom: calc(var(--tabbar-h) + 24px + env(safe-area-inset-bottom));
+    display: grid; gap: 14px;
+  }
   @media (min-width: 960px) {
-    main { grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr); align-items: start; }
-    .stage-col { position: sticky; top: 76px; }
+    main { grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr); align-items: start; padding-bottom: 24px; }
+    .stage-col { position: sticky; top: 70px; }
   }
 
   /* ---------- stage ---------- */
@@ -72,7 +76,7 @@
     touch-action: none;
     min-height: 200px;
   }
-  #cv { display: block; max-width: 100%; max-height: 58vh; width: auto; height: auto; }
+  #cv { display: block; max-width: 100%; max-height: 52vh; width: auto; height: auto; }
 
   #selBox {
     position: absolute; display: none; pointer-events: none;
@@ -81,9 +85,9 @@
     box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
   }
   #selBox .handle {
-    position: absolute; right: -9px; bottom: -9px;
-    width: 18px; height: 18px; border-radius: 50%;
-    background: var(--accent); border: 2px solid #fff;
+    position: absolute; right: -11px; bottom: -11px;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); border: 2.5px solid #fff;
   }
 
   #emptyState {
@@ -94,49 +98,73 @@
   #emptyState p { color: var(--muted); font-size: 14px; max-width: 260px; line-height: 1.5; }
 
   .stage-hint {
-    font-family: var(--mono); font-size: 11px; color: var(--muted);
-    text-align: center; letter-spacing: 0.04em;
+    font-family: var(--mono); font-size: 10.5px; color: var(--muted);
+    text-align: center; letter-spacing: 0.05em;
   }
 
   /* ---------- transport ---------- */
   .transport {
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 10px;
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 10px 14px;
+    border-radius: var(--radius); padding: 8px 12px;
   }
   #playBtn {
-    width: 42px; height: 42px; flex: none;
+    width: 46px; height: 46px; flex: none;
     border-radius: 50%; border: 0;
     background: var(--accent); color: #16090a;
     display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
+    font-size: 17px;
   }
   #playBtn:disabled { background: var(--surface-2); color: var(--muted); }
-  .timecode { font-family: var(--mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .timecode { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .timecode b { color: var(--text); font-weight: 600; }
 
   input[type="range"] {
     -webkit-appearance: none; appearance: none;
-    width: 100%; height: 26px; background: none;
+    width: 100%; height: 32px; background: none; touch-action: pan-y;
   }
-  input[type="range"]::-webkit-slider-runnable-track {
-    height: 4px; border-radius: 2px; background: var(--line);
-  }
+  input[type="range"]::-webkit-slider-runnable-track { height: 5px; border-radius: 3px; background: var(--line); }
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; appearance: none;
-    width: 18px; height: 18px; border-radius: 50%;
-    background: var(--text); margin-top: -7px;
-    border: 0;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--text); margin-top: -9.5px; border: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
-  input[type="range"]::-moz-range-track { height: 4px; border-radius: 2px; background: var(--line); }
-  input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--text); border: 0; }
+  input[type="range"]::-moz-range-track { height: 5px; border-radius: 3px; background: var(--line); }
+  input[type="range"]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--text); border: 0; }
+
+  /* ---------- tab bar ---------- */
+  .tabbar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+    display: flex;
+    background: rgba(27, 30, 36, 0.97);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .tabbar button {
+    flex: 1; background: none; border: 0;
+    padding: 9px 4px 10px;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    color: var(--muted); font-size: 11px; font-weight: 600;
+  }
+  .tabbar button .ico { font-size: 19px; line-height: 1; }
+  .tabbar button[aria-pressed="true"] { color: var(--accent); }
+  @media (min-width: 960px) {
+    .tabbar {
+      position: static; border-top: 0;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); margin-bottom: 12px; padding-bottom: 0;
+    }
+    .tabbar button { padding: 10px 4px; }
+  }
 
   /* ---------- panels ---------- */
-  .panels { display: grid; gap: 12px; }
+  .panels-col { display: grid; gap: 12px; align-content: start; }
   .panel {
     background: var(--surface); border: 1px solid var(--line);
     border-radius: var(--radius); padding: 16px;
-    display: grid; gap: 14px;
+    display: grid; gap: 15px;
   }
   .panel[hidden] { display: none; }
   .eyebrow {
@@ -148,50 +176,71 @@
 
   .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .row .grow { flex: 1; min-width: 0; }
-  .filename { font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .filename { font-size: 12.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lbl-strong { font-size: 13.5px; font-weight: 600; }
+  .lbl-dim { color: var(--muted); font-weight: 400; }
 
-  .ctl { display: grid; gap: 6px; }
+  .ctl { display: grid; gap: 4px; }
   .ctl-head { display: flex; justify-content: space-between; align-items: baseline; }
-  .ctl-head label { font-size: 13.5px; font-weight: 600; }
+  .ctl-head label { font-size: 13px; font-weight: 600; }
   .ctl-head output { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
 
   .chips { display: flex; gap: 8px; flex-wrap: wrap; }
   .chip {
     border: 1px solid var(--line); background: var(--surface-2);
-    border-radius: 999px; padding: 7px 13px; font-size: 13px; font-weight: 600; color: var(--muted);
+    border-radius: 999px; padding: 9px 14px; font-size: 13px; font-weight: 600; color: var(--muted);
+    min-height: 38px;
   }
   .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--text); background: var(--accent-soft); }
 
-  .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; }
   .toggle-row .lbl { font-size: 13.5px; font-weight: 600; }
   .toggle-row .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .switch { position: relative; width: 44px; height: 26px; flex: none; }
+  .switch { position: relative; width: 48px; height: 28px; flex: none; }
   .switch input { position: absolute; opacity: 0; inset: 0; }
   .switch .track {
-    position: absolute; inset: 0; border-radius: 13px;
+    position: absolute; inset: 0; border-radius: 14px;
     background: var(--surface-2); border: 1px solid var(--line);
     transition: background 0.15s;
   }
   .switch .track::after {
     content: ""; position: absolute; top: 2px; left: 2px;
-    width: 20px; height: 20px; border-radius: 50%;
+    width: 22px; height: 22px; border-radius: 50%;
     background: var(--muted); transition: transform 0.15s, background 0.15s;
   }
   .switch input:checked + .track { background: var(--accent-soft); border-color: var(--accent); }
-  .switch input:checked + .track::after { transform: translateX(18px); background: var(--accent); }
+  .switch input:checked + .track::after { transform: translateX(20px); background: var(--accent); }
   .switch input:focus-visible + .track { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   select, input[type="text"] {
     background: var(--surface-2); border: 1px solid var(--line);
-    border-radius: 9px; padding: 9px 11px; font-size: 14px; width: 100%;
+    border-radius: 9px; padding: 11px; font-size: 16px; width: 100%;
   }
 
   .note {
     font-size: 12.5px; color: var(--muted); line-height: 1.55;
     border-left: 2px solid var(--line); padding-left: 10px;
   }
+
+  .swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 2px solid var(--line); padding: 0;
+  }
+  .swatch[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+
+  /* layout template cards */
+  .layouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .layout-card {
+    border: 1px solid var(--line); background: var(--surface-2);
+    border-radius: 10px; padding: 10px 6px 8px;
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    font-size: 11.5px; font-weight: 600; color: var(--muted);
+  }
+  .layout-card svg { display: block; }
+  .layout-card:active { border-color: var(--accent); }
 
   /* ---------- export modal ---------- */
   #modalWrap {
@@ -204,14 +253,15 @@
   .modal {
     background: var(--surface); border: 1px solid var(--line);
     border-radius: 16px 16px 0 0; width: 100%; max-width: 460px;
-    padding: 20px; display: grid; gap: 16px;
+    padding: 20px; padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    display: grid; gap: 16px;
   }
-  @media (min-width: 640px) { .modal { border-radius: 16px; } }
+  @media (min-width: 640px) { .modal { border-radius: 16px; padding-bottom: 20px; } }
   .modal h2 { font-size: 17px; letter-spacing: -0.01em; }
 
   .q-opt {
     display: flex; align-items: center; gap: 12px;
-    border: 1px solid var(--line); border-radius: 10px; padding: 12px;
+    border: 1px solid var(--line); border-radius: 10px; padding: 13px;
     cursor: pointer; background: var(--surface-2);
   }
   .q-opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
@@ -222,9 +272,7 @@
   .progress-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 3px; transition: width 0.2s linear; }
   .export-status { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
 <header>
@@ -235,7 +283,7 @@
     <button data-aspect="s" aria-pressed="false">1:1</button>
     <button data-aspect="h" aria-pressed="false">16:9</button>
   </div>
-  <button class="btn btn-accent" id="exportOpen" disabled>Export</button>
+  <button class="btn btn-accent btn-sm" id="exportOpen" disabled>Export</button>
 </header>
 
 <main>
@@ -256,27 +304,29 @@
     </div>
   </div>
 
-  <div class="panels">
-    <!-- LAYERS -->
-    <section class="panel">
+  <div class="panels-col">
+    <nav class="tabbar" aria-label="Editor sections">
+      <button data-tab="layers" aria-pressed="true"><span class="ico">🎞</span>Layers</button>
+      <button data-tab="look" aria-pressed="false"><span class="ico">✨</span>Look</button>
+      <button data-tab="motion" aria-pressed="false"><span class="ico">🌀</span>Motion</button>
+      <button data-tab="text" aria-pressed="false"><span class="ico">Ｔ</span>Text</button>
+    </nav>
+
+    <!-- ============ LAYERS TAB ============ -->
+    <section class="panel" data-tab-panel="layers">
       <div class="eyebrow">Layers</div>
 
       <div class="row">
         <div class="grow">
-          <div style="font-size:13.5px;font-weight:600;">Main video <span style="color:var(--muted);font-weight:400;">— you talking</span></div>
+          <div class="lbl-strong">Main video <span class="lbl-dim">— you talking</span></div>
           <div class="filename" id="mainName">Nothing added yet</div>
         </div>
         <button class="btn btn-sm" id="mainAdd">Add</button>
       </div>
 
-      <div class="toggle-row" id="mirrorRow" hidden>
-        <div><div class="lbl">Mirror main video</div><div class="sub">Flip it like a selfie camera</div></div>
-        <label class="switch"><input type="checkbox" id="mirrorChk"><span class="track"></span></label>
-      </div>
-
       <div class="row">
         <div class="grow">
-          <div style="font-size:13.5px;font-weight:600;">Overlay <span style="color:var(--muted);font-weight:400;">— article, website, or clip</span></div>
+          <div class="lbl-strong">Overlay <span class="lbl-dim">— article, website, or clip</span></div>
           <div class="filename" id="ovName">Nothing added yet</div>
         </div>
         <button class="btn btn-sm" id="ovAdd">Add</button>
@@ -285,20 +335,56 @@
 
       <div class="row" id="swapRow" hidden>
         <button class="btn btn-sm" id="swapBtn">⇅ Swap layers</button>
-        <span style="font-size:12px;color:var(--muted);">Put the article in the back, your head in front</span>
-      </div>
-
-      <div class="row">
-        <div class="grow">
-          <div style="font-size:13.5px;font-weight:600;">Caption</div>
-          <div class="filename" id="capState">Off</div>
-        </div>
-        <button class="btn btn-sm" id="capToggle">Add</button>
+        <span style="font-size:12px;color:var(--muted);">Article in back, your head in front</span>
       </div>
     </section>
 
-    <!-- OVERLAY CONTROLS -->
-    <section class="panel" id="ovPanel" hidden>
+    <section class="panel" data-tab-panel="layers" id="mainOptsPanel" hidden>
+      <div class="eyebrow">Main video</div>
+      <div class="toggle-row">
+        <div><div class="lbl">Mirror</div><div class="sub">Flip it like a selfie camera</div></div>
+        <label class="switch"><input type="checkbox" id="mirrorChk"><span class="track"></span></label>
+      </div>
+      <div class="ctl">
+        <div class="ctl-head"><label for="volR">Your volume</label><output id="volO">100%</output></div>
+        <input type="range" id="volR" min="0" max="100" value="100">
+      </div>
+    </section>
+
+    <section class="panel" data-tab-panel="layers" id="trimPanel" hidden>
+      <div class="eyebrow">Trim</div>
+      <div class="ctl">
+        <div class="ctl-head"><label for="trimInR">Start at</label><output id="trimInO">0:00.0</output></div>
+        <input type="range" id="trimInR" min="0" max="1000" value="0">
+      </div>
+      <div class="ctl">
+        <div class="ctl-head"><label for="trimOutR">End at</label><output id="trimOutO">0:00.0</output></div>
+        <input type="range" id="trimOutR" min="0" max="1000" value="1000">
+      </div>
+      <div class="note" id="trimNote">Cut dead air off the start and end — the export only includes this range.</div>
+    </section>
+
+    <!-- ============ LOOK TAB ============ -->
+    <section class="panel" data-tab-panel="look" id="layoutPanel" hidden>
+      <div class="eyebrow">One-tap layouts</div>
+      <div class="layouts">
+        <button class="layout-card" data-layout="head">
+          <svg width="46" height="70" viewBox="0 0 46 70"><rect width="46" height="70" rx="6" fill="#2a2e36"/><circle cx="33" cy="55" r="9" fill="#ff5c49"/></svg>
+          Floating head
+        </button>
+        <button class="layout-card" data-layout="card">
+          <svg width="46" height="70" viewBox="0 0 46 70"><rect width="46" height="70" rx="6" fill="#2a2e36"/><rect x="6" y="8" width="34" height="26" rx="4" fill="#ff5c49"/></svg>
+          Story card
+        </button>
+        <button class="layout-card" data-layout="half">
+          <svg width="46" height="70" viewBox="0 0 46 70"><rect width="46" height="70" rx="6" fill="#2a2e36"/><rect x="2" y="2" width="42" height="32" rx="4" fill="#ff5c49"/></svg>
+          Half &amp; half
+        </button>
+      </div>
+      <div class="note">Tap one, then fine-tune by dragging on the preview.</div>
+    </section>
+
+    <section class="panel" data-tab-panel="look" id="ovPanel" hidden>
       <div class="eyebrow">Overlay look</div>
 
       <div class="toggle-row">
@@ -323,6 +409,16 @@
           <div class="ctl-head"><label for="radR">Rounded corners</label><output id="radO">20%</output></div>
           <input type="range" id="radR" min="0" max="100" value="20">
         </div>
+        <div class="ctl">
+          <div class="ctl-head"><label for="borderR">White border</label><output id="borderO">0</output></div>
+          <input type="range" id="borderR" min="0" max="10" value="0">
+        </div>
+        <div class="ctl" style="align-content:center;">
+          <div class="toggle-row">
+            <div class="lbl">Shadow</div>
+            <label class="switch"><input type="checkbox" id="shadowChk"><span class="track"></span></label>
+          </div>
+        </div>
       </div>
 
       <div class="ctl">
@@ -342,19 +438,39 @@
       </div>
     </section>
 
-    <!-- CAPTION CONTROLS -->
-    <section class="panel" id="capPanel" hidden>
-      <div class="eyebrow">Caption</div>
-      <input type="text" id="capInput" value="Your caption here" maxlength="80" aria-label="Caption text">
-      <div class="ctl">
-        <div class="ctl-head"><label for="capSizeR">Text size</label><output id="capSizeO">6%</output></div>
-        <input type="range" id="capSizeR" min="3" max="14" value="6">
+    <section class="panel" data-tab-panel="look" id="filterPanel" hidden>
+      <div class="eyebrow">Filters — main video</div>
+      <div class="chips" id="filterChips">
+        <button class="chip" data-filter="none" aria-pressed="true">None</button>
+        <button class="chip" data-filter="vivid">Vivid</button>
+        <button class="chip" data-filter="warm">Warm</button>
+        <button class="chip" data-filter="cool">Cool</button>
+        <button class="chip" data-filter="bw">B&amp;W</button>
+        <button class="chip" data-filter="fade">Fade</button>
       </div>
-      <div class="note">Drag the caption on the preview to place it.</div>
+      <div class="grid-2">
+        <div class="ctl">
+          <div class="ctl-head"><label for="fBriR">Brightness</label><output id="fBriO">100%</output></div>
+          <input type="range" id="fBriR" min="50" max="150" value="100">
+        </div>
+        <div class="ctl">
+          <div class="ctl-head"><label for="fConR">Contrast</label><output id="fConO">100%</output></div>
+          <input type="range" id="fConR" min="50" max="150" value="100">
+        </div>
+        <div class="ctl">
+          <div class="ctl-head"><label for="fSatR">Saturation</label><output id="fSatO">100%</output></div>
+          <input type="range" id="fSatR" min="0" max="200" value="100">
+        </div>
+        <div class="ctl">
+          <div class="ctl-head"><label for="fWarmR">Warmth</label><output id="fWarmO">0%</output></div>
+          <input type="range" id="fWarmR" min="0" max="60" value="0">
+        </div>
+      </div>
+      <div class="note" id="filterNote" hidden>Filters need a newer browser — update iOS/Chrome to use them.</div>
     </section>
 
-    <!-- MOTION -->
-    <section class="panel" id="motionPanel" hidden>
+    <!-- ============ MOTION TAB ============ -->
+    <section class="panel" data-tab-panel="motion" id="motionPanel" hidden>
       <div class="eyebrow">Overlay motion</div>
       <div class="grid-2">
         <div class="ctl">
@@ -386,7 +502,65 @@
           <input type="range" id="outroDurR" min="2" max="30" value="6">
         </div>
       </div>
-      <div class="note">Press play to preview the motion — it renders into your export exactly as you see it.</div>
+    </section>
+
+    <section class="panel" data-tab-panel="motion" id="timingPanel" hidden>
+      <div class="eyebrow">When the overlay shows</div>
+      <div class="ctl">
+        <div class="ctl-head"><label for="showAtR">Appears at</label><output id="showAtO">0:00.0</output></div>
+        <input type="range" id="showAtR" min="0" max="1000" value="0">
+      </div>
+      <div class="ctl">
+        <div class="ctl-head"><label for="hideAtR">Disappears at</label><output id="hideAtO">end</output></div>
+        <input type="range" id="hideAtR" min="0" max="1000" value="1000">
+      </div>
+      <div class="note">Great for showing the article only while you're talking about it.</div>
+    </section>
+
+    <section class="panel" data-tab-panel="motion" id="speedPanel" hidden>
+      <div class="eyebrow">Speed</div>
+      <div class="chips" id="speedChips">
+        <button class="chip" data-speed="0.5">0.5×</button>
+        <button class="chip" data-speed="1" aria-pressed="true">1×</button>
+        <button class="chip" data-speed="1.5">1.5×</button>
+        <button class="chip" data-speed="2">2×</button>
+      </div>
+      <div class="note">Speeds up or slows down the whole video, voice included.</div>
+    </section>
+
+    <!-- ============ TEXT TAB ============ -->
+    <section class="panel" data-tab-panel="text">
+      <div class="eyebrow">Caption</div>
+      <div class="toggle-row">
+        <div><div class="lbl">Show caption</div><div class="sub">Drag it on the preview to place it</div></div>
+        <label class="switch"><input type="checkbox" id="capChk"><span class="track"></span></label>
+      </div>
+      <div id="capOpts" hidden style="display:grid;gap:15px;">
+        <input type="text" id="capInput" value="Your caption here" maxlength="80" aria-label="Caption text">
+        <div class="ctl">
+          <div class="ctl-head"><label for="capSizeR">Text size</label><output id="capSizeO">6%</output></div>
+          <input type="range" id="capSizeR" min="3" max="14" value="6">
+        </div>
+        <div class="ctl">
+          <div class="ctl-head"><label>Color</label></div>
+          <div class="swatches" id="capSwatches">
+            <button class="swatch" data-color="#ffffff" aria-pressed="true" style="background:#fff;" aria-label="White"></button>
+            <button class="swatch" data-color="#ffd60a" style="background:#ffd60a;" aria-label="Yellow"></button>
+            <button class="swatch" data-color="#0b0b0d" style="background:#0b0b0d;" aria-label="Black"></button>
+            <button class="swatch" data-color="#ff5c49" style="background:#ff5c49;" aria-label="Red"></button>
+            <button class="swatch" data-color="#4fc98c" style="background:#4fc98c;" aria-label="Green"></button>
+            <button class="swatch" data-color="#5aa9ff" style="background:#5aa9ff;" aria-label="Blue"></button>
+          </div>
+        </div>
+        <div class="ctl">
+          <div class="ctl-head"><label for="capStyleSel">Style</label></div>
+          <select id="capStyleSel">
+            <option value="outline" selected>Outline — classic subtitle</option>
+            <option value="pill">Pill — solid background</option>
+            <option value="shadow">Shadow — soft and clean</option>
+          </select>
+        </div>
+      </div>
     </section>
   </div>
 </main>
@@ -400,7 +574,7 @@
       <label class="q-opt"><input type="radio" name="q" value="720" checked><div><b>HD · 720p</b><span>great for most posts</span></div></label>
       <label class="q-opt"><input type="radio" name="q" value="1080"><div><b>Full HD · 1080p</b><span>maximum quality</span></div></label>
     </div>
-    <div class="note">The video plays through once while it records — keep this tab open. Your voice audio is included.</div>
+    <div class="note">The trimmed video plays through once while it records — keep this tab open. Your voice audio is included.</div>
     <div id="exportProg" hidden>
       <div class="export-status"><span id="expLabel">RENDERING</span><span id="expPct">0%</span></div>
       <div class="progress-track" style="margin-top:6px;"><div class="progress-fill" id="expFill"></div></div>
@@ -423,23 +597,29 @@
   // ---------- state ----------
   const QUAL = { 480: { short: 480, bps: 5e6 }, 720: { short: 720, bps: 9e6 }, 1080: { short: 1080, bps: 14e6 } };
   const S = {
-    aspect: 'v',                 // v 9:16 | s 1:1 | h 16:9
+    aspect: 'v',
     quality: 720,
-    main: { url: null, name: '', ready: false, mirror: false },
+    main: { url: null, name: '', ready: false, mirror: false, vol: 1, speed: 1 },
+    trim: { in: 0, out: 0 },
     ov: {
-      url: null, name: '', kind: null,  // 'video' | 'image'
+      url: null, name: '', kind: null,
       w: 0, h: 0,
       cx: 0.74, cy: 0.22, wf: 0.42, rot: 0, alpha: 1, rad: 0.2, circle: false, sound: false,
+      border: 0, shadow: false,
+      showAt: 0, hideAt: Infinity,
     },
-    cap: { on: false, text: 'Your caption here', cx: 0.5, cy: 0.82, sf: 0.06 },
+    cap: { on: false, text: 'Your caption here', cx: 0.5, cy: 0.82, sf: 0.06, color: '#ffffff', style: 'outline' },
+    filter: { bri: 100, con: 100, sat: 100, warm: 0, gray: 0, hue: 0 },
     intro: { type: 'fade', dur: 0.6 },
     outro: { type: 'none', dur: 0.6 },
-    sel: null,                   // 'ov' | 'cap'
+    sel: null,
     exporting: false,
   };
 
   const cv = $('cv'), ctx = cv.getContext('2d');
   const stage = $('stage'), selBox = $('selBox');
+  const FILTER_OK = typeof ctx.filter === 'string';
+  if (!FILTER_OK) $('filterNote').hidden = false;
 
   const vidMain = document.createElement('video');
   const vidOv = document.createElement('video');
@@ -484,7 +664,18 @@
     c.closePath();
   }
 
-  // overlay rect in canvas px
+  function buildFilter() {
+    const f = S.filter;
+    const parts = [];
+    if (f.bri !== 100) parts.push(`brightness(${f.bri}%)`);
+    if (f.con !== 100) parts.push(`contrast(${f.con}%)`);
+    if (f.sat !== 100) parts.push(`saturate(${f.sat}%)`);
+    if (f.warm > 0) parts.push(`sepia(${f.warm}%)`);
+    if (f.gray > 0) parts.push(`grayscale(${f.gray}%)`);
+    if (f.hue !== 0) parts.push(`hue-rotate(${f.hue}deg)`);
+    return parts.length ? parts.join(' ') : 'none';
+  }
+
   function ovRect() {
     const W = cv.width, H = cv.height;
     const w = S.ov.wf * W;
@@ -499,13 +690,17 @@
     return S.ov.kind === 'video' ? vidOv.readyState >= 2 : (imgOv.complete && imgOv.naturalWidth > 0);
   }
 
-  // intro / outro modifiers
-  function motion(t, dur) {
+  function hideAtEff() { return isFinite(S.ov.hideAt) ? S.ov.hideAt : (vidMain.duration || Infinity); }
+
+  // intro / outro relative to the overlay's visible window
+  function motion(t) {
     let alpha = 1, scale = 1, ox = 0, oy = 0;
     const H = cv.height, W = cv.width;
+    const local = t - S.ov.showAt;
+    const span = hideAtEff() - S.ov.showAt;
     const { type: it, dur: idur } = S.intro;
-    if (it !== 'none' && t < idur) {
-      const p = easeOut(clamp(t / idur, 0, 1));
+    if (it !== 'none' && local < idur) {
+      const p = easeOut(clamp(local / idur, 0, 1));
       if (it === 'fade') alpha *= p;
       if (it === 'pop') { alpha *= p; scale *= 0.55 + 0.45 * p; }
       if (it === 'up') { alpha *= p; oy = (1 - p) * 0.22 * H; }
@@ -514,8 +709,8 @@
       if (it === 'right') { alpha *= p; ox = -(1 - p) * 0.3 * W; }
     }
     const { type: ot, dur: odur } = S.outro;
-    if (ot !== 'none' && isFinite(dur) && dur > 0 && t > dur - odur) {
-      const p = easeOut(clamp((dur - t) / odur, 0, 1));
+    if (ot !== 'none' && isFinite(span) && span > 0 && local > span - odur) {
+      const p = easeOut(clamp((span - local) / odur, 0, 1));
       if (ot === 'fade') alpha *= p;
       if (ot === 'shrink') { alpha *= p; scale *= 0.4 + 0.6 * p; }
     }
@@ -529,19 +724,20 @@
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, W, H);
 
-    // main video, cover-fit
     if (S.main.ready && vidMain.readyState >= 2) {
       const { sx, sy, sw, sh } = coverCrop(vidMain.videoWidth, vidMain.videoHeight, W, H);
       ctx.save();
+      if (FILTER_OK) ctx.filter = buildFilter();
       if (S.main.mirror) { ctx.translate(W, 0); ctx.scale(-1, 1); }
       ctx.drawImage(vidMain, sx, sy, sw, sh, 0, 0, W, H);
       ctx.restore();
     }
 
-    // overlay
-    if (ovReady()) {
-      const t = vidMain.currentTime || 0, dur = vidMain.duration || Infinity;
-      const m = motion(t, dur);
+    const t = vidMain.currentTime || 0;
+    const ovVisible = ovReady() && t >= S.ov.showAt && t <= hideAtEff();
+
+    if (ovVisible) {
+      const m = motion(t);
       if (m.alpha > 0.004) {
         const r = ovRect();
         const media = ovMedia();
@@ -553,32 +749,80 @@
         ctx.scale(m.scale, m.scale);
         ctx.globalAlpha = S.ov.alpha * m.alpha;
         const rad = (S.ov.circle ? 1 : S.ov.rad) * Math.min(r.w, r.h) / 2;
+
+        // drop shadow (drawn on a filled path so the clip doesn't kill it)
+        if (S.ov.shadow) {
+          ctx.save();
+          ctx.shadowColor = 'rgba(0,0,0,0.5)';
+          ctx.shadowBlur = r.w * 0.07;
+          ctx.shadowOffsetY = r.w * 0.025;
+          roundRectPath(ctx, -r.w / 2, -r.h / 2, r.w, r.h, rad);
+          ctx.fillStyle = '#000';
+          ctx.fill();
+          ctx.restore();
+        }
+
+        ctx.save();
         roundRectPath(ctx, -r.w / 2, -r.h / 2, r.w, r.h, rad);
         ctx.clip();
         const c = coverCrop(mw, mh, r.w, r.h);
         ctx.drawImage(media, c.sx, c.sy, c.sw, c.sh, -r.w / 2, -r.h / 2, r.w, r.h);
         ctx.restore();
+
+        if (S.ov.border > 0) {
+          roundRectPath(ctx, -r.w / 2, -r.h / 2, r.w, r.h, rad);
+          ctx.lineWidth = (S.ov.border / 100) * Math.min(r.w, r.h);
+          ctx.strokeStyle = '#fff';
+          ctx.stroke();
+        }
+        ctx.restore();
       }
     }
 
-    // caption
-    if (S.cap.on && S.cap.text.trim()) {
-      const size = S.cap.sf * W;
-      ctx.save();
-      ctx.font = `800 ${size}px ${getComputedStyle(document.body).fontFamily}`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.lineJoin = 'round';
-      ctx.strokeStyle = 'rgba(0,0,0,0.9)';
-      ctx.lineWidth = size * 0.18;
-      ctx.fillStyle = '#fff';
-      ctx.strokeText(S.cap.text, S.cap.cx * W, S.cap.cy * H);
-      ctx.fillText(S.cap.text, S.cap.cx * W, S.cap.cy * H);
-      ctx.restore();
-    }
+    if (S.cap.on && S.cap.text.trim()) drawCaption();
 
     updateSelBox();
     requestAnimationFrame(draw);
+  }
+
+  function capFont(size) { return `800 ${size}px ${getComputedStyle(document.body).fontFamily}`; }
+
+  function luminance(hex) {
+    const n = parseInt(hex.slice(1), 16);
+    return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255;
+  }
+
+  function drawCaption() {
+    const W = cv.width, H = cv.height;
+    const size = S.cap.sf * W;
+    const x = S.cap.cx * W, y = S.cap.cy * H;
+    ctx.save();
+    ctx.font = capFont(size);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.lineJoin = 'round';
+    if (S.cap.style === 'pill') {
+      const tw = ctx.measureText(S.cap.text).width;
+      const pw = tw + size * 0.9, ph = size * 1.5;
+      ctx.fillStyle = luminance(S.cap.color) < 0.45 ? 'rgba(255,255,255,0.92)' : 'rgba(0,0,0,0.75)';
+      roundRectPath(ctx, x - pw / 2, y - ph / 2, pw, ph, ph / 2);
+      ctx.fill();
+      ctx.fillStyle = S.cap.color;
+      ctx.fillText(S.cap.text, x, y);
+    } else if (S.cap.style === 'shadow') {
+      ctx.shadowColor = 'rgba(0,0,0,0.65)';
+      ctx.shadowBlur = size * 0.35;
+      ctx.shadowOffsetY = size * 0.07;
+      ctx.fillStyle = S.cap.color;
+      ctx.fillText(S.cap.text, x, y);
+    } else {
+      ctx.strokeStyle = luminance(S.cap.color) < 0.45 ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.9)';
+      ctx.lineWidth = size * 0.18;
+      ctx.fillStyle = S.cap.color;
+      ctx.strokeText(S.cap.text, x, y);
+      ctx.fillText(S.cap.text, x, y);
+    }
+    ctx.restore();
   }
   requestAnimationFrame(draw);
 
@@ -586,9 +830,9 @@
   function capRect() {
     const W = cv.width, H = cv.height;
     const size = S.cap.sf * W;
-    ctx.font = `800 ${size}px ${getComputedStyle(document.body).fontFamily}`;
-    const w = Math.max(ctx.measureText(S.cap.text).width, size) + size * 0.4;
-    const h = size * 1.5;
+    ctx.font = capFont(size);
+    const w = Math.max(ctx.measureText(S.cap.text).width, size) + size * 0.9;
+    const h = size * 1.6;
     return { cx: S.cap.cx * W, cy: S.cap.cy * H, w, h };
   }
 
@@ -602,11 +846,9 @@
     const s = cvRect.width / cv.width;
     const r = S.sel === 'ov' ? ovRect() : capRect();
     const rot = S.sel === 'ov' ? S.ov.rot : 0;
-    const left = (cvRect.left - stRect.left) + (r.cx - r.w / 2) * s;
-    const top = (cvRect.top - stRect.top) + (r.cy - r.h / 2) * s;
     selBox.style.display = 'block';
-    selBox.style.left = left + 'px';
-    selBox.style.top = top + 'px';
+    selBox.style.left = (cvRect.left - stRect.left) + (r.cx - r.w / 2) * s + 'px';
+    selBox.style.top = (cvRect.top - stRect.top) + (r.cy - r.h / 2) * s + 'px';
     selBox.style.width = r.w * s + 'px';
     selBox.style.height = r.h * s + 'px';
     selBox.style.transform = `rotate(${rot}deg)`;
@@ -616,7 +858,7 @@
 
   // ---------- pointer interaction ----------
   const pointers = new Map();
-  let drag = null; // {mode:'move'|'resize'|'pinch', ...}
+  let drag = null;
 
   function toCanvas(e) {
     const r = cv.getBoundingClientRect();
@@ -642,7 +884,7 @@
     const hx = r.cx + Math.cos(th) * (r.w / 2) - Math.sin(th) * (r.h / 2);
     const hy = r.cy + Math.sin(th) * (r.w / 2) + Math.cos(th) * (r.h / 2);
     const scale = cv.width / cv.getBoundingClientRect().width;
-    return Math.hypot(p.x - hx, p.y - hy) < 26 * scale;
+    return Math.hypot(p.x - hx, p.y - hy) < 30 * scale;
   }
   function hitCaption(p) {
     if (!S.cap.on) return false;
@@ -722,6 +964,21 @@
   stage.addEventListener('pointerup', endPointer);
   stage.addEventListener('pointercancel', endPointer);
 
+  // ---------- tabs ----------
+  const tabButtons = document.querySelectorAll('[data-tab]');
+  function setTab(name) {
+    tabButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === name)));
+    document.querySelectorAll('[data-tab-panel]').forEach((p) => {
+      p.style.display = p.dataset.tabPanel === name && !p.hidden ? '' : 'none';
+    });
+  }
+  tabButtons.forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
+  function refreshTab() {
+    const active = document.querySelector('[data-tab][aria-pressed="true"]').dataset.tab;
+    setTab(active);
+  }
+  setTab('layers');
+
   // ---------- file loading ----------
   const fileMain = $('fileMain'), fileOv = $('fileOv');
   $('emptyAdd').addEventListener('click', () => fileMain.click());
@@ -744,13 +1001,20 @@
 
   vidMain.addEventListener('loadedmetadata', () => {
     S.main.ready = true;
+    S.trim.in = 0;
+    S.trim.out = vidMain.duration;
+    $('trimInR').value = 0; $('trimOutR').value = 1000;
+    $('trimInO').textContent = fmt(0);
+    $('trimOutO').textContent = fmt(vidMain.duration);
     $('emptyState').style.display = 'none';
-    $('mirrorRow').hidden = false;
+    $('mainOptsPanel').hidden = false;
+    $('trimPanel').hidden = false;
     $('playBtn').disabled = false;
     $('scrub').disabled = false;
     $('exportOpen').disabled = false;
     $('tcDur').textContent = fmt(vidMain.duration);
     updateSwapRow();
+    refreshTab();
   });
 
   fileOv.addEventListener('change', () => {
@@ -760,21 +1024,17 @@
     S.ov.url = URL.createObjectURL(f);
     S.ov.name = f.name;
     S.ov.kind = f.type.startsWith('image') ? 'image' : 'video';
-    if (S.ov.kind === 'video') {
-      vidOv.src = S.ov.url;
-      vidOv.load();
-    } else {
-      imgOv.src = S.ov.url;
-    }
+    if (S.ov.kind === 'video') { vidOv.src = S.ov.url; vidOv.load(); }
+    else imgOv.src = S.ov.url;
     $('ovName').textContent = f.name;
     $('ovAdd').textContent = 'Replace';
     $('ovRemove').hidden = false;
-    $('ovPanel').hidden = false;
-    $('motionPanel').hidden = false;
+    for (const id of ['ovPanel', 'layoutPanel', 'filterPanel', 'motionPanel', 'timingPanel', 'speedPanel']) $(id).hidden = false;
     $('ovMuteRow').hidden = S.ov.kind !== 'video';
     $('stageHint').hidden = false;
     S.sel = 'ov';
     updateSwapRow();
+    refreshTab();
     fileOv.value = '';
   });
 
@@ -791,11 +1051,11 @@
     $('ovName').textContent = 'Nothing added yet';
     $('ovAdd').textContent = 'Add';
     $('ovRemove').hidden = true;
-    $('ovPanel').hidden = true;
-    $('motionPanel').hidden = true;
+    for (const id of ['ovPanel', 'layoutPanel', 'motionPanel', 'timingPanel']) $(id).hidden = true;
     $('stageHint').hidden = true;
     if (S.sel === 'ov') S.sel = null;
     updateSwapRow();
+    refreshTab();
   });
 
   function updateSwapRow() {
@@ -821,6 +1081,11 @@
 
   playBtn.addEventListener('click', () => {
     if (vidMain.paused) {
+      if (vidMain.currentTime < S.trim.in || vidMain.currentTime >= S.trim.out - 0.05) {
+        vidMain.currentTime = S.trim.in;
+      }
+      vidMain.playbackRate = S.main.speed;
+      vidOv.playbackRate = S.main.speed;
       vidMain.play();
       if (S.ov.kind === 'video') vidOv.play().catch(() => {});
     } else {
@@ -832,17 +1097,21 @@
   vidMain.addEventListener('pause', () => { playBtn.textContent = '▶'; playBtn.setAttribute('aria-label', 'Play'); vidOv.pause(); });
   vidMain.addEventListener('ended', () => { vidOv.pause(); });
 
+  let scrubbing = false;
   vidMain.addEventListener('timeupdate', () => {
     $('tcNow').textContent = fmt(vidMain.currentTime);
     if (!scrubbing) scrub.value = (vidMain.currentTime / (vidMain.duration || 1)) * 1000;
+    // stop at trim end during preview (export handles its own stop)
+    if (!S.exporting && !vidMain.paused && vidMain.currentTime >= S.trim.out - 0.04) {
+      vidMain.pause();
+    }
   });
 
-  let scrubbing = false;
   scrub.addEventListener('pointerdown', () => { scrubbing = true; });
   scrub.addEventListener('input', () => {
     const t = (scrub.value / 1000) * (vidMain.duration || 0);
     vidMain.currentTime = t;
-    if (S.ov.kind === 'video' && vidOv.duration) vidOv.currentTime = t % vidOv.duration;
+    if (S.ov.kind === 'video' && vidOv.duration) vidOv.currentTime = Math.max(0, t - S.ov.showAt) % vidOv.duration;
     $('tcNow').textContent = fmt(t);
   });
   scrub.addEventListener('change', () => { scrubbing = false; });
@@ -850,57 +1119,164 @@
   // ---------- aspect ----------
   document.querySelectorAll('[data-aspect]').forEach((b) => {
     b.addEventListener('click', () => {
-      document.querySelectorAll('[data-aspect]').forEach((x) => x.setAttribute('aria-pressed', x === b));
+      document.querySelectorAll('[data-aspect]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
       S.aspect = b.dataset.aspect;
       sizeCanvas();
     });
+  });
+
+  // ---------- main video options ----------
+  $('mirrorChk').addEventListener('change', (e) => { S.main.mirror = e.target.checked; });
+  $('volR').addEventListener('input', (e) => {
+    S.main.vol = e.target.value / 100;
+    vidMain.volume = S.main.vol;
+    $('volO').textContent = e.target.value + '%';
+  });
+
+  // ---------- trim ----------
+  $('trimInR').addEventListener('input', (e) => {
+    const d = vidMain.duration || 0;
+    S.trim.in = Math.min((e.target.value / 1000) * d, S.trim.out - 0.5);
+    e.target.value = (S.trim.in / d) * 1000;
+    $('trimInO').textContent = fmt(S.trim.in);
+    vidMain.currentTime = S.trim.in;
+  });
+  $('trimOutR').addEventListener('input', (e) => {
+    const d = vidMain.duration || 0;
+    S.trim.out = Math.max((e.target.value / 1000) * d, S.trim.in + 0.5);
+    e.target.value = (S.trim.out / d) * 1000;
+    $('trimOutO').textContent = fmt(S.trim.out);
+    vidMain.currentTime = S.trim.out;
   });
 
   // ---------- overlay controls ----------
   function syncOvInputs() {
     $('sizeR').value = Math.round(S.ov.wf * 100);
     $('sizeO').textContent = Math.round(S.ov.wf * 100) + '%';
-    $('rotR').value = S.ov.rot;
+    $('rotR').value = clamp(S.ov.rot, -180, 180);
     $('rotO').textContent = S.ov.rot + '°';
   }
   $('sizeR').addEventListener('input', (e) => { S.ov.wf = e.target.value / 100; $('sizeO').textContent = e.target.value + '%'; });
   $('alphaR').addEventListener('input', (e) => { S.ov.alpha = e.target.value / 100; $('alphaO').textContent = e.target.value + '%'; });
   $('rotR').addEventListener('input', (e) => { S.ov.rot = +e.target.value; $('rotO').textContent = e.target.value + '°'; });
   $('radR').addEventListener('input', (e) => { S.ov.rad = e.target.value / 100; $('radO').textContent = e.target.value + '%'; });
+  $('borderR').addEventListener('input', (e) => { S.ov.border = +e.target.value; $('borderO').textContent = e.target.value; });
+  $('shadowChk').addEventListener('change', (e) => { S.ov.shadow = e.target.checked; });
   $('circleChk').addEventListener('change', (e) => { S.ov.circle = e.target.checked; });
-  $('mirrorChk').addEventListener('change', (e) => { S.main.mirror = e.target.checked; });
   $('ovSoundChk').addEventListener('change', (e) => { S.ov.sound = e.target.checked; vidOv.muted = !S.ov.sound; });
 
   $('presetChips').addEventListener('click', (e) => {
     const chip = e.target.closest('[data-pos]');
     if (!chip) return;
+    snapTo(chip.dataset.pos);
+  });
+
+  function snapTo(pos) {
     const r = ovRect();
     const mx = (r.w / 2) / cv.width + 0.04;
     const my = (r.h / 2) / cv.height + 0.03;
-    const pos = {
+    const p = {
       tl: [mx, my], tr: [1 - mx, my], c: [0.5, 0.5],
       bl: [mx, 1 - my], br: [1 - mx, 1 - my],
-    }[chip.dataset.pos];
-    S.ov.cx = pos[0]; S.ov.cy = pos[1];
+    }[pos];
+    S.ov.cx = p[0]; S.ov.cy = p[1];
     S.sel = 'ov';
+  }
+
+  // ---------- one-tap layouts ----------
+  document.querySelectorAll('[data-layout]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const l = b.dataset.layout;
+      if (l === 'head') {
+        Object.assign(S.ov, { circle: true, wf: 0.34, rot: 0, alpha: 1, border: 3, shadow: true });
+        $('circleChk').checked = true; $('borderR').value = 3; $('borderO').textContent = '3'; $('shadowChk').checked = true;
+        snapTo('br');
+      } else if (l === 'card') {
+        Object.assign(S.ov, { circle: false, wf: 0.8, rot: 0, alpha: 1, rad: 0.18, border: 0, shadow: true });
+        $('circleChk').checked = false; $('radR').value = 18; $('radO').textContent = '18%'; $('shadowChk').checked = true;
+        S.ov.cx = 0.5; S.ov.cy = 0.27;
+      } else if (l === 'half') {
+        Object.assign(S.ov, { circle: false, wf: 0.96, rot: 0, alpha: 1, rad: 0.08, border: 0, shadow: false });
+        $('circleChk').checked = false; $('radR').value = 8; $('radO').textContent = '8%'; $('shadowChk').checked = false;
+        S.ov.cx = 0.5; S.ov.cy = 0.26;
+      }
+      syncOvInputs();
+      S.sel = 'ov';
+    });
   });
 
-  // ---------- caption ----------
-  $('capToggle').addEventListener('click', () => {
-    S.cap.on = !S.cap.on;
-    $('capToggle').textContent = S.cap.on ? 'Remove' : 'Add';
-    $('capState').textContent = S.cap.on ? 'On — drag it on the preview' : 'Off';
-    $('capPanel').hidden = !S.cap.on;
-    S.sel = S.cap.on ? 'cap' : (S.ov.kind ? 'ov' : null);
+  // ---------- filters ----------
+  const FILTER_PRESETS = {
+    none: { bri: 100, con: 100, sat: 100, warm: 0, gray: 0, hue: 0 },
+    vivid: { bri: 105, con: 115, sat: 135, warm: 0, gray: 0, hue: 0 },
+    warm: { bri: 105, con: 103, sat: 108, warm: 25, gray: 0, hue: 0 },
+    cool: { bri: 102, con: 105, sat: 112, warm: 0, gray: 0, hue: -14 },
+    bw: { bri: 102, con: 112, sat: 100, warm: 0, gray: 100, hue: 0 },
+    fade: { bri: 110, con: 85, sat: 82, warm: 8, gray: 0, hue: 0 },
+  };
+  function syncFilterInputs() {
+    $('fBriR').value = S.filter.bri; $('fBriO').textContent = S.filter.bri + '%';
+    $('fConR').value = S.filter.con; $('fConO').textContent = S.filter.con + '%';
+    $('fSatR').value = S.filter.sat; $('fSatO').textContent = S.filter.sat + '%';
+    $('fWarmR').value = S.filter.warm; $('fWarmO').textContent = S.filter.warm + '%';
+  }
+  $('filterChips').addEventListener('click', (e) => {
+    const chip = e.target.closest('[data-filter]');
+    if (!chip) return;
+    document.querySelectorAll('#filterChips .chip').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+    Object.assign(S.filter, FILTER_PRESETS[chip.dataset.filter]);
+    syncFilterInputs();
   });
-  $('capInput').addEventListener('input', (e) => { S.cap.text = e.target.value; });
-  $('capSizeR').addEventListener('input', (e) => { S.cap.sf = e.target.value / 100; $('capSizeO').textContent = e.target.value + '%'; });
+  const manualFilter = () => document.querySelectorAll('#filterChips .chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+  $('fBriR').addEventListener('input', (e) => { S.filter.bri = +e.target.value; $('fBriO').textContent = e.target.value + '%'; manualFilter(); });
+  $('fConR').addEventListener('input', (e) => { S.filter.con = +e.target.value; $('fConO').textContent = e.target.value + '%'; manualFilter(); });
+  $('fSatR').addEventListener('input', (e) => { S.filter.sat = +e.target.value; $('fSatO').textContent = e.target.value + '%'; manualFilter(); });
+  $('fWarmR').addEventListener('input', (e) => { S.filter.warm = +e.target.value; $('fWarmO').textContent = e.target.value + '%'; manualFilter(); });
 
-  // ---------- motion ----------
+  // ---------- motion / timing / speed ----------
   $('introSel').addEventListener('change', (e) => { S.intro.type = e.target.value; });
   $('outroSel').addEventListener('change', (e) => { S.outro.type = e.target.value; });
   $('introDurR').addEventListener('input', (e) => { S.intro.dur = e.target.value / 10; $('introDurO').textContent = S.intro.dur.toFixed(1) + 's'; });
   $('outroDurR').addEventListener('input', (e) => { S.outro.dur = e.target.value / 10; $('outroDurO').textContent = S.outro.dur.toFixed(1) + 's'; });
+
+  $('showAtR').addEventListener('input', (e) => {
+    const d = vidMain.duration || 0;
+    S.ov.showAt = (e.target.value / 1000) * d;
+    $('showAtO').textContent = fmt(S.ov.showAt);
+    vidMain.currentTime = S.ov.showAt;
+  });
+  $('hideAtR').addEventListener('input', (e) => {
+    const d = vidMain.duration || 0;
+    const v = (e.target.value / 1000) * d;
+    S.ov.hideAt = e.target.value >= 999 ? Infinity : v;
+    $('hideAtO').textContent = e.target.value >= 999 ? 'end' : fmt(v);
+    if (isFinite(S.ov.hideAt)) vidMain.currentTime = v;
+  });
+
+  $('speedChips').addEventListener('click', (e) => {
+    const chip = e.target.closest('[data-speed]');
+    if (!chip) return;
+    document.querySelectorAll('#speedChips .chip').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+    S.main.speed = +chip.dataset.speed;
+    vidMain.playbackRate = S.main.speed;
+    vidOv.playbackRate = S.main.speed;
+  });
+
+  // ---------- caption ----------
+  $('capChk').addEventListener('change', (e) => {
+    S.cap.on = e.target.checked;
+    $('capOpts').hidden = !S.cap.on;
+    S.sel = S.cap.on ? 'cap' : (S.ov.kind ? 'ov' : null);
+  });
+  $('capInput').addEventListener('input', (e) => { S.cap.text = e.target.value; });
+  $('capSizeR').addEventListener('input', (e) => { S.cap.sf = e.target.value / 100; $('capSizeO').textContent = e.target.value + '%'; });
+  $('capSwatches').addEventListener('click', (e) => {
+    const sw = e.target.closest('[data-color]');
+    if (!sw) return;
+    document.querySelectorAll('#capSwatches .swatch').forEach((s) => s.setAttribute('aria-pressed', String(s === sw)));
+    S.cap.color = sw.dataset.color;
+  });
+  $('capStyleSel').addEventListener('change', (e) => { S.cap.style = e.target.value; });
 
   // ---------- export ----------
   const modalWrap = $('modalWrap');
@@ -947,12 +1323,10 @@
     $('exportStart').disabled = true;
     $('exportProg').hidden = false;
 
-    // apply chosen quality → canvas resolution
     S.quality = +document.querySelector('input[name="q"]:checked').value;
     sizeCanvas();
 
     try {
-      // audio graph (created once per page — MediaElementSource is single-use per element)
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       await audioCtx.resume();
       const dest = audioCtx.createMediaStreamDestination();
@@ -979,31 +1353,36 @@
         videoBitsPerSecond: QUAL[S.quality].bps,
       });
       recorder.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
-
       const done = new Promise((res) => { recorder.onstop = res; });
 
-      // rewind, then record a full play-through
+      // rewind to trim start, then record one play-through of the trimmed range
       vidMain.pause(); vidOv.pause();
-      vidMain.currentTime = 0;
+      vidMain.currentTime = S.trim.in;
       if (S.ov.kind === 'video') vidOv.currentTime = 0;
       await new Promise((res) => vidMain.addEventListener('seeked', res, { once: true }));
 
-      const onEnd = () => { try { recorder.state !== 'inactive' && recorder.stop(); } catch (_) {} };
+      const stopRec = () => { try { recorder.state !== 'inactive' && recorder.stop(); } catch (_) {} };
+      const onEnd = () => stopRec();
       vidMain.addEventListener('ended', onEnd, { once: true });
 
       const onProg = () => {
-        const pct = Math.min(100, Math.round((vidMain.currentTime / vidMain.duration) * 100));
-        $('expPct').textContent = pct + '%';
-        $('expFill').style.width = pct + '%';
+        const span = S.trim.out - S.trim.in;
+        const pct = Math.min(100, Math.round(((vidMain.currentTime - S.trim.in) / span) * 100));
+        $('expPct').textContent = Math.max(0, pct) + '%';
+        $('expFill').style.width = Math.max(0, pct) + '%';
+        if (vidMain.currentTime >= S.trim.out - 0.04) { vidMain.pause(); stopRec(); }
       };
       vidMain.addEventListener('timeupdate', onProg);
 
+      vidMain.playbackRate = S.main.speed;
+      vidOv.playbackRate = S.main.speed;
       recorder.start(250);
       await vidMain.play();
       if (S.ov.kind === 'video') vidOv.play().catch(() => {});
 
       await done;
       vidMain.removeEventListener('timeupdate', onProg);
+      vidMain.removeEventListener('ended', onEnd);
       vidMain.pause(); vidOv.pause();
 
       if (!recCancelled && chunks.length) {
@@ -1021,17 +1400,17 @@
         $('expLabel').textContent = 'SAVED — CHECK YOUR DOWNLOADS';
         $('expPct').textContent = '100%';
         $('expFill').style.width = '100%';
-        setTimeout(finishExportUI, 4000);
         S.exporting = false;
         $('exportStart').disabled = false;
+        setTimeout(finishExportUI, 4000);
         return;
       }
     } catch (err) {
-      $('expLabel').textContent = 'EXPORT FAILED — TRY A LOWER QUALITY';
       console.error(err);
-      setTimeout(finishExportUI, 4000);
+      $('expLabel').textContent = 'EXPORT FAILED — TRY A LOWER QUALITY';
       S.exporting = false;
       $('exportStart').disabled = false;
+      setTimeout(finishExportUI, 4000);
       return;
     }
     finishExportUI();
