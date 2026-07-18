@@ -1,0 +1,27 @@
+Your browser just became the most underrated AI tool you own.
+
+Anthropic's Claude for Chrome extension is rolling out to paid subscribers, and it does something no chatbot has done for most people yet: it actually DOES things instead of just telling you how.
+
+Here's what that means in practice.
+
+Claude can now read the pages you have open, click buttons, fill out forms, and move between tabs — inside your own logged-in browser. Not a sandboxed demo. Your actual accounts, your actual tools.
+
+Some real examples people are already using it for:
+
+1. Research on autopilot. "Compare the pricing pages of these 5 tools and give me a table." Claude opens each one, reads them, and hands you the answer.
+
+2. Form-filling drudgery. Expense reports, sign-ups, data entry between two systems that don't talk to each other. Claude does the clicking.
+
+3. Recurring tasks on a schedule. Daily, weekly, monthly — set it once and Claude runs the same browser workflow automatically.
+
+4. Inbox triage. Have it read a long email thread and draft the reply in your own tone, right in the compose window.
+
+The catch? It's in beta, and you should treat it like a new intern: watch the first few runs before you let it work unsupervised. Anthropic added permission prompts before sensitive actions for exactly that reason.
+
+But the direction is unmistakable. The gap between "AI that talks" and "AI that works" is closing fast — and it's closing inside the tab you already have open.
+
+The move this week: pick ONE task you repeat in your browser every day and try handing it off. That's how you find out what an AI assistant is actually worth to you.
+
+What's the first task you'd delegate?
+
+#AI #Claude #Productivity
