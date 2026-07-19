@@ -1,38 +1,39 @@
 {
+  "week_label": "Jul 19-25",
   "dates": {
     "2026-07-19": [
-      "11am Post Carousel #1 (5 things Claude) to TikTok photo mode + IG",
-      "12pm Post X article #1 + header image",
-      "2pm FILM videos 1, 5, 6 (screen demos)"
+      "11am Post Carousel #1 (5 things Claude, 7 slides) to TikTok photo mode + IG",
+      "12pm Post X article #1 (5 things Claude) + header image",
+      "2pm FILM Setup A: videos 1, 5, 6 (screen demos first, then face clips)"
     ],
     "2026-07-20": [
-      "3pm Post Video 1 '5 things Claude' to TikTok + IG",
-      "5pm FILM videos 2 & 3 (talking heads)"
+      "3pm Post Video 1 to TikTok + IG. Hook: Everyone's suddenly asking what Claude is actually used for. Here's what nobody shows you.",
+      "5pm FILM Setup C: videos 2 & 3 (talking heads, change shirts between)"
     ],
     "2026-07-21": [
-      "10am Post X article #2 (1Password) + header",
-      "1pm Post Video 2 'Claude logs into accounts' to TikTok + IG"
+      "10am Post X article #2 (1Password) + header image",
+      "1pm Post Video 2 to TikTok + IG. Hook: Claude can now log into your accounts for you. And no, that's not a hack, it's official."
     ],
     "2026-07-22": [
-      "1pm Post Video 3 'Teachers free Claude' to TikTok + IG",
-      "5pm FILM video 4 (psychology prompt, live reaction)"
+      "1pm Post Video 3 to TikTok + IG. Hook: Teachers, you get premium AI free for a whole year, and most of you still haven't claimed it.",
+      "5pm FILM Setup B: video 4 (run psychology prompt FRESH on camera)"
     ],
     "2026-07-23": [
-      "7am Post Carousel #2 (psychology prompt) to IG",
-      "10am Post X article #3 + header",
-      "1pm Post Video 4 + Carousel #2 to TikTok"
+      "7am Post Carousel #2 (psychology prompt, 5 slides) to IG",
+      "10am Post X article #3 (psychology prompt) + header image",
+      "1pm Post Video 4 + Carousel #2 to TikTok. Hook: This psychology prompt made ChatGPT describe me better than my own friends can. Full prompt in caption!"
     ],
     "2026-07-24": [
-      "1pm Post Video 5 'Talking to ChatGPT wrong' to TikTok + IG"
+      "1pm Post Video 5 to TikTok + IG. Hook: You've been talking to ChatGPT wrong. Three fixes, and it gets scary good."
     ],
     "2026-07-25": [
-      "10am Post X article #4 (Claude for business) + header",
-      "11am Post Video 6 'trades part 3' to TikTok + IG"
+      "10am Post X article #4 (Claude for business) + header image",
+      "11am Post Video 6 to TikTok + IG. Hook: If you run an HVAC or roofing company, Claude can quote jobs while you're still on the roof."
     ]
   },
   "fallback": {
     "sunday": [
-      "9am Planning with Claude (screenshot Creator Search Insights + analytics first!)",
+      "9am Planning with Claude (screenshot Creator Search Insights + last week's analytics FIRST)",
       "11am Post carousel",
       "12pm Post X article"
     ],

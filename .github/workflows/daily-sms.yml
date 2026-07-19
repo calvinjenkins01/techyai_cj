@@ -6,10 +6,14 @@ on:
     - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
-      dry_run:
-        description: "Dry run (print message, don't send)"
-        type: boolean
-        default: false
+      mode:
+        description: "What to send"
+        type: choice
+        options:
+          - today
+          - week
+          - dry_run
+        default: today
 
 jobs:
   sms:
@@ -28,8 +32,8 @@ jobs:
           TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
           MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER }}
         run: |
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python daily-sms/send_sms.py --dry-run
-          else
-            python daily-sms/send_sms.py
-          fi
+          case "${{ inputs.mode }}" in
+            week) python daily-sms/send_sms.py --week ;;
+            dry_run) python daily-sms/send_sms.py --dry-run ;;
+            *) python daily-sms/send_sms.py ;;
+          esac

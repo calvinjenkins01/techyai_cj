@@ -35,6 +35,17 @@ def build_message(weekday: str, tasks: list[str]) -> str:
     return "\n".join(lines)
 
 
+def build_week_message() -> str:
+    schedule = json.loads(SCHEDULE.read_text())
+    lines = [f"CJ CONTENT WEEK ({schedule.get('week_label', '')})"]
+    for date_key in sorted(schedule["dates"]):
+        day = datetime.strptime(date_key, "%Y-%m-%d").strftime("%a %b %d").upper()
+        lines.append(f"\n{day}:")
+        lines += [f"- {t}" for t in schedule["dates"][date_key]]
+    lines.append("\nDaily detail text arrives 7am each morning. Scripts in Claude chat.")
+    return "\n".join(lines)
+
+
 def send_sms(body: str) -> None:
     sid = os.environ["TWILIO_ACCOUNT_SID"]
     token = os.environ["TWILIO_AUTH_TOKEN"]
@@ -55,11 +66,14 @@ def send_sms(body: str) -> None:
 
 
 def main() -> int:
-    weekday, tasks = todays_tasks()
-    if not tasks:
-        print(f"No tasks for {weekday}; not sending.")
-        return 0
-    message = build_message(weekday, tasks)
+    if "--week" in sys.argv:
+        message = build_week_message()
+    else:
+        weekday, tasks = todays_tasks()
+        if not tasks:
+            print(f"No tasks for {weekday}; not sending.")
+            return 0
+        message = build_message(weekday, tasks)
     print(f"Message ({len(message)} chars):\n{message}\n")
     if "--dry-run" in sys.argv:
         print("Dry run: not sending.")
