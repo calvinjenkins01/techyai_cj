@@ -46,7 +46,9 @@ or a "here's what this actually means for you" angle. Never open with "Breaking:
 - 2-3 hashtags max, on their own final line.
 - Do not fabricate details beyond the provided source material; if a detail is not in the \
 source, keep the claim general.
-- Do not include any URLs in the post."""
+- Do not include any URLs in the post.
+- Never use dashes of any kind (-, –, —) anywhere in the post. Use commas, periods, \
+colons, or reword instead."""
 
 
 def generate_article(topic: Topic, max_chars: int) -> dict:
