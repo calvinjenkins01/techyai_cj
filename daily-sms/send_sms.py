@@ -41,13 +41,34 @@ def _emoji(task: str) -> str:
     return "✅"
 
 
-def build_message(weekday: str, tasks: list[str]) -> str:
-    lines = [f"🔥 CJ CONTENT — {weekday.upper()} 🔥", ""]
-    lines += [f"{_emoji(t)} {t}" for t in tasks]
+def _task_line(task) -> str:
+    return task if isinstance(task, str) else task["line"]
+
+
+def _render_task(task) -> list[str]:
+    line = _task_line(task)
+    lines = [f"{_emoji(line)} {line}"]
+    if isinstance(task, dict):
+        if task.get("hook"):
+            lines.append(f"🗣 Hook: \"{task['hook']}\"")
+        if task.get("caption"):
+            lines.append(f"📝 {task['caption']}")
+        if task.get("caption_ig"):
+            lines.append(f"📷 IG: {task['caption_ig']}")
+        if task.get("tip"):
+            lines.append(f"💡 {task['tip']}")
+    return lines
+
+
+def build_message(weekday: str, tasks: list) -> str:
+    lines = [f"🔥 CJ CONTENT — {weekday.upper()} 🔥"]
+    for task in tasks:
+        lines.append("")
+        lines += _render_task(task)
     lines.append("")
-    if any("Post" in t for t in tasks):
+    if any("Post" in _task_line(t) for t in tasks):
         lines.append("💬 Reply to every comment in the first hour — that's what makes the algorithm push you.")
-    lines.append("📲 Scripts + captions are in our Claude chat.")
+    lines.append("📲 Full scripts live in our Claude chat.")
     lines.append("Go get it 🚀")
     return "\n".join(lines)
 
@@ -58,7 +79,7 @@ def build_week_message() -> str:
     for date_key in sorted(schedule["dates"]):
         day = datetime.strptime(date_key, "%Y-%m-%d").strftime("%a %b %d").upper()
         lines.append(f"\n📅 {day}")
-        lines += [f"{_emoji(t)} {t}" for t in schedule["dates"][date_key]]
+        lines += [f"{_emoji(_task_line(t))} {_task_line(t)}" for t in schedule["dates"][date_key]]
     lines.append("\n⏰ Your daily detail text arrives 7am every morning.")
     lines.append("📲 Scripts + captions live in our Claude chat.")
     lines.append("Big week. Let's build 🚀")
