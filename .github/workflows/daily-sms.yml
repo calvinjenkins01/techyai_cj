@@ -2,8 +2,9 @@ name: Daily content SMS
 
 on:
   schedule:
-    # 13:45 UTC = 6:45 AM Phoenix — today.txt is ready before the 7am phone automation
-    - cron: "45 13 * * *"
+    # 13:00 UTC = 6:00 AM Phoenix. GitHub cron often runs 15-60 min late, so the
+    # early slot guarantees today.txt is fresh before the 7am phone automation.
+    - cron: "0 13 * * *"
   workflow_dispatch:
     inputs:
       mode:
