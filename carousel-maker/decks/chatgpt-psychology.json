@@ -1,0 +1,37 @@
+{
+  "name": "chatgpt-psychology",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "chatgpt --psychology-mode",
+      "text": "The ChatGPT prompt that reads you like a book",
+      "sub": "One prompt. It will describe you better than your friends can."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 3,
+      "text": "The prompt (copy this)",
+      "sub": "\"Based on everything you know about me from our chats, act as a psychologist. Tell me the patterns you see in how I think, what probably drives me, and one blind spot I have. Be specific, not flattering.\""
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 3,
+      "text": "Why it works",
+      "sub": "It pattern-matches across everything you've ever asked it. The more you've used ChatGPT, the scarier accurate this gets."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 3,
+      "text": "Fair warning: it WILL call you out",
+      "sub": "The 'be specific, not flattering' part is what makes it honest instead of a horoscope. Rate yours 1-10 in the comments."
+    },
+    {
+      "kind": "cta",
+      "text": "Save this prompt.",
+      "sub": "Follow @techyai_cj — one AI drop like this every week."
+    }
+  ]
+}

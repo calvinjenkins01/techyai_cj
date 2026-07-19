@@ -131,7 +131,7 @@ def render_slide(slide, page, total, out_path):
         if slide.get("sub"):
             y += 26 * S
             sfont = _font(30 * S)
-            for line in _wrap(draw, slide["sub"], sfont, max_w)[:4]:
+            for line in _wrap(draw, slide["sub"], sfont, max_w)[:10]:
                 draw.text((m, y), line, font=sfont, fill=DIM)
                 y += 44 * S
 
