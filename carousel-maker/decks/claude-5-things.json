@@ -5,47 +5,47 @@
       "kind": "hook",
       "cmd": "claude --what-is-it-used-for",
       "text": "5 things you didn't know Claude could do",
-      "sub": "Everyone's searching 'what is Claude used for' right now. Here's the answer."
+      "sub": "Everyone's searching 'what is Claude used for' right now. Here's the answer, with the exact prompts to steal."
     },
     {
       "kind": "point",
       "num": 1,
       "of": 5,
       "text": "Reads a 100-page PDF in seconds",
-      "sub": "Drop in a contract, a manual, a lease. Then just ask: 'what should I be worried about in here?'"
+      "sub": "Drop in a contract, lease, or manual and ask: 'What are the 3 things I should be worried about in here?' It quotes the exact sections back to you. Works on school packets, work docs, terms nobody reads."
     },
     {
       "kind": "point",
       "num": 2,
       "of": 5,
       "text": "Builds working apps from one sentence",
-      "sub": "'Build me a tip calculator with a dark theme.' It appears. It works. No code knowledge needed."
+      "sub": "Try: 'Build me a tip calculator with a dark theme.' It writes the code AND runs the app right in front of you. Calculators, habit trackers, mini games — no code knowledge needed."
     },
     {
       "kind": "point",
       "num": 3,
       "of": 5,
       "text": "Cleans your messiest spreadsheet",
-      "sub": "Sorted, deduped, formatted — and it explains every change it made."
+      "sub": "Paste the ugly export and say: 'Clean this up, merge the duplicates, and tell me what you changed.' Then ask for totals, trends, or a chart. Minutes of work instead of your whole evening."
     },
     {
       "kind": "point",
       "num": 4,
       "of": 5,
       "text": "Writes in YOUR voice",
-      "sub": "Paste 3 of your old emails. It learns your tone and drafts replies that sound like you."
+      "sub": "Paste 3 of your old emails, then: 'Learn my tone. Reply to this as me.' Drafts that actually sound like you — emails, DMs, reviews, cover letters. Nobody can tell."
     },
     {
       "kind": "point",
       "num": 5,
       "of": 5,
       "text": "It can now use your browser FOR you",
-      "sub": "Research, forms, comparisons — Claude clicks so you don't have to. (Full video on my page.)"
+      "sub": "The new Claude for Chrome clicks buttons, fills forms, and compares pages while you watch. Price comparisons, research, sign-ups. Full breakdown in the video on my page."
     },
     {
       "kind": "cta",
       "text": "Save this. You'll need it.",
-      "sub": "Follow @techyai_cj — one 'things you didn't know' drop every week."
+      "sub": "Follow @techyai_cj — one 'things you didn't know' drop every single week. Tomorrow: the full video version."
     }
   ]
 }
