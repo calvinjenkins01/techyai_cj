@@ -1,0 +1,46 @@
+{
+  "dates": {
+    "2026-07-19": [
+      "11am Post Carousel #1 (5 things Claude) to TikTok photo mode + IG",
+      "12pm Post X article #1 + header image",
+      "2pm FILM videos 1, 5, 6 (screen demos)"
+    ],
+    "2026-07-20": [
+      "3pm Post Video 1 '5 things Claude' to TikTok + IG",
+      "5pm FILM videos 2 & 3 (talking heads)"
+    ],
+    "2026-07-21": [
+      "10am Post X article #2 (1Password) + header",
+      "1pm Post Video 2 'Claude logs into accounts' to TikTok + IG"
+    ],
+    "2026-07-22": [
+      "1pm Post Video 3 'Teachers free Claude' to TikTok + IG",
+      "5pm FILM video 4 (psychology prompt, live reaction)"
+    ],
+    "2026-07-23": [
+      "7am Post Carousel #2 (psychology prompt) to IG",
+      "10am Post X article #3 + header",
+      "1pm Post Video 4 + Carousel #2 to TikTok"
+    ],
+    "2026-07-24": [
+      "1pm Post Video 5 'Talking to ChatGPT wrong' to TikTok + IG"
+    ],
+    "2026-07-25": [
+      "10am Post X article #4 (Claude for business) + header",
+      "11am Post Video 6 'trades part 3' to TikTok + IG"
+    ]
+  },
+  "fallback": {
+    "sunday": [
+      "9am Planning with Claude (screenshot Creator Search Insights + analytics first!)",
+      "11am Post carousel",
+      "12pm Post X article"
+    ],
+    "monday": ["1pm Post today's video to TikTok + IG"],
+    "tuesday": ["10am Post X article", "1pm Post today's video to TikTok + IG"],
+    "wednesday": ["1pm Post today's video to TikTok + IG"],
+    "thursday": ["10am Post X article", "1pm Post today's video to TikTok + IG"],
+    "friday": ["1pm Post today's video to TikTok + IG"],
+    "saturday": ["10am Post X article", "11am Post today's video to TikTok + IG"]
+  }
+}

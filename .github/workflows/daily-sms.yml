@@ -1,0 +1,35 @@
+name: Daily content SMS
+
+on:
+  schedule:
+    # 14:00 UTC = 7:00 AM Phoenix (no DST in Arizona)
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (print message, don't send)"
+        type: boolean
+        default: false
+
+jobs:
+  sms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Send today's content checklist
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
+          MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python daily-sms/send_sms.py --dry-run
+          else
+            python daily-sms/send_sms.py
+          fi
