@@ -1,9 +1,10 @@
 name: X AI-news autoposter
 
 on:
-  schedule:
-    # Runs daily at 15:00 UTC; the script itself only posts every other day.
-    - cron: "0 15 * * *"
+  # Schedule disabled: CJ posts to X manually (Claude writes the articles in chat).
+  # To re-enable full automation, restore the cron below and add the API secrets.
+  # schedule:
+  #   - cron: "0 15 * * *"
   workflow_dispatch:
     inputs:
       dry_run:

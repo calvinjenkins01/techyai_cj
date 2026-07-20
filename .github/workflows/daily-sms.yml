@@ -2,9 +2,11 @@ name: Daily content SMS
 
 on:
   schedule:
-    # 13:00 UTC = 6:00 AM Phoenix. GitHub cron often runs 15-60 min late, so the
-    # early slot guarantees today.txt is fresh before the 7am phone automation.
-    - cron: "0 13 * * *"
+    # Two slots for redundancy: 12:00 UTC (5am Phoenix) and 13:30 UTC (6:30am).
+    # GitHub cron can run up to an hour late; at least one lands before the 7am
+    # phone automation. The second run is a no-op if the file is already fresh.
+    - cron: "0 12 * * *"
+    - cron: "30 13 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -37,8 +39,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add daily-sms/today.txt
-          git diff --cached --quiet || git commit -m "Daily checklist $(date -u +%F)"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Daily checklist $(date -u +%F)"
+            git pull --rebase origin main
+            git push
+          fi
 
       - name: Send via Twilio (works after account upgrade; trial accounts skip)
         continue-on-error: true
