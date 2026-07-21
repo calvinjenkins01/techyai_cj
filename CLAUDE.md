@@ -16,8 +16,9 @@
   matching carousel-maker slides)
 
 ## System overview
-- daily-sms/: writes today.txt every morning at 6am Phoenix (13:00 UTC); CJ's
-  iPhone Shortcut fetches it at 7am and texts it to him. Update schedule.json
-  every Sunday during the planning session with the new week.
+- daily-sms/: writes today.txt every morning at 4:00am and 5:30am Phoenix
+  (11:00 and 12:30 UTC); CJ's iPhone Shortcut fetches it at 6am and texts it
+  to him. Update schedule.json every Sunday during the planning session with
+  the new week.
 - carousel-maker/: renders slide decks for TikTok photo posts + IG carousels.
 - x-autoposter/: full X automation (currently off; CJ pastes articles manually).

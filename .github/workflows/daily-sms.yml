@@ -2,11 +2,11 @@ name: Daily content SMS
 
 on:
   schedule:
-    # Two slots for redundancy: 12:00 UTC (5am Phoenix) and 13:30 UTC (6:30am).
-    # GitHub cron can run up to an hour late; at least one lands before the 7am
+    # Two slots for redundancy: 11:00 UTC (4am Phoenix) and 12:30 UTC (5:30am).
+    # GitHub cron can run up to an hour late; both land before the 6am
     # phone automation. The second run is a no-op if the file is already fresh.
-    - cron: "0 12 * * *"
-    - cron: "30 13 * * *"
+    - cron: "0 11 * * *"
+    - cron: "30 12 * * *"
   workflow_dispatch:
     inputs:
       mode:
