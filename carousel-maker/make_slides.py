@@ -102,7 +102,9 @@ def render_slide(slide, page, total, out_path):
     if kind == "hook":
         draw.text((m, y0 + 120 * S), "$ " + slide.get("cmd", "claude --explain"),
                   font=_font(30 * S), fill=(120, 200, 160))
-        lines, font, size = _fit(draw, slide["text"], max_w, 5, start=88, floor=48)
+        # Reserve room for the "> " prefix so wrapped lines stay inside the frame.
+        prefix_w = draw.textlength("> ", font=_font(88 * S))
+        lines, font, size = _fit(draw, slide["text"], max_w - prefix_w, 5, start=88, floor=48)
         line_h = int(size * 1.25)
         y = y0 + 210 * S
         for i, line in enumerate(lines):
