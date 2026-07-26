@@ -1,5 +1,5 @@
 {
-  "week_label": "Jul 19-25",
+  "week_label": "Jul 26 to Aug 1",
   "dates": {
     "2026-07-19": [
       {
@@ -122,6 +122,88 @@
       },
       "11am Post week 2 carousel",
       "12pm Post week 2 X article"
+    ],
+    "2026-07-27": [
+      {
+        "line": "1pm Post 'Claude designed my slides' to TikTok + IG + YouTube Shorts (already filmed)",
+        "hook": "My last presentation took me three hours to build. This one took one sentence. Watch Claude design slides in real time.",
+        "caption": "TikTok: Comment \"SLIDES\" and I'll reply with the exact prompt I used 🎯 Claude design slides: one sentence in, a full presentation out. Claude Design searches are up 417% this week. Save this 🔖 #Claude #ClaudeSlides #ClaudeDesign #AI #Productivity",
+        "caption_ig": "Comment \"SLIDES\" and I'll reply with the exact prompt 🎯 Claude built my entire presentation from one sentence. Save this for your next one. #Claude #AI #Productivity",
+        "tip": "Zero filming, it's in the can from Wednesday. Cover text: Claude designed my slides. YouTube title: 'I Let Claude Design My Slides' #Shorts"
+      },
+      {
+        "line": "3pm Film + post 'How ChatGPT sees me' trend video to TikTok + IG + YouTube Shorts",
+        "hook": "I asked ChatGPT how it sees me based on every chat we've ever had. I was not ready for this.",
+        "caption": "TikTok: Comment \"SEES\" and I'll reply with the exact prompt 👀 How ChatGPT sees me, this trend is up 1000% in search. Try yours and rate it below. #ChatGPT #HowChatGPTSeesMe #AI #AITrend",
+        "caption_ig": "Comment \"SEES\" for the exact prompt 👀 I asked ChatGPT how it sees me. Try yours and tell me how accurate it was. #ChatGPT #AI #AITrend",
+        "tip": "10 minute film: run the prompt fresh on camera, react. Prompt: 'Based on everything you know about me, describe how you see me, personality, habits, blind spots. Then generate an image of it.' Cover text: how ChatGPT sees me"
+      }
+    ],
+    "2026-07-28": [
+      {
+        "line": "9am Post LinkedIn PDF (best Claude skills deck, Claude will render it Wednesday if not ready, otherwise repost 5 Things deck insights)",
+        "tip": "LinkedIn Tuesday slot. If the new deck isn't ready, skip, the X article carries the day."
+      },
+      {
+        "line": "10am Post X article (ElevenLabs voice cloning) + header image",
+        "tip": "Claude delivers article + header Monday night."
+      },
+      {
+        "line": "1pm Film + post 'How to use Eleven Labs in 2 minutes' to TikTok + IG + YouTube Shorts",
+        "hook": "826 thousand people searched how to use Eleven Labs this month. Here's the two minute version, including cloning my own voice.",
+        "caption": "TikTok: Comment \"VOICE\" and I'll reply with the exact setup steps 🎙 How to use Eleven Labs in 2 minutes, including cloning my own voice. 826K searches this month. #ElevenLabs #AIVoice #HowToUseElevenLabs #AI",
+        "caption_ig": "Comment \"VOICE\" for the setup steps 🎙 Eleven Labs in 2 minutes, I cloned my own voice. Send this to a creator. #ElevenLabs #AIVoice #AI",
+        "tip": "Needs ElevenLabs Starter + your clone made before filming. Over 1 minute on purpose, Creator Rewards inventory. Cover text: Eleven Labs in 2 minutes"
+      }
+    ],
+    "2026-07-29": [
+      {
+        "line": "BATCH FILM DAY: skills tutorial (posts today), Part 3, glazing take, business video",
+        "tip": "Talking heads first, screen demos after. Scripts + clip packs in chat Tuesday night."
+      },
+      {
+        "line": "1pm Post 'Best Claude skills to turn on' to TikTok + IG + YouTube Shorts",
+        "hook": "Claude has a skills menu most people have never opened, and searches for it are up 1000 percent. Here are the ones worth turning on.",
+        "caption": "TikTok: Comment \"SKILLS\" and I'll reply with my top 3 to turn on 🧰 Best Claude skills right now, how to use skills in Claude is up 1000% in search. Save this. #Claude #ClaudeSkills #AI #ClaudeTips",
+        "caption_ig": "Comment \"SKILLS\" for my top 3 🧰 The Claude menu most people never open. Save this. #Claude #ClaudeSkills #AI",
+        "tip": "Screen record the Skills tab, turning skills on, one running. Cover text: the Claude menu nobody opens"
+      }
+    ],
+    "2026-07-30": [
+      {
+        "line": "1pm Post 'Things you didn't know Claude could do PART 3' to TikTok + IG + YouTube Shorts",
+        "hook": "Everyone's suddenly asking what Claude is actually used for. Part 3, and these are the wildest ones yet.",
+        "caption": "TikTok: Comment \"THREE\" and I'll reply with the full list 🤯 Things you didn't know Claude could do, part 3. Parts 1 and 2 are on my page. #Claude #AI #AITools #ClaudeTips",
+        "caption_ig": "Comment \"THREE\" for the full list 🤯 Part 3 of the series. Check parts 1 and 2 on my page. #Claude #AI #AITools",
+        "tip": "The flagship series gets Thursdays permanently. 5 new items scripted in chat. Cover text: part 3. YouTube title: 'Things You Didn't Know Claude Could Do (Part 3)' #Shorts"
+      }
+    ],
+    "2026-07-31": [
+      {
+        "line": "1pm Post 'Why ChatGPT agrees with everything you say' to TikTok + IG + YouTube Shorts",
+        "hook": "ChatGPT agrees with everything you say, and it's not because you're right. I write software for a living, here's what's actually happening.",
+        "caption": "TikTok: Comment \"HONEST\" and I'll reply with the one line that makes it stop 😬 Why ChatGPT agrees with everything you say. #ChatGPT #AI #ChatGPTTips #TechTok",
+        "caption_ig": "Comment \"HONEST\" for the line that stops it 😬 ChatGPT is not agreeing because you're right. #ChatGPT #AI #TechTok",
+        "tip": "Rides chatgpt lying up 410% and glazing searches. Technical pillar. Cover text: why it always agrees"
+      }
+    ],
+    "2026-08-01": [
+      {
+        "line": "10am Post X article (Claude business ideas) + header image"
+      },
+      {
+        "line": "11am Post '3 businesses people are starting with Claude' to TikTok + IG + YouTube Shorts",
+        "hook": "People are quietly starting real businesses with Claude right now. Here are three I'd actually take seriously.",
+        "caption": "TikTok: Comment \"BIZ\" and I'll reply with the full breakdown 💼 3 businesses people are starting with Claude right now, claude business ideas is up 106% in search. #Claude #AI #SmallBusiness #ClaudeForBusiness #SideHustle",
+        "caption_ig": "Comment \"BIZ\" for the breakdown 💼 3 real businesses people are starting with Claude. Send this to your future business partner. #Claude #AI #SmallBusiness",
+        "tip": "Saturday business crowd, your trades audience included. Cover text: 3 Claude businesses"
+      }
+    ],
+    "2026-08-02": [
+      {
+        "line": "9am Planning session with Claude: week 3 + first ManyChat performance review",
+        "tip": "Bring: Creator Search Insights screenshots + run the Chrome Claude analytics report again. 10 minutes total."
+      }
     ]
   },
   "fallback": {
