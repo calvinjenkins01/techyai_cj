@@ -38,6 +38,11 @@
   face, developer credential, and same day news speed
 - Workflow videos: the exact prompt goes in the caption word for word
   (Prompt 👇 style), copyable text drives saves
+- Every video package Claude delivers includes: script + hook, captions
+  (comment keyword first), cover text, YouTube title, rendered vertical
+  MP4 overlay clips (CJ stays on camera, clips go over his face), and
+  for news videos the source article links to screenshot. Overlay clips
+  are rendered with the broll renderer in scratchpad (Pillow + ffmpeg)
 - When a good question lands in comments, answer it with TikTok's reply
   with video feature (at least one per week once comments pick up)
 - Visual style: terminal aesthetic (default card style "terminal" in x-autoposter,
