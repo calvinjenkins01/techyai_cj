@@ -38,6 +38,14 @@
   face, developer credential, and same day news speed
 - Workflow videos: the exact prompt goes in the caption word for word
   (Prompt 👇 style), copyable text drives saves
+- VOICE RULE for every script: write it like CJ is telling ONE friend about
+  something he just found, not addressing an audience. Contractions always.
+  Short fragments for emphasis. Include at least one real reaction or aside
+  ("here's what got me", "no exaggeration", "I wasn't ready for this").
+  Casual connectors (so, and, but here's the thing). Banned: influencer
+  cliches like "here's what nobody tells you" or "this changes everything",
+  press release phrasing, and any sentence CJ wouldn't say out loud to a
+  buddy. Test: read it aloud, if it feels like reading, rewrite it.
 - Every video package Claude delivers includes: script + hook, captions
   (comment keyword first), cover text, YouTube title, rendered vertical
   MP4 overlay clips (CJ stays on camera, clips go over his face), and
