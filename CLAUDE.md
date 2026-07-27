@@ -45,7 +45,10 @@
   Casual connectors (so, and, but here's the thing). Banned: influencer
   cliches like "here's what nobody tells you" or "this changes everything",
   press release phrasing, and any sentence CJ wouldn't say out loud to a
-  buddy. Test: read it aloud, if it feels like reading, rewrite it.
+  buddy. ALSO BANNED: ellipses and trailing pauses, um/uh, "like" as a
+  hedge, and any written-in hesitation. Confident friend, not rambling
+  friend: every sentence lands and moves. Test: read it aloud, if it feels
+  like reading, rewrite it.
 - Every video package Claude delivers includes: script + hook, captions
   (comment keyword first), cover text, YouTube title, rendered vertical
   MP4 overlay clips (CJ stays on camera, clips go over his face), and
