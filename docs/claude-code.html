@@ -62,9 +62,20 @@
   <main>
     <a class="back" href="index.html">← back to links</a>
     <h1>Claude Code Starter Rules 💻</h1>
-    <p class="intro">From @techyai_cj. Claude Code reads a file called CLAUDE.md in your project and follows whatever rules you put there, every session, forever. These are the starter rules I recommend to everyone. Copy, paste, edit the bracketed parts.</p>
+    <p class="intro">From @techyai_cj. Two things here: the exact first task to try if you just downloaded Claude Code, and the rules file that makes it follow YOUR rules in every session after that. You do not need to know how to code for either one.</p>
 
-    <h2>How to set it up (60 seconds)</h2>
+    <h2>The exact first task to try</h2>
+    <p class="step"><b>1.</b> Make a new folder on your desktop called practice.</p>
+    <p class="step"><b>2.</b> Open Claude Code and point it at that folder. That is the only question it asks you.</p>
+    <p class="step"><b>3.</b> Paste the prompt below and hit enter.</p>
+    <pre id="firsttask">Build me a single page workout tracker I can open in my browser. Dark theme, works on my phone. I add an exercise, sets, and reps, and it saves them so they are still there when I come back. Explain what you built in two sentences when you are done.</pre>
+    <button class="copy" data-target="firsttask">copy the first task</button>
+
+    <p class="note">It asks permission before every step. Say yes. When it finishes, open the file it made and actually use it. That is the moment this clicks. Then change something: "make the buttons bigger" or "add a weight column." Same folder, plain English, still no code.</p>
+
+    <p class="note">There is also a terminal version if you are a developer. Same tool, black screen, no window. The desktop app is easier if you are starting out.</p>
+
+    <h2>Then: the rules file</h2>
     <p class="step"><b>1.</b> Open your project folder in Claude Code.</p>
     <p class="step"><b>2.</b> Create a file named CLAUDE.md in the project root (or run /init and let Claude draft one).</p>
     <p class="step"><b>3.</b> Paste the rules below and edit them to your project. Done. It reads them automatically from now on.</p>
