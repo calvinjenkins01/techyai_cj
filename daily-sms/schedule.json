@@ -134,19 +134,19 @@
     ],
     "2026-07-28": [
       {
-        "line": "9am Post LinkedIn PDF (best Claude skills deck, Claude will render it Wednesday if not ready, otherwise repost 5 Things deck insights)",
-        "tip": "LinkedIn Tuesday slot. If the new deck isn't ready, skip, the X article carries the day."
+        "line": "8 to 10am Post the slides video to LinkedIn (document style caption, in chat)",
+        "tip": "LinkedIn peak window. Professional caption, 3 hashtags, comment SLIDES CTA works well there."
       },
       {
-        "line": "10am Post X article (ElevenLabs voice cloning) + header image",
-        "tip": "Claude delivers article + header Monday night."
+        "line": "10am Post X article (Opus 5, one sentence rebuilt my app) + header image",
+        "tip": "Article text in chat. Attach the Opus 5 header or the counter clip as a still."
       },
       {
-        "line": "1pm Post 'New Claude dropped, I gave it my own app' to TikTok + IG + YouTube Shorts",
-        "hook": "Anthropic dropped a whole new Claude on Friday so I had some time to play with it and this is what I created.",
-        "caption": "TikTok: Comment \"OPUS\" and I'll reply with what actually changed 🧠 Claude Opus 5 dropped Friday and barely anyone noticed. I gave it an app I built and it shipped a feature in one prompt. #Claude #Anthropic #ClaudeOpus5 #AI #TechNews",
-        "caption_ig": "Comment \"OPUS\" for what actually changed 🧠 New Claude dropped Friday. I handed it my own football playbook app and it added a feature in one sentence. #Claude #Anthropic #AI",
-        "tip": "Filmed Monday, just edit and post. Shots: playbook formation, animate, wristband, dark mode prompt, model picker. Cover: your face + 'new Claude, nobody noticed'"
+        "line": "1pm Post 'Watch AI rebuild my app with one sentence' to TikTok + IG + YouTube Shorts",
+        "hook": "Watch AI rebuild my app with one sentence.",
+        "caption": "TikTok: Comment \"OPUS\" and I'll reply with what actually changed 🧠 I built this football playbook myself. New Claude dropped Friday and rebuilt part of it from one sentence. #AI #Claude #ClaudeOpus5 #BuildWithAI #TechNews",
+        "caption_ig": "Comment \"OPUS\" for what actually changed 🧠 I built this football playbook, then gave the new Claude one sentence and it shipped a feature. #AI #Claude #BuildWithAI",
+        "tip": "BROAD hook, narrow payoff: lead with AI and your own app, reveal Claude after. Re-record the hook, 8 words. Cover: your face + 'AI rebuilt my app'"
       }
     ],
     "2026-07-29": [
