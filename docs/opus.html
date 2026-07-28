@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Claude Opus 5 Does Differently | techyai_cj</title>
+<meta name="description" content="Five things the new Claude does that the older models struggled with, with the exact prompts to try each one.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .card {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px 14px 12px; margin-bottom: 10px;
+  }
+  .card .num { color: #78c8a0; font-size: 12px; margin-bottom: 6px; }
+  .card p { font-size: 14px; line-height: 1.55; color: var(--white); }
+  .try { color: var(--dim); font-size: 13px; line-height: 1.55; margin-top: 10px; }
+  .try b { color: var(--amber); }
+  .copy {
+    margin-top: 10px; background: #12291c; color: var(--green);
+    border: 1px solid #2e7a4f; border-radius: 7px; font: inherit;
+    font-size: 12px; padding: 6px 12px; cursor: pointer;
+  }
+  .copy:active { transform: scale(.97); }
+  .price {
+    margin-top: 24px; background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px;
+  }
+  .price .num { color: #78c8a0; font-size: 12px; margin-bottom: 8px; }
+  .price p { font-size: 14px; line-height: 1.6; color: var(--white); }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/opus-5</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">← back to guides</a>
+    <h1>What the new Claude does differently 🧠</h1>
+    <p class="intro">From @techyai_cj. Anthropic released Claude Opus 5 on July 24. These are five things it handles that the older models struggled with, each with the exact prompt to test it yourself. Tap copy, paste into Claude, see for yourself.</p>
+
+    <h2>01 · It reads your whole project first</h2>
+    <div class="h2sub">the one from the video</div>
+    <div class="card"><p>Older models needed you to paste one file at a time, so they never saw how your project fit together. Now you point it at the whole folder and it reads everything before it writes a line. That's why it matches the code you already have instead of inventing its own style.</p>
+      <p class="try"><b>Try it:</b> open Claude Code, point it at a project folder, and ask for a feature in one sentence. Watch it read before it writes.</p>
+    </div>
+
+    <h2>02 · Spreadsheets that actually calculate</h2>
+    <div class="h2sub">not a picture of a spreadsheet</div>
+    <div class="card"><p>Ask for a tracker and you get a real multi sheet file with working formulas, not a table you have to rebuild yourself.</p>
+      <p class="try"><b>Copy this prompt:</b></p>
+      <p id="p2">Build me a monthly budget spreadsheet as an xlsx file. One sheet for income, one for expenses by category, and one summary sheet that pulls from both with real formulas. Include 3 example rows in each so I can see how it works, and one cell that shows what I have left over this month.</p>
+      <button class="copy" data-target="p2">copy</button>
+    </div>
+
+    <h2>03 · Slide decks that look designed</h2>
+    <div class="h2sub">the trick is design rules, not asking for slides</div>
+    <div class="card"><p>Asking for "a presentation on X" gets you corporate template soup. Giving it design constraints up front gets you something that looks like a studio made it.</p>
+      <p class="try"><b>Copy this prompt:</b></p>
+      <p id="p3">Make me a 6 slide presentation on [topic] for [audience]. Design rules: one idea per slide, huge readable text, absolutely no bullet point soup. Dark background, one bright accent color, generous white space. Slide 1 is a hook that makes them want slide 2. Slides 2 through 5 each make exactly one point backed by a number or a concrete example, and at least one slide must use a simple chart or diagram instead of text. Slide 6 is a single clear takeaway. Make it look like a design studio made it, not a corporate template.</p>
+      <button class="copy" data-target="p3">copy</button>
+    </div>
+
+    <h2>04 · It reads charts and screenshots properly</h2>
+    <div class="h2sub">the numbers, not a guess at the numbers</div>
+    <div class="card"><p>Screenshot a graph, a receipt, a dense document, or a dashboard and it pulls the actual values out instead of describing what it thinks it sees.</p>
+      <p class="try"><b>Copy this prompt</b> and attach any screenshot with numbers in it:</p>
+      <p id="p4">Read this image and pull out every number you can see, with a label for what each one is. Then tell me the one thing in here I should actually pay attention to, and why. If anything is unclear or cut off, say so instead of guessing.</p>
+      <button class="copy" data-target="p4">copy</button>
+    </div>
+
+    <h2>05 · It checks its own work</h2>
+    <div class="h2sub">stop telling it to double check</div>
+    <div class="card"><p>This one is backwards from what you'd expect. On the older models the advice was to tell it to verify its answer. On this one that instruction makes it slower and more repetitive, because it already verifies on its own. Take those lines out of your prompts.</p>
+      <p class="try"><b>Try it:</b> take a prompt you use that ends with "double check your work" and run it once with that line and once without. The version without is usually tighter.</p>
+    </div>
+
+    <div class="price">
+      <div class="num">the part nobody mentions</div>
+      <p>It costs the same as the model it replaced. $5 per million input tokens and $25 per million output, identical to Opus 4.8. Same price, better model. On the Claude app it's the default on Max and the strongest option on Pro.</p>
+    </div>
+
+    <div class="cta">
+      <p>I'm a software developer and I post what I actually use every day.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> 🚀<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">© 2026 CJ · free to use, send it to somebody</p>
+  </main>
+</div>
+<script>
+  document.querySelectorAll(".copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var text = document.getElementById(btn.dataset.target).innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = "copied ✓";
+        setTimeout(function () { btn.textContent = "copy"; }, 1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>
