@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wispr Flow Setup | techyai_cj</title>
+<meta name="description" content="How to set up Wispr Flow on Windows and iPhone, plus the settings that actually matter.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 10px; }
+  .step { color: var(--white); font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+  .step b { color: var(--green); }
+  .card {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px; margin-bottom: 10px;
+  }
+  .card .num { color: #78c8a0; font-size: 12px; margin-bottom: 6px; }
+  .card p { font-size: 14px; line-height: 1.55; color: var(--white); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 16px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+  /* KIT FORM GOES HERE — paste the embed inside .signup */
+  .signup {
+    margin-top: 28px; background: #131920; border: 1px dashed var(--line);
+    border-radius: 10px; padding: 18px; color: var(--dim); font-size: 13px;
+    line-height: 1.6; text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/wispr-flow</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">← back to guides</a>
+    <h1>Wispr Flow setup 🎙️</h1>
+    <p class="intro">From @techyai_cj. This is the tool I use instead of typing. It sits on top of every app: you hold a key, talk, and it types wherever your cursor already is. It also strips out your ums and adds punctuation on its own. Nobody is paying me to say any of this.</p>
+
+    <h2>Windows</h2>
+    <p class="step"><b>1.</b> Go to wisprflow.ai and download it.</p>
+    <p class="step"><b>2.</b> Install it and sign in.</p>
+    <p class="step"><b>3.</b> Open Settings, then Shortcuts, and set your hotkey. Pick something you can hold with your left hand while your right hand stays on the mouse.</p>
+    <p class="step"><b>4.</b> Hold that key, talk, let go. That is the whole thing.</p>
+    <p class="note">It works in every app, not just one. Email, Slack, Claude, a Google Doc, a text box on a website. Anywhere you can type, you can talk.</p>
+
+    <h2>iPhone</h2>
+    <p class="step"><b>1.</b> Get Wispr Flow from the App Store.</p>
+    <p class="step"><b>2.</b> Open Settings, then General, then Keyboard, then Keyboards.</p>
+    <p class="step"><b>3.</b> Tap Add New Keyboard and pick Wispr Flow.</p>
+    <p class="step"><b>4.</b> Tap it again in the list, turn on Allow Full Access, then hit Allow.</p>
+    <p class="step"><b>5.</b> In any text field, hold the globe icon, pick Wispr Flow, tap the mic and talk.</p>
+    <p class="note">On iPhone 15 Pro or newer you can map it to the Action Button instead, so it is one squeeze from anywhere.</p>
+
+    <h2>The settings that actually matter</h2>
+    <div class="card"><div class="num">01</div><p>Talk normally. Do not over enunciate. The cleanup is built for how people actually talk, so fumbling is fine.</p></div>
+    <div class="card"><div class="num">02</div><p>Do not stop to fix yourself. Say "actually make that 3pm" and keep going. It handles the correction without you going back.</p></div>
+    <div class="card"><div class="num">03</div><p>Use it on your longest stuff first. Long emails, long prompts. That is where you feel the difference on day one.</p></div>
+    <div class="card"><div class="num">04</div><p>Set up the phone keyboard. Most people install it on desktop and never do this, and the phone is where it actually changes your day.</p></div>
+
+    <h2>What it costs</h2>
+    <p class="note">Free is 2,000 words a week on your computer and 1,000 a week on your phone. That is roughly fifteen minutes of talking, which is enough to know if it is for you. Unlimited is $15 a month, or $12 if you pay yearly. There is no lifetime option.</p>
+
+    <div class="signup">
+      <!-- KIT EMBED GOES HERE -->
+      Want the next guide when it drops? Email signup coming soon.
+    </div>
+
+    <div class="cta">
+      <p>I post AI workflows every single day.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> 🚀<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">© 2026 CJ · free to use, send it to somebody</p>
+  </main>
+</div>
+</body>
+</html>
