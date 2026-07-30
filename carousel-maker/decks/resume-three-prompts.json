@@ -1,0 +1,37 @@
+{
+  "name": "resume-three-prompts",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "resume --stop-editing-the-same-one",
+      "text": "Stop editing one resume over and over",
+      "sub": "Write it once. Cut it every time. Three prompts, and the third one stings."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 3,
+      "text": "Build a master resume first",
+      "sub": "One file with everything you have ever done. Too long, ugly, never sent to anyone. It is your source of truth, not your application. Prompt: \"Interview me about my work history. One question at a time. For each job ask what I actually did, what changed because I was there, and any number I can attach to it. Keep going until you have at least 3 real accomplishments per role, then write it into one long master resume. Do not trim anything.\""
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 3,
+      "text": "Cut it down per job",
+      "sub": "Paste the posting next to your master resume. Prompt: \"Pick only the experience that matters for this role and cut the rest. Use the exact words the posting uses for skills and tools, because software reads this before a person does. Rewrite every bullet to lead with the result instead of the task. One page. Then tell me the biggest gap between me and this job.\""
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 3,
+      "text": "The one everybody skips",
+      "sub": "Prompt: \"What would a recruiter reject me for in the first 10 seconds? Be blunt. Then rewrite the top third to fix it.\" It stings. It is also the one that works, because it tells you what the pile already decided about you."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment RESUME and I will send all three",
+      "sub": "Copy and paste ready. Save this for the next time you are applying, because you will forget it by then. Follow for AI workflows that actually do something."
+    }
+  ]
+}
