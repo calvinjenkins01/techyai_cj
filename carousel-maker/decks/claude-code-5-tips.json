@@ -1,0 +1,51 @@
+{
+  "name": "claude-code-5-tips",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "claude --tips",
+      "text": "5 Claude Code commands nobody tells you about",
+      "sub": "Number 2 has saved me more times than anything else in here."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "/context",
+      "sub": "Shows you a colored grid of what is eating your context window right now, plus what to cut. WHEN: the second Claude starts forgetting things you already told it, or answers get vague. That is not the model getting dumb, that is the window filling up. Run this before you start over."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "/rewind",
+      "sub": "Rolls your code AND the conversation back to a checkpoint. Not undo on one file. The whole thing. WHEN: it went sideways three steps ago and you do not want to untangle it. Stop arguing with it, rewind and re prompt."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "/plan",
+      "sub": "Switches it into plan mode so it tells you what it is about to do before it touches anything. WHEN: any change bigger than one file. This is the single best habit for people who are nervous about letting it loose in their project."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "/clear vs /compact",
+      "sub": "Both free up space and they are not the same. /clear starts a brand new conversation with nothing in it. /compact summarizes what you have done and keeps going. WHEN: new task, use /clear. Same task, running long, use /compact."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "/init and /memory",
+      "sub": "/init creates a CLAUDE.md file for your project. /memory edits it later. Whatever rules you put in there, it follows every session, forever. WHEN: the first time it does something you never want it to do again. Add the rule instead of correcting it twice."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment CLAUDE and I will send you my setup",
+      "sub": "You do not need to know how to code to use any of this. Save it for when you are actually in there. Follow for AI workflows from a real developer."
+    }
+  ]
+}
