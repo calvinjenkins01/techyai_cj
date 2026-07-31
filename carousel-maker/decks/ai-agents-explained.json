@@ -25,15 +25,15 @@
       "kind": "point",
       "num": 3,
       "of": 5,
-      "text": "You probably already have one",
-      "sub": "Claude Code is an agent sitting on your computer. You point it at a folder, describe the job in plain English, and it plans the steps, does them, and asks permission before anything big. The deep research button in Claude or ChatGPT? Also an agent. This isn't future tech, it's on your laptop."
+      "text": "The agent I actually run",
+      "sub": "Every morning at 6am my phone gets a text with my whole day plan. I'm asleep when it happens. An agent checks my schedule, writes the brief, and sends it, every single day, and I haven't touched it in weeks. That's the slide 3 test passing in real life."
     },
     {
       "kind": "point",
       "num": 4,
       "of": 5,
-      "text": "What they're actually good at",
-      "sub": "Boring chores with clear steps. Sort this folder. Pull the numbers out of these screenshots. Check these 20 links and tell me which are dead. Draft replies to every email in this pile. The wins are unglamorous, and that's exactly why they're real."
+      "text": "Daily and weekly chores are the sweet spot",
+      "sub": "A morning brief. A weekly summary of your numbers. An inbox sweep every Friday. A monthly check that your links still work. If it repeats on a calendar and has clear steps, an agent can own it. That's where the real hours come back."
     },
     {
       "kind": "point",
@@ -44,8 +44,8 @@
     },
     {
       "kind": "cta",
-      "text": "Comment AGENT and I will send you the first one to set up",
-      "sub": "Takes about ten minutes and you don't need to know how to code. Save this for the next time somebody tries to sell you an agent course."
+      "text": "Comment AGENT and I will send you the build for your own morning agent",
+      "sub": "The same kind I run at 6am every day. Takes one sitting and you don't need to know how to code. Save this for the next time somebody tries to sell you an agent course."
     }
   ]
 }
