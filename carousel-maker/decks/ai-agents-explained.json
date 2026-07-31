@@ -1,0 +1,51 @@
+{
+  "name": "ai-agents-explained",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "ai --agents-explained",
+      "text": "AI agents, explained like you're a normal person",
+      "sub": "Everybody's selling these right now. Here's what one actually is, from a software developer."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "A chatbot answers. An agent does.",
+      "sub": "That's the entire difference. You ask a chatbot a question and it gives you words back. You give an agent a job and it takes the steps: opens the files, runs the task, checks its own result, and comes back when it's done."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "The one question test",
+      "sub": "Can it make progress while you're not watching? If you have to babysit every step, it's a chatbot with extra buttons. If you can hand it a job and walk away, it's an agent. Use this test on every tool somebody tries to sell you."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "You probably already have one",
+      "sub": "Claude Code is an agent sitting on your computer. You point it at a folder, describe the job in plain English, and it plans the steps, does them, and asks permission before anything big. The deep research button in Claude or ChatGPT? Also an agent. This isn't future tech, it's on your laptop."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "What they're actually good at",
+      "sub": "Boring chores with clear steps. Sort this folder. Pull the numbers out of these screenshots. Check these 20 links and tell me which are dead. Draft replies to every email in this pile. The wins are unglamorous, and that's exactly why they're real."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "The hype filter",
+      "sub": "If a video says an agent will run a business for you on autopilot while you sleep, scroll. Agents still need clear instructions, checkpoints, and someone who looks at the output. The people making money with agents are saving hours, not printing cash."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment AGENT and I will send you the first one to set up",
+      "sub": "Takes about ten minutes and you don't need to know how to code. Save this for the next time somebody tries to sell you an agent course."
+    }
+  ]
+}
