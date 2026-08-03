@@ -1,0 +1,51 @@
+{
+  "name": "chatgpt-5-settings",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "chatgpt --settings-nobody-touches",
+      "text": "5 ChatGPT settings most people never touch",
+      "sub": "Number 2 turns it into a thing that works while you sleep."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "Custom instructions",
+      "sub": "Settings, then Personalization. Tell it once who you are, what you do, and how you want answers. Every new chat starts already knowing, and you stop re explaining yourself forever."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "Scheduled tasks",
+      "sub": "Ask it to do something every day and it will. A morning news brief on your industry, a Sunday meal plan, a weekly check in. It runs on the clock and messages you when it's done. Most people have no idea this exists."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "Temporary chat",
+      "sub": "One tap and nothing from that conversation sticks, no memory, no history. For the questions you don't want following you around. The toggle is right at the top of a new chat."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "Ask what it remembers",
+      "sub": "Type: what do you remember about me. Read the list. Tell it to forget anything wrong or outdated. Your answers get better when its memory of you is actually right."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "Projects",
+      "sub": "Folders with their own files and their own instructions. Upload your stuff once and every chat inside the project can see it. Keep work, side hustle, and personal in separate rooms instead of one giant pile."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment GPT and I will send you all five with setup steps",
+      "sub": "Save this for the next time you open ChatGPT and treat it like a search bar."
+    }
+  ]
+}

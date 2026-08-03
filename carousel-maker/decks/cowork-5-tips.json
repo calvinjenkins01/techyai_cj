@@ -1,0 +1,51 @@
+{
+  "name": "cowork-5-tips",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "claude --cowork",
+      "text": "5 Claude Cowork tips, the one that does work for you",
+      "sub": "Chat answers questions. Cowork finishes tasks. Here's how to actually use it."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "Give it a folder, not a question",
+      "sub": "Cowork works on your real files. Point it at the folder and let it see everything, instead of pasting one file at a time. That's the entire difference between it and a chatbot."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "Start with your messiest folder",
+      "sub": "The perfect first job: point it at your downloads. Have it sort, rename, and give you a summary of what's in there. Boring, real, and it sells you on the whole idea in ten minutes."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "Ask for real files back",
+      "sub": "Not answers, files. A spreadsheet with working formulas. A formatted doc. A deck. Say the file you want and you get something you can actually send to somebody."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "Say what done looks like",
+      "sub": "Weak: summarize this. Strong: read these and save me a one page summary as summary.docx with the three numbers that matter at the top. The clearer your finish line, the better it runs."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "Let it cook",
+      "sub": "Give the job, go do something else, come back. It works through the steps on its own and asks when it needs you. If you're babysitting every step, you're using it like chat, and that's the old way."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment COWORK and I will send you the first task to try",
+      "sub": "Takes ten minutes and you don't need to know anything technical. Save this."
+    }
+  ]
+}
