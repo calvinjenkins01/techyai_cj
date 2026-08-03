@@ -1,0 +1,51 @@
+{
+  "name": "ai-agents-explained",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "ai --agents-explained",
+      "text": "AI agents, explained like you're a normal person",
+      "sub": "Everybody's selling these right now. Here's what one actually is, from a software developer."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "A chatbot answers. An agent does.",
+      "sub": "That's the entire difference. You ask a chatbot a question and it gives you words back. You give an agent a job and it takes the steps: opens the files, runs the task, checks its own result, and comes back when it's done."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "The one question test",
+      "sub": "Can it make progress while you're not watching? If you have to babysit every step, it's a chatbot with extra buttons. If you can hand it a job and walk away, it's an agent. Use this test on every tool somebody tries to sell you."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "The agent I actually run",
+      "sub": "Every morning at 6am my phone gets a text with my whole day plan. I'm asleep when it happens. An agent checks my schedule, writes the brief, and sends it, every single day, and I haven't touched it in weeks. That's the slide 3 test passing in real life."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "Daily and weekly chores are the sweet spot",
+      "sub": "A morning brief. A weekly summary of your numbers. An inbox sweep every Friday. A monthly check that your links still work. If it repeats on a calendar and has clear steps, an agent can own it. That's where the real hours come back."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "The hype filter",
+      "sub": "Nobody's agent runs a whole business while they sleep. If that's the pitch, you're in a course funnel. A real agent handles one scoped job with checkpoints, and a person still checks the output. Getting hours back every week is the actual win."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment AGENT and I will send you the build for your own morning agent",
+      "sub": "The same kind I run at 6am every day. Takes one sitting and you don't need to know how to code. Save this for the next time somebody tries to sell you an agent course."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "week_label": "Jul 26 to Aug 1",
+  "week_label": "Aug 3 to Aug 9",
   "dates": {
     "2026-07-19": [
       {
@@ -201,6 +201,56 @@
       {
         "line": "9am Planning session with Claude: week 3 + first ManyChat performance review",
         "tip": "Bring: Creator Search Insights screenshots + run the Chrome Claude analytics report again. 10 minutes total."
+      }
+    ],
+    "2026-08-03": [
+      {
+        "line": "1pm Post 'Things you didn't know PART 3' to TikTok + IG + YouTube Shorts",
+        "hook": "Five Claude features almost nobody touches.",
+        "tip": "SERIES RESTART. Cover must say Part 3 with your face. 35 seconds max. Say the keyword ask out loud mid video, not just the end. Confirm the 5 items with Claude before filming so nothing repeats Parts 1 and 2."
+      }
+    ],
+    "2026-08-04": [
+      {
+        "line": "1pm Post resume video to TikTok + IG + YouTube Shorts",
+        "hook": "Three AI moves that get your resume past the filter.",
+        "tip": "Script in chat. Reply with video ready: this answers a real follower question. Keyword RESUME, ManyChat automation already live. Keep it near 45s, say the keyword at the 60% mark."
+      }
+    ],
+    "2026-08-05": [
+      {
+        "line": "1pm Post Claude prompts carousel to TikTok photo mode + IG",
+        "tip": "claude prompt searches up 747% this week at 545K. Carousel from Claude, keyword PROMPTS, links to the 25 prompts guide. Slides in chat."
+      }
+    ],
+    "2026-08-06": [
+      {
+        "line": "BATCH FILM DAY: Claude skills tutorial, morning agent build, business video, Part 4",
+        "tip": "Four videos, talking heads first. Skills tutorial can run long, it is search content (claude skills 220K). Agent build rides how to create ai agents up 1000%. Scripts in chat."
+      }
+    ],
+    "2026-08-07": [
+      {
+        "line": "1pm Post 'Claude skills tutorial' to TikTok + IG + YouTube Shorts",
+        "hook": "The Claude tab nobody opens.",
+        "tip": "Search discovered tutorial, length fine over a minute. claude skills 220K + tutorial 184K searches. Keyword SKILLS."
+      }
+    ],
+    "2026-08-08": [
+      {
+        "line": "11am Post business prompts carousel to TikTok + IG",
+        "tip": "ai prompts for business is a flagged Content Gap, 149K up 113%. Links business kit page. Keyword BIZ."
+      },
+      {
+        "line": "1pm Post morning agent build video to TikTok + IG + YouTube Shorts",
+        "hook": "I built an agent that texts me at 6am. Here is the whole build.",
+        "tip": "how to create ai agents up 1000%. Show the real 6am text as the cold open. Keyword AGENT, automation already live."
+      }
+    ],
+    "2026-08-09": [
+      {
+        "line": "Planning session: send Claude the weekly Chrome report + Creator Search Insights screenshots",
+        "tip": "Same drill as today. 20 minutes."
       }
     ]
   },
