@@ -1,0 +1,51 @@
+{
+  "name": "claude-design-5-rules",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "claude --design-rules",
+      "text": "5 rules that make Claude design like a studio",
+      "sub": "Ask for a deck and you get template soup. Give it rules and you get design."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "Constraints, not requests",
+      "sub": "The whole trick in one line. Don't ask for a presentation about X. Hand it design rules and make it obey them. Every rule after this one is a constraint worth stealing."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "One idea per slide",
+      "sub": "Say it exactly like that, one idea per slide, huge readable text, no bullet point soup. The moment a slide makes two points it makes zero."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "One accent color",
+      "sub": "Dark background, one bright accent, generous white space. One color choice is what separates designed from decorated. Let everything else stay quiet."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "Demand a chart",
+      "sub": "Add: at least one slide must use a simple chart or diagram instead of text. It will happily write paragraphs forever unless you force it to draw, and the drawn slide is always the one people remember."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "Fix it by slide number",
+      "sub": "After the first draft, go surgical. Make slide 3 more visual. Rewrite every headline under 7 words. Punchier. You're the art director now, and it takes notes better than any designer you've met."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment DESIGN and I will send you the full prompt",
+      "sub": "The exact one from my videos, word for word. Save this for your next deck."
+    }
+  ]
+}

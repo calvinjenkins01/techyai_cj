@@ -1,0 +1,51 @@
+{
+  "name": "ai-tools-5",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "ai --tools-i-actually-use",
+      "text": "5 AI tools I actually use, one tip for each",
+      "sub": "No courses, no hype. These are open on my computer right now."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "Wispr Flow",
+      "sub": "Talk instead of type, in every app, and it strips your ums on its own. THE TIP: use it on your longest stuff first, long emails and long prompts. That's where you feel it day one."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "NotebookLM",
+      "sub": "Dump in your PDFs, notes, and links, then ask questions it answers from YOUR sources only. THE TIP: hit the audio overview button and it turns your documents into a podcast for the drive home."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "ElevenLabs",
+      "sub": "Clones your voice from about a minute of audio. THE TIP: read naturally when you record it, like you're talking to a friend. An announcer voice clone sounds like an announcer forever."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "Perplexity",
+      "sub": "Research that shows its sources. THE TIP: don't just ask, tell it to compare and cite. Give me both sides with sources beats a confident answer you can't check."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "CapCut",
+      "sub": "One tap auto captions on any video. THE TIP: captions on everything you post, most people watch on mute, and a video they can't read is a video they skip."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment TOOLS and I will send you all five with links",
+      "sub": "Save this and try one per week instead of all five tonight."
+    }
+  ]
+}
