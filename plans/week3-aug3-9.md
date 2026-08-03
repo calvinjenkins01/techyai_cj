@@ -57,5 +57,19 @@ THREE before Mon, TIPS before Tue, DESIGN before Wed, SKILLS before Fri, GPT bef
 All DM copy is in chat history Sunday Aug 2, and the SKILLS DM is summarized above.
 
 ## Keywords in use
-CODE, SLIDES, OPUS, FLOW, CLAUDE, AGENT, RESUME, THREE, TIPS, DESIGN, GPT.
+CODE, SLIDES, OPUS, FLOW, CLAUDE, AGENT, RESUME, THREE, TIPS, DESIGN, GPT, SETUP.
 Coming: SKILLS, FOUR, COWORK, TOOLS, BIZ.
+
+## Added Monday Aug 3: Claude beginner setup video, keyword SETUP, ~40s
+Film with Thursday's batch. Posts next Monday Aug 10 alongside Part 4 week,
+or swaps in anywhere a slot opens. Guide is live at setup.html.
+Hook: "Just downloaded Claude? Do these five things before you ask it anything."
+On screen cover: Everyone skips this part.
+Beats: 01 fill out the profile box in settings, 02 turn on memory,
+03 one Project per ongoing thing, keyword ask at ~0:22 (my profile text plus
+the prompt that writes it for you), 04 set a style, the default talks like a
+textbook, 05 make Claude interview you and write your profile itself.
+Close: "That prompt's in the guide. Send this to whoever just downloaded Claude."
+Film note: screen record your real settings screens for each step, clips
+in scratchpad setup-video/ are the number cards between recordings.
+SETUP DM: interview prompt in the DM, guide button to setup.html.
