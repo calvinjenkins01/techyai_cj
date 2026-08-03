@@ -67,8 +67,10 @@ Hook: "Just downloaded Claude? Do these five things before you ask it anything."
 On screen cover: Everyone skips this part.
 Beats: 01 fill out the profile box in settings, 02 turn on memory,
 03 one Project per ongoing thing, keyword ask at ~0:22 (my profile text plus
-the prompt that writes it for you), 04 set a style, the default talks like a
-textbook, 05 make Claude interview you and write your profile itself.
+the prompt that writes it for you), 04 check which model you're on plus the
+effort setting, 05 make Claude interview you and write your profile itself.
+Note: styles was cut, it is not findable in the phone app. Model picker
+replaced it and it is the stronger beginner point anyway.
 Close: "That prompt's in the guide. Send this to whoever just downloaded Claude."
 Film note: screen record your real settings screens for each step, clips
 in scratchpad setup-video/ are the number cards between recordings.
