@@ -57,8 +57,17 @@ THREE before Mon, TIPS before Tue, DESIGN before Wed, SKILLS before Fri, GPT bef
 All DM copy is in chat history Sunday Aug 2, and the SKILLS DM is summarized above.
 
 ## Keywords in use
-CODE, SLIDES, OPUS, FLOW, CLAUDE, AGENT, RESUME, THREE, TIPS, DESIGN, GPT, SETUP.
-Coming: SKILLS, FOUR, COWORK, TOOLS, BIZ.
+CODE, SLIDES, OPUS, FLOW, CLAUDE, AGENT, RESUME, THREE, TIPS, DESIGN, GPT, SETUP, BIZ.
+Coming: SKILLS, FOUR, COWORK, TOOLS.
+
+## Added Tuesday Aug 4: AI by business type carousel, keyword BIZ
+Deck decks/ai-by-business.json, slides in carousel-maker/out/ai-by-business-*.png.
+Five trades: real estate, roofing, lawn care, barbers, auto repair. Each slide
+carries a real prompt. Hook slide is "Find your business on this list", built as
+a share driver since shares are the weakest metric on the account.
+Picked off the Content Gaps TikTok flagged: ai prompts for business, plus
+ai tools for business at 350K. BIZ points at the existing business.html guide,
+seven prompts, free, no email gate. Guide intro updated to name the same trades.
 
 ## Added Monday Aug 3: Claude beginner setup video, keyword SETUP, ~40s
 Film with Thursday's batch. Posts next Monday Aug 10 alongside Part 4 week,

@@ -1,0 +1,51 @@
+{
+  "name": "ai-by-business",
+  "slides": [
+    {
+      "kind": "hook",
+      "cmd": "ai --for-your-business",
+      "text": "Find your business on this list",
+      "sub": "Five trades, five prompts that save real hours. I'm a software developer and these are the ones I'd hand a business owner first."
+    },
+    {
+      "kind": "point",
+      "num": 1,
+      "of": 5,
+      "text": "Real estate",
+      "sub": "Listings written from your own photos. THE PROMPT: Here are photos and the basic facts on my listing. Write the description. Lead with the thing a buyer actually cares about, not the square footage. Under 150 words, three versions with different opening lines. Then have it write your follow up texts to everyone who toured it."
+    },
+    {
+      "kind": "point",
+      "num": 2,
+      "of": 5,
+      "text": "Roofing and exteriors",
+      "sub": "The estimate that gets approved. THE PROMPT: Turn my job notes into a written estimate with line items, a subtotal, and simple terms. Then write a short plain English paragraph explaining to the homeowner what is actually wrong and why it matters. That second paragraph is what closes it."
+    },
+    {
+      "kind": "point",
+      "num": 3,
+      "of": 5,
+      "text": "Lawn care and landscaping",
+      "sub": "Refill next season before it starts. THE PROMPT: Write my seasonal reminder text for customers I served last year. Friendly, short, easy to reply yes to. Give me one for spring cleanup and one for fall. Send it once and watch the schedule fill back up."
+    },
+    {
+      "kind": "point",
+      "num": 4,
+      "of": 5,
+      "text": "Barbers and salons",
+      "sub": "Kill the no shows. THE PROMPT: Write my appointment reminders, one for 24 hours before and one for 2 hours before. Friendly, short, with an easy way to reschedule. Every no show is an empty chair you already paid rent on."
+    },
+    {
+      "kind": "point",
+      "num": 5,
+      "of": 5,
+      "text": "Auto repair",
+      "sub": "Get the work approved on the first call. THE PROMPT: Explain this repair to my customer in plain English. What is broken, what happens if they wait, and what it costs. No jargon, no scare tactics. People say no because they don't understand it, not because of the price."
+    },
+    {
+      "kind": "cta",
+      "text": "Comment BIZ and I will send you the full kit, seven prompts you can copy",
+      "sub": "Free, no email needed. Works in Claude or ChatGPT. Save this and send it to whoever you know that owns the business."
+    }
+  ]
+}
