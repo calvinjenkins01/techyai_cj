@@ -46,6 +46,23 @@ Part 4.
 - Do not build the channel around yourself as the niche. Build it around one
   topic. Directly supports putting Claude in the name field.
 
+## The actual editing stack (Aug 4)
+CapCut is the editor, everything else feeds it.
+- Face: phone. Screen recordings: phone Control Center, or Win+G on the PC.
+- B roll stills: Nano Banana Pro. Use aistudio.google.com/models/gemini-3-pro-image
+  rather than the consumer Gemini app, higher free limits.
+- Animate a still only if it looks dead: app.klingai.com free tier, or
+  labs.google/flow if the Google AI Pro sub is active.
+- Audio repair: podcast.adobe.com/en/enhance. Free, fixes room echo.
+- Sound effects and captions: built into CapCut. Do not download packs.
+- Clip hunting for news videos: filmot.com searches spoken phrases across
+  YouTube, so you can find the exact moment someone said a thing.
+- Strip music off a clip you want to quote: vocalremover.org.
+
+Skipped on purpose: Midjourney, Runway, Krea, HeyGen, ElevenLabs, Suno,
+Premiere, Autopod, Shotdeck, Jitter, Sandcastles, beehiiv, Make, Phantombuster.
+All of it duplicates something free in the list above or serves a team.
+
 ## Deliberately ignored for now
 Everything about validated offers, buyer journey mapping, dollar per view,
 cult brands, TV network strategy, R&D accounts, high ticket funnels, and the
