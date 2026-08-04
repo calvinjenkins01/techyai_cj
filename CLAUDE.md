@@ -58,6 +58,25 @@
   with video feature (at least one per week once comments pick up)
 - Visual style: terminal aesthetic (default card style "terminal" in x-autoposter,
   matching carousel-maker slides)
+- COVER RULE (from the Aug 4 Instagram audit): the cover makes a claim about the
+  VIEWER, not about the tool. His single best post of twelve was the only cover
+  that did this ("You're not slow. Your keyboard is.") and it pulled the highest
+  engagement and 78.5% non follower views. Eleven of twelve covers led with a
+  product name and all eleven did worse. Never open a cover with Claude,
+  ChatGPT, or "AI agents" as the first words.
+- FRAME ONE RULE: the hook text must be fully readable at frame one. No
+  typewriter or type on effects on the opening line, no fade in, no empty box.
+  Audited twelve posts and not one reel had readable text at t=0. A cover that
+  promises a hook the first frame does not deliver is a wasted hook. Bigger
+  accounts can open on a bare face and get away with it. At this size the first
+  frame has to earn the stop by itself.
+- SPELLING CHECK: proof every burned in caption for "Claude" before export.
+  Auto captions render it as "Cloud" and "Claud", and that happened on three of
+  eight reels on the account whose whole identity is that word.
+- FORMAT SPLIT: on Instagram, reels are the growth play and carousels are a
+  follower retention play (carousels reached 5.5x fewer people but were saved 3x
+  more often per person reached). On TikTok photo posts behave differently and
+  carousels still earn reach. Do not count an Instagram carousel as a growth day.
 
 ## System overview
 - daily-sms/: writes today.txt every morning at 4:00am and 5:30am Phoenix
