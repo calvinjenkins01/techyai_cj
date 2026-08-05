@@ -130,6 +130,86 @@ def rounded(im, radius=18):
     return out
 
 
+def glyph(d, cx, cy, kind, color, s=1.0):
+    """Simple line art, drawn to sit inside a 300px box."""
+    def L(*pts, w=7):
+        d.line([(cx + x * s, cy + y * s) for x, y in pts], fill=color, width=int(w * s))
+
+    def R(x0, y0, x1, y1, r=12, w=7, fill=None):
+        d.rounded_rectangle([cx + x0 * s, cy + y0 * s, cx + x1 * s, cy + y1 * s],
+                            radius=int(r * s), outline=color, width=int(w * s), fill=fill)
+
+    def E(x0, y0, x1, y1, w=7, fill=None):
+        d.ellipse([cx + x0 * s, cy + y0 * s, cx + x1 * s, cy + y1 * s],
+                  outline=color, width=int(w * s), fill=fill)
+
+    if kind == "file":
+        R(-70, -95, 70, 95, r=14)
+        for i, y in enumerate((-50, -14, 22)):
+            L((-42, y), (42 - i * 22, y), w=7)
+        L((-42, 58), (10, 58), w=7)
+    elif kind == "image":
+        R(-95, -70, 95, 70, r=14)
+        E(-62, -44, -30, -12, w=6)
+        L((-80, 52), (-18, -8), (14, 26), (44, -6), (82, 52), w=6)
+    elif kind == "chip":
+        R(-62, -62, 62, 62, r=10)
+        R(-26, -26, 26, 26, r=6, w=6)
+        for off in (-34, 0, 34):
+            L((off, -95), (off, -62)); L((off, 62), (off, 95))
+            L((-95, off), (-62, off)); L((62, off), (95, off))
+    elif kind == "search":
+        E(-90, -90, 34, 34, w=8)
+        L((26, 26), (92, 92), w=10)
+    elif kind == "inbox":
+        R(-95, -62, 95, 62, r=12)
+        L((-95, -62), (0, 16), (95, -62), w=7)
+    elif kind == "wave":
+        for i, h in enumerate((22, 54, 90, 46, 74, 30, 60, 18)):
+            x = -84 + i * 24
+            L((x, -h), (x, h), w=9)
+    elif kind == "videosearch":
+        R(-95, -72, 60, 52, r=12)
+        d.polygon([(cx - 30 * s, cy - 34 * s), (cx - 30 * s, cy + 14 * s),
+                   (cx + 14 * s, cy - 10 * s)], fill=color)
+        E(20, 10, 96, 86, w=8)
+        L((86, 76), (110, 100), w=9)
+    elif kind == "textimage":
+        R(-95, -70, 95, 70, r=14)
+        L((-46, 30), (-14, -34), (18, 30), w=8)
+        L((-34, 6), (6, 6), w=8)
+        L((44, -34), (44, 30), w=8)
+        L((30, -34), (58, -34), w=8)
+    elif kind == "tovideo":
+        R(-108, -56, -18, 34, r=10)
+        L((-4, -10), (34, -10), w=8)
+        L((22, -24), (36, -10), (22, 4), w=8)
+        R(46, -56, 118, 34, r=10)
+        d.polygon([(cx + 68 * s, cy - 30 * s), (cx + 68 * s, cy + 10 * s),
+                   (cx + 100 * s, cy - 10 * s)], fill=color)
+    elif kind == "split":
+        for i, h in enumerate((26, 58, 84, 40)):
+            x = -92 + i * 22
+            L((x, -h - 20), (x, h - 20), w=9)
+        for i, h in enumerate((34, 70, 44, 22)):
+            x = 12 + i * 22
+            L((x, -h + 30), (x, h + 30), w=9)
+        L((-8, -100), (-8, 100), w=4)
+
+
+def icon_panel(img, kind, top, height=360):
+    """A glowing panel with a glyph in it, used when there is no screenshot."""
+    w = 460
+    x0, x1 = (W - w) / 2, (W + w) / 2
+    y0, y1 = top, top + height
+    img = glow_behind(img, [x0 + 40, y0 + 40, x1 - 40, y1 - 40], radius=80)
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([x0, y0, x1, y1], radius=24, fill=(19, 25, 29),
+                        outline=GREEN_DIM, width=3)
+    glyph(d, (x0 + x1) / 2, (y0 + y1) / 2, kind, GREEN, s=1.0)
+    return img
+
+
 def grain(img, amount=10):
     px = img.load()
     for y in range(H):
@@ -173,9 +253,13 @@ def render(slide, deck_dir):
 
     # what is left for the picture once the text is placed
     text_h = head_h + (GAP_HEAD + body_h if body_h else 0) + (GAP_BLOCK + close_h if close_h else 0)
-    avail = H - PAD * 2 - 60 - text_h - (GAP_BLOCK * 2 if slide.get("image") else 0)
+    has_visual = bool(slide.get("image") or slide.get("icon"))
+    avail = H - PAD * 2 - 60 - text_h - (GAP_BLOCK * 2 if has_visual else 0)
 
     pic = None
+    icon_h = 0
+    if slide.get("icon") and not slide.get("image"):
+        icon_h = min(380, max(260, avail))
     if slide.get("image"):
         p = Path(slide["image"])
         if not p.is_absolute():
@@ -195,7 +279,8 @@ def render(slide, deck_dir):
             pd.text((pic.width / 2 - pd.textlength(lbl, font=lf) / 2,
                      pic.height / 2 - 14), lbl, font=lf, fill=GREY)
 
-    stack_h = text_h + ((pic.height + GAP_BLOCK * 2) if pic else 0)
+    visual_h = pic.height if pic else icon_h
+    stack_h = text_h + ((visual_h + GAP_BLOCK * 2) if visual_h else 0)
     y = max(PAD, (H - stack_h) / 2)
 
     if pic:
@@ -213,6 +298,10 @@ def render(slide, deck_dir):
         img.paste(rounded(pic.convert("RGBA")), (int(px0), int(py)),
                   rounded(pic.convert("RGBA")))
         d_y = py + pic.height
+    elif icon_h:
+        py = d_y + GAP_BLOCK
+        img = icon_panel(img, slide["icon"], py, icon_h)
+        d_y = py + icon_h
     if close_lines:
         draw_runs(img, close_lines, close_space, d_y + GAP_BLOCK,
                   BODY_SIZE + 14, WHITE, GREEN)

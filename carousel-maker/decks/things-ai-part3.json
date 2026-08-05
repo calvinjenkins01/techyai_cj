@@ -1,0 +1,45 @@
+{
+  "name": "things-ai-part3",
+  "slides": [
+    {
+      "headline": "THINGS YOU DIDN'T KNOW *AI could do*",
+      "body": "Part 3. Five I actually used this week. Not one of them is a chatbot.",
+      "close": "Number 2 is the one *nobody believes until they try it*."
+    },
+    {
+      "headline": "FIX *garbage audio* FOR FREE",
+      "body": "Drop in a recording with room echo or a bad mic and it comes back sounding like it was done in a studio.",
+      "close": "podcast.adobe.com/enhance. *Free, no signup wall.*",
+      "icon": "wave"
+    },
+    {
+      "headline": "FIND *any spoken phrase* ON YOUTUBE",
+      "body": "Type a phrase and it searches across more than a billion videos and hands you the exact timestamp where someone said it.",
+      "close": "filmot.com. *Free.*",
+      "icon": "videosearch"
+    },
+    {
+      "headline": "MAKE IMAGES WITH *readable text*",
+      "body": "Most image models turn words into scrambled letters. This one renders text you can actually read.",
+      "close": "Which means it makes *your covers and your thumbnails*.",
+      "icon": "textimage"
+    },
+    {
+      "headline": "TURN A PHOTO INTO *a video clip*",
+      "body": "Upload a still, describe the motion you want, and get a few seconds of moving footage back.",
+      "close": "This is where most of the b roll you scroll past *actually comes from*.",
+      "icon": "tovideo"
+    },
+    {
+      "headline": "STRIP THE MUSIC OFF *any clip*",
+      "body": "Separates the voice from the background track so you can keep only the part you wanted.",
+      "close": "vocalremover.org. *Free, runs in your browser.*",
+      "icon": "split"
+    },
+    {
+      "headline": "COMMENT *HIDDEN*",
+      "body": "I will send you all five with the links, no hunting required.",
+      "close": "Free, no email needed. Save this and *send it to someone who thinks AI is just chatbots*."
+    }
+  ]
+}

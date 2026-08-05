@@ -4,43 +4,41 @@
     {
       "headline": "THINGS YOU DIDN'T KNOW *Claude could do*",
       "body": "Part 3. Five features almost nobody touches, from a software developer who uses it every day.",
-      "image": "shots/three-hero.png",
       "close": "Parts 1 and 2 are on my page. *Number 4 is the one that got me.*"
     },
     {
       "headline": "IT MAKES *real files*",
       "body": "Ask for a budget and you get an actual spreadsheet with working formulas, not a table you have to rebuild yourself.",
-      "image": "shots/three-xlsx.png",
-      "close": "Same for docs, slides, and PDFs. They *open and they work*."
+      "close": "Same for docs, slides, and PDFs. They *open and they work*.",
+      "icon": "file"
     },
     {
       "headline": "IT READS *your screenshots*",
       "body": "Paste a photo of a receipt, a graph, or a page too dense to read and it pulls the values out.",
-      "image": "shots/three-screenshot.png",
-      "close": "Not a guess at the numbers. *The actual numbers.*"
+      "close": "Not a guess at the numbers. *The actual numbers.*",
+      "icon": "image"
     },
     {
       "headline": "IT *remembers you*",
       "body": "Turn memory on in settings and it carries what it learns about you from one chat to the next.",
-      "image": "shots/three-memory.png",
-      "close": "You stop re explaining your job *every single morning*."
+      "close": "You stop re explaining your job *every single morning*.",
+      "icon": "chip"
     },
     {
       "headline": "IT DOES *real research*",
       "body": "Switch on research and it goes and reads dozens of sources, then writes you a report with the links it used.",
-      "image": "shots/three-research.png",
-      "close": "A few minutes of waiting *beats an afternoon of tabs*."
+      "close": "A few minutes of waiting *beats an afternoon of tabs*.",
+      "icon": "search"
     },
     {
       "headline": "IT CONNECTS TO *your inbox*",
       "body": "Hook up your email and calendar and it can look at what is actually in there before it answers you.",
-      "image": "shots/three-connectors.png",
-      "close": "Ask what am I missing this week and it *actually knows*."
+      "close": "Ask what am I missing this week and it *actually knows*.",
+      "icon": "inbox"
     },
     {
       "headline": "COMMENT *THREE*",
       "body": "I will send you all five written out with exactly where to find each one.",
-      "image": "",
       "close": "Free, no email needed. Parts 1 and 2 are on my page, and *part 4 drops next week*."
     }
   ]
