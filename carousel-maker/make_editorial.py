@@ -201,6 +201,54 @@ def glyph(d, cx, cy, kind, color, s=1.0, t=None):
         R(46, -56, 118, 34, r=10)
         d.polygon([(cx + 68 * s, cy - 30 * s), (cx + 68 * s, cy + 10 * s),
                    (cx + 100 * s, cy - 10 * s)], fill=color)
+    elif kind == "constellation":
+        rot = 0.0 if t is None else t * 2 * math.pi
+        R(-34, -34, 34, 34, r=12, w=8)
+        E(-13, -13, 13, 13, w=0, fill=color)
+        for i in range(8):
+            a = rot + i * math.pi / 4
+            tx, ty = math.cos(a) * 118, math.sin(a) * 118
+            d.line([cx + math.cos(a) * 40 * s, cy + math.sin(a) * 40 * s,
+                    cx + tx * s, cy + ty * s],
+                   fill=tuple(int(c * 0.75) for c in color), width=int(5 * s))
+            d.rounded_rectangle([cx + (tx - 24) * s, cy + (ty - 24) * s,
+                                 cx + (tx + 24) * s, cy + (ty + 24) * s],
+                                radius=int(9 * s), outline=color, width=int(6 * s))
+    elif kind == "window":
+        R(-108, -80, 108, 80, r=14)
+        L((-108, -44), (108, -44), w=6)
+        for i, x in enumerate((-88, -66, -44)):
+            E(x - 7, -62, x + 7, -48, w=0, fill=color)
+        bob = 0 if t is None else math.sin(t * 2 * math.pi) * 5
+        L((-70, -8 + bob), (30, -8 + bob), w=8)
+        L((-70, 24 + bob), (66, 24 + bob), w=8)
+        L((-70, 52 + bob), (-4, 52 + bob), w=8)
+    elif kind == "code":
+        sh = 0 if t is None else math.sin(t * 2 * math.pi) * 6
+        L((-30 - sh, -62), (-92 - sh, 0), (-30 - sh, 62), w=9)
+        L((30 + sh, -62), (92 + sh, 0), (30 + sh, 62), w=9)
+        L((14, -74), (-14, 74), w=9)
+    elif kind == "nodes":
+        pulse = 0 if t is None else math.sin(t * 2 * math.pi) * 6
+        pts = [(-96, -56), (-96, 56), (0, 0 + pulse), (96, -56), (96, 56)]
+        for a, b in ((0, 2), (1, 2), (2, 3), (2, 4)):
+            d.line([cx + pts[a][0] * s, cy + pts[a][1] * s,
+                    cx + pts[b][0] * s, cy + pts[b][1] * s],
+                   fill=tuple(int(c * 0.5) for c in color), width=int(5 * s))
+        for i, (px, py) in enumerate(pts):
+            r = 26 if i == 2 else 20
+            d.ellipse([cx + (px - r) * s, cy + (py - r) * s,
+                       cx + (px + r) * s, cy + (py + r) * s],
+                      outline=color, width=int(7 * s),
+                      fill=color if i == 2 else None)
+    elif kind == "shapes":
+        spin = 0 if t is None else math.sin(t * 2 * math.pi) * 8
+        E(-96, -76, -16, 4, w=8)
+        d.polygon([(cx + 24 * s, cy + (-70 + spin) * s),
+                   (cx + 96 * s, cy + (6 + spin) * s),
+                   (cx - 48 * s, cy + (6 + spin) * s)],
+                  outline=color, width=int(8 * s))
+        R(-58, 26, 26, 90, r=10, w=8)
     elif kind == "filmstrip":
         sl = 0 if t is None else math.sin(t * 2 * math.pi) * 6
         R(-105, -70, 105, 70, r=10)
@@ -260,19 +308,21 @@ def glyph(d, cx, cy, kind, color, s=1.0, t=None):
 LAST_PANEL = None
 
 
-def icon_panel(img, kind, top, height=360, t=None, draw_glyph=True):
+def icon_panel(img, kind, top, height=360, t=None, draw_glyph=True, hero=False):
     """A glowing panel with a glyph in it, used when there is no screenshot."""
-    w = 460
+    w = 640 if hero else 460
     x0, x1 = (W - w) / 2, (W + w) / 2
     y0, y1 = top, top + height
     img = glow_behind(img, [x0 + 40, y0 + 40, x1 - 40, y1 - 40], radius=80)
     d = ImageDraw.Draw(img)
     global LAST_PANEL
     LAST_PANEL = (int(x0), int(y0), int(x1), int(y1))
-    d.rounded_rectangle([x0, y0, x1, y1], radius=24, fill=(19, 25, 29),
-                        outline=GREEN_DIM, width=3)
+    if not hero:
+        d.rounded_rectangle([x0, y0, x1, y1], radius=24, fill=(19, 25, 29),
+                            outline=GREEN_DIM, width=3)
     if draw_glyph:
-        glyph(d, (x0 + x1) / 2, (y0 + y1) / 2, kind, GREEN, s=1.0, t=t)
+        glyph(d, (x0 + x1) / 2, (y0 + y1) / 2, kind, GREEN,
+              s=1.55 if hero else 1.0, t=t)
     return img
 
 
@@ -320,7 +370,7 @@ def render(slide, deck_dir, draw_glyph=True):
     pic = None
     icon_h = 0
     if slide.get("icon") and not slide.get("image"):
-        icon_h = min(380, max(260, avail))
+        icon_h = min(500 if slide.get("hero") else 380, max(260, avail))
     if slide.get("image"):
         p = Path(slide["image"])
         if not p.is_absolute():
@@ -361,7 +411,8 @@ def render(slide, deck_dir, draw_glyph=True):
         d_y = py + pic.height
     elif icon_h:
         py = d_y + GAP_BLOCK
-        img = icon_panel(img, slide["icon"], py, icon_h, draw_glyph=draw_glyph)
+        img = icon_panel(img, slide["icon"], py, icon_h, draw_glyph=draw_glyph,
+                         hero=bool(slide.get("hero")))
         d_y = py + icon_h
     if close_lines:
         draw_runs(img, close_lines, close_space, d_y + GAP_BLOCK,
