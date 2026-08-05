@@ -201,6 +201,26 @@ def glyph(d, cx, cy, kind, color, s=1.0, t=None):
         R(46, -56, 118, 34, r=10)
         d.polygon([(cx + 68 * s, cy - 30 * s), (cx + 68 * s, cy + 10 * s),
                    (cx + 100 * s, cy - 10 * s)], fill=color)
+    elif kind == "filmstrip":
+        sl = 0 if t is None else math.sin(t * 2 * math.pi) * 6
+        R(-105, -70, 105, 70, r=10)
+        for x in (-105, 105):
+            for yy in (-52, -18, 16, 50):
+                d.rounded_rectangle([cx + (x - 16) * s, cy + (yy - 11) * s,
+                                     cx + (x + 16) * s, cy + (yy + 11) * s],
+                                    radius=int(4 * s), fill=color)
+        for i in range(3):
+            xx = -56 + i * 56 + sl
+            L((xx, -34), (xx, 34), w=6)
+    elif kind == "motion":
+        sh = 0 if t is None else math.sin(t * 2 * math.pi) * 16
+        R(28 + sh, -34, 96 + sh, 34, r=12, w=8)
+        for i, a in enumerate((0.55, 0.32, 0.16)):
+            off = -34 - i * 34 + sh
+            d.rounded_rectangle([cx + (off - 30) * s, cy - 26 * s,
+                                 cx + (off + 30) * s, cy + 26 * s],
+                                radius=int(10 * s),
+                                outline=tuple(int(c * a) for c in color), width=int(6 * s))
     elif kind == "clone":
         gap = 0 if t is None else math.sin(t * 2 * math.pi) * 5
         for side, sign in ((-1, -1), (1, 1)):
