@@ -1,0 +1,47 @@
+{
+  "name": "things-ai-part1",
+  "slides": [
+    {
+      "headline": "THINGS YOU DIDN'T KNOW *AI could do*",
+      "body": "Part 1. Five I actually used this week. Not one of them is a chatbot.",
+      "image": "shots/ai-hero.png",
+      "close": "Number 2 is the one *nobody believes until they try it*."
+    },
+    {
+      "headline": "FIX *garbage audio* FOR FREE",
+      "body": "Drop in a recording with room echo or a bad mic and it comes back sounding like it was done in a studio.",
+      "image": "shots/ai-adobe.png",
+      "close": "podcast.adobe.com/enhance. *Free, no signup wall.*"
+    },
+    {
+      "headline": "FIND *any spoken phrase* ON YOUTUBE",
+      "body": "Type a phrase and it searches across more than a billion videos and hands you the exact timestamp where someone said it.",
+      "image": "shots/ai-filmot.png",
+      "close": "filmot.com. *Free.*"
+    },
+    {
+      "headline": "MAKE IMAGES WITH *readable text*",
+      "body": "Most image models turn words into scrambled letters. This one renders text you can actually read.",
+      "image": "shots/ai-nanobanana.png",
+      "close": "Which means it makes *your covers and your thumbnails*."
+    },
+    {
+      "headline": "TURN A PHOTO INTO *a video clip*",
+      "body": "Upload a still, describe the motion you want, and get a few seconds of moving footage back.",
+      "image": "shots/ai-kling.png",
+      "close": "This is where most of the b roll you scroll past *actually comes from*."
+    },
+    {
+      "headline": "STRIP THE MUSIC OFF *any clip*",
+      "body": "Separates the voice from the background track so you can keep only the part you wanted.",
+      "image": "shots/ai-vocalremover.png",
+      "close": "vocalremover.org. *Free, runs in your browser.*"
+    },
+    {
+      "headline": "COMMENT *HIDDEN*",
+      "body": "I will send you all five with the links, no hunting required.",
+      "image": "",
+      "close": "Free, no email needed. Save this and *send it to someone who thinks AI is just chatbots*."
+    }
+  ]
+}
