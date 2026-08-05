@@ -130,8 +130,14 @@ def rounded(im, radius=18):
     return out
 
 
-def glyph(d, cx, cy, kind, color, s=1.0):
-    """Simple line art, drawn to sit inside a 300px box."""
+def glyph(d, cx, cy, kind, color, s=1.0, t=None):
+    """Simple line art, drawn to sit inside a 300px box.
+
+    t is a 0..1 loop position. Motion is driven by sin so the loop is seamless.
+    """
+    import math
+    ph = 0.0 if t is None else math.sin(t * 2 * math.pi)
+    cy = cy + ph * 6
     def L(*pts, w=7):
         d.line([(cx + x * s, cy + y * s) for x, y in pts], fill=color, width=int(w * s))
 
@@ -155,25 +161,32 @@ def glyph(d, cx, cy, kind, color, s=1.0):
     elif kind == "chip":
         R(-62, -62, 62, 62, r=10)
         R(-26, -26, 26, 26, r=6, w=6)
+        e = 0 if t is None else math.sin(t * 2 * math.pi) * 8
         for off in (-34, 0, 34):
-            L((off, -95), (off, -62)); L((off, 62), (off, 95))
-            L((-95, off), (-62, off)); L((62, off), (95, off))
+            L((off, -95 - e), (off, -62)); L((off, 62), (off, 95 + e))
+            L((-95 - e, off), (-62, off)); L((62, off), (95 + e, off))
     elif kind == "search":
-        E(-90, -90, 34, 34, w=8)
-        L((26, 26), (92, 92), w=10)
+        ox = 0 if t is None else math.cos(t * 2 * math.pi) * 10
+        oy = 0 if t is None else math.sin(t * 2 * math.pi) * 10
+        E(-90 + ox, -90 + oy, 34 + ox, 34 + oy, w=8)
+        L((26 + ox, 26 + oy), (92, 92), w=10)
     elif kind == "inbox":
         R(-95, -62, 95, 62, r=12)
         L((-95, -62), (0, 16), (95, -62), w=7)
     elif kind == "wave":
         for i, h in enumerate((22, 54, 90, 46, 74, 30, 60, 18)):
             x = -84 + i * 24
+            if t is not None:
+                h = 18 + abs(h - 18) * (0.55 + 0.45 * math.sin((t + i * 0.11) * 2 * math.pi))
             L((x, -h), (x, h), w=9)
     elif kind == "videosearch":
         R(-95, -72, 60, 52, r=12)
         d.polygon([(cx - 30 * s, cy - 34 * s), (cx - 30 * s, cy + 14 * s),
                    (cx + 14 * s, cy - 10 * s)], fill=color)
-        E(20, 10, 96, 86, w=8)
-        L((86, 76), (110, 100), w=9)
+        ox = 0 if t is None else math.cos(t * 2 * math.pi) * 9
+        oy = 0 if t is None else math.sin(t * 2 * math.pi) * 9
+        E(20 + ox, 10 + oy, 96 + ox, 86 + oy, w=8)
+        L((86 + ox, 76 + oy), (110, 100), w=9)
     elif kind == "textimage":
         R(-95, -70, 95, 70, r=14)
         L((-46, 30), (-14, -34), (18, 30), w=8)
@@ -182,46 +195,49 @@ def glyph(d, cx, cy, kind, color, s=1.0):
         L((30, -34), (58, -34), w=8)
     elif kind == "tovideo":
         R(-108, -56, -18, 34, r=10)
-        L((-4, -10), (34, -10), w=8)
-        L((22, -24), (36, -10), (22, 4), w=8)
+        ax = 0 if t is None else math.sin(t * 2 * math.pi) * 7
+        L((-4 + ax, -10), (34 + ax, -10), w=8)
+        L((22 + ax, -24), (36 + ax, -10), (22 + ax, 4), w=8)
         R(46, -56, 118, 34, r=10)
         d.polygon([(cx + 68 * s, cy - 30 * s), (cx + 68 * s, cy + 10 * s),
                    (cx + 100 * s, cy - 10 * s)], fill=color)
     elif kind == "split":
+        sp = 0 if t is None else math.sin(t * 2 * math.pi) * 12
         for i, h in enumerate((26, 58, 84, 40)):
-            x = -92 + i * 22
+            x = -92 + i * 22 - sp
             L((x, -h - 20), (x, h - 20), w=9)
         for i, h in enumerate((34, 70, 44, 22)):
-            x = 12 + i * 22
+            x = 12 + i * 22 + sp
             L((x, -h + 30), (x, h + 30), w=9)
         L((-8, -100), (-8, 100), w=4)
 
 
-def icon_panel(img, kind, top, height=360):
+LAST_PANEL = None
+
+
+def icon_panel(img, kind, top, height=360, t=None, draw_glyph=True):
     """A glowing panel with a glyph in it, used when there is no screenshot."""
     w = 460
     x0, x1 = (W - w) / 2, (W + w) / 2
     y0, y1 = top, top + height
     img = glow_behind(img, [x0 + 40, y0 + 40, x1 - 40, y1 - 40], radius=80)
     d = ImageDraw.Draw(img)
+    global LAST_PANEL
+    LAST_PANEL = (int(x0), int(y0), int(x1), int(y1))
     d.rounded_rectangle([x0, y0, x1, y1], radius=24, fill=(19, 25, 29),
                         outline=GREEN_DIM, width=3)
-    glyph(d, (x0 + x1) / 2, (y0 + y1) / 2, kind, GREEN, s=1.0)
+    if draw_glyph:
+        glyph(d, (x0 + x1) / 2, (y0 + y1) / 2, kind, GREEN, s=1.0, t=t)
     return img
 
 
-def grain(img, amount=10):
-    px = img.load()
-    for y in range(H):
-        for x in range(W):
-            n = random.randint(-amount, amount)
-            r, g, b = px[x, y]
-            px[x, y] = (max(0, min(255, r + n)), max(0, min(255, g + n)),
-                        max(0, min(255, b + n)))
-    return img
+def grain(img, sigma=11):
+    """Film grain. PIL's effect_noise is C speed, a Python pixel loop is not."""
+    noise = Image.effect_noise((img.width, img.height), sigma).convert("RGB")
+    return ImageChops.add(img, noise, scale=1, offset=-128)
 
 
-def render(slide, deck_dir):
+def render(slide, deck_dir, draw_glyph=True):
     img = Image.new("RGB", (W, H), BG)
 
     bf_plain, bf_accent = sans(BODY_SIZE, bold=False), serif(BODY_SIZE - 2)
@@ -300,7 +316,7 @@ def render(slide, deck_dir):
         d_y = py + pic.height
     elif icon_h:
         py = d_y + GAP_BLOCK
-        img = icon_panel(img, slide["icon"], py, icon_h)
+        img = icon_panel(img, slide["icon"], py, icon_h, draw_glyph=draw_glyph)
         d_y = py + icon_h
     if close_lines:
         draw_runs(img, close_lines, close_space, d_y + GAP_BLOCK,
