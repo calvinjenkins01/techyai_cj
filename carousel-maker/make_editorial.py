@@ -201,6 +201,31 @@ def glyph(d, cx, cy, kind, color, s=1.0, t=None):
         R(46, -56, 118, 34, r=10)
         d.polygon([(cx + 68 * s, cy - 30 * s), (cx + 68 * s, cy + 10 * s),
                    (cx + 100 * s, cy - 10 * s)], fill=color)
+    elif kind == "clone":
+        gap = 0 if t is None else math.sin(t * 2 * math.pi) * 5
+        for side, sign in ((-1, -1), (1, 1)):
+            base = side * 58 + sign * gap
+            for i, h in enumerate((28, 62, 40, 74, 34)):
+                L((base + (i - 2) * 17, -h), (base + (i - 2) * 17, h), w=8)
+        L((-8, -14), (8, -14), w=6)
+        L((-8, 14), (8, 14), w=6)
+    elif kind == "docwave":
+        R(-112, -78, -22, 78, r=12)
+        for y in (-42, -12, 18):
+            L((-92, y), (-42, y), w=6)
+        for i, h in enumerate((22, 52, 34, 66, 30)):
+            if t is not None:
+                h = 18 + abs(h - 18) * (0.55 + 0.45 * math.sin((t + i * 0.13) * 2 * math.pi))
+            x = 6 + i * 24
+            L((x, -h), (x, h), w=8)
+    elif kind == "note":
+        bob = 0 if t is None else math.sin(t * 2 * math.pi) * 5
+        E(-92, 30 + bob, -30, 84 + bob, w=8)
+        L((-30, 57 + bob), (-30, -76 + bob), w=8)
+        E(28, 6 + bob, 90, 60 + bob, w=8)
+        L((90, 33 + bob), (90, -96 + bob), w=8)
+        L((-30, -76 + bob), (90, -96 + bob), w=8)
+        L((-30, -44 + bob), (90, -64 + bob), w=8)
     elif kind == "split":
         sp = 0 if t is None else math.sin(t * 2 * math.pi) * 12
         for i, h in enumerate((26, 58, 84, 40)):
