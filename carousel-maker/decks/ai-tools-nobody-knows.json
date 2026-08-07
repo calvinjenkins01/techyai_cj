@@ -1,0 +1,51 @@
+{
+  "name": "ai-tools-nobody-knows",
+  "slides": [
+    {
+      "headline": "6 AI TOOLS *nobody told you about*",
+      "body": "Everyone posts the same five. These six do things you probably assumed needed expensive software, and most of them are free.",
+      "close": "Number 3 is the one that *breaks people's brains*."
+    },
+    {
+      "headline": "FIX *terrible audio* IN ONE DROP",
+      "body": "Adobe Podcast Enhancer takes a recording full of room echo or phone mic mush and hands it back sounding like a studio booth.",
+      "close": "podcast.adobe.com/enhance. *Free, no signup wall.*",
+      "icon": "wave"
+    },
+    {
+      "headline": "SEARCH *what people said* ON YOUTUBE",
+      "body": "Filmot indexes the spoken words inside more than a billion videos. Type a phrase and it gives you the exact timestamp.",
+      "close": "filmot.com. You can narrow it to *one specific channel*.",
+      "icon": "videosearch"
+    },
+    {
+      "headline": "FIND ANY LINE IN *any movie*",
+      "body": "Playphrase searches film and TV dialogue. Type a sentence and it plays back every scene where someone said it.",
+      "close": "playphrase.me. *Free, and genuinely a time sink.*",
+      "icon": "filmstrip"
+    },
+    {
+      "headline": "PULL THE MUSIC OFF *any clip*",
+      "body": "Vocal Remover separates the voice from the background track, so you can keep the part you actually wanted.",
+      "close": "vocalremover.org. *Runs in the browser, nothing to install.*",
+      "icon": "split"
+    },
+    {
+      "headline": "SEARCH *every podcast* AT ONCE",
+      "body": "Dexa lets you ask a question and finds the moment a host actually answered it, across shows you have never listened to.",
+      "close": "dexa.ai. Stop scrubbing through *two hour episodes*.",
+      "icon": "search"
+    },
+    {
+      "headline": "MAKE ANIMATIONS WITHOUT *After Effects*",
+      "body": "Jitter is motion design in a browser. Drag things around, it handles the animation, you export a clean clip.",
+      "close": "jitter.video. What used to take a designer *takes ten minutes*.",
+      "icon": "motion"
+    },
+    {
+      "headline": "COMMENT *HIDDEN*",
+      "body": "I will send you all six with the links, plus which ones are completely free.",
+      "close": "No email needed. Save this and *send it to whoever still pays for this stuff*."
+    }
+  ]
+}

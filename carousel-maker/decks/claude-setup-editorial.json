@@ -1,0 +1,47 @@
+{
+  "name": "claude-setup-editorial",
+  "slides": [
+    {
+      "headline": "SET UP CLAUDE *the right way*",
+      "body": "Five things to turn on before you ask it a single question. Takes *five minutes*.",
+      "image": "shots/setup-hero.png",
+      "close": "Most people skip every one of these and then say AI is *overrated*."
+    },
+    {
+      "headline": "THE *profile* BOX",
+      "body": "Settings, then Profile. The box asking what Claude should know about you.",
+      "image": "shots/profile-box.png",
+      "close": "It reads that before *every single chat* you ever have."
+    },
+    {
+      "headline": "TURN ON *memory*",
+      "body": "One switch on the same settings page.",
+      "image": "shots/memory-toggle.png",
+      "close": "What you told it Tuesday is *still there Friday*."
+    },
+    {
+      "headline": "ONE PROJECT PER *ongoing thing*",
+      "body": "Job hunt, side business, one class. Your files go in one time.",
+      "image": "shots/projects.png",
+      "close": "Every chat inside it already knows *your whole situation*."
+    },
+    {
+      "headline": "CHECK *which model* YOU ARE ON",
+      "body": "Tap the model name at the top of your chat. There is a list in there, and a setting for how hard it thinks.",
+      "image": "shots/model-picker.png",
+      "close": "The quick one is for quick questions. *Everything else deserves better.*"
+    },
+    {
+      "headline": "LET CLAUDE *interview you*",
+      "body": "You do not have to write that profile yourself. Tell it to interview you and write it for you.",
+      "image": "shots/interview.png",
+      "close": "It asks better questions than *I would have*."
+    },
+    {
+      "headline": "COMMENT *SETUP*",
+      "body": "I will send you the free guide with my exact profile text and all five steps written out.",
+      "image": "",
+      "close": "Free, no email needed. Save this and send it to whoever *just downloaded Claude*."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "things-ai-part3",
+  "slides": [
+    {
+      "headline": "THINGS YOU DIDN'T KNOW *AI could do*",
+      "body": "Part 3. Five tools that do something you probably assumed was impossible. I am a software developer and I used all five this week.",
+      "close": "Number 1 is the one *nobody believes until they hear it*."
+    },
+    {
+      "headline": "IT CAN *clone your voice*",
+      "body": "ElevenLabs takes about a minute of you talking and builds a copy of your voice. Type anything and it says it back, sounding like you.",
+      "close": "It will also speak languages *you do not speak*.",
+      "icon": "clone"
+    },
+    {
+      "headline": "IT TURNS YOUR NOTES INTO *a podcast*",
+      "body": "Drop your documents into NotebookLM and hit audio overview. Two hosts show up and discuss your files like a real show.",
+      "close": "Your own notes, in your ears, *on the drive to work*.",
+      "icon": "docwave"
+    },
+    {
+      "headline": "IT WRITES *actual songs*",
+      "body": "Suno takes one sentence and hands you back a full track. Vocals, instruments, structure, all of it.",
+      "close": "People are using it for background music and *nobody can tell*.",
+      "icon": "note"
+    },
+    {
+      "headline": "IT MAKES IMAGES WITH *readable text*",
+      "body": "Nano Banana Pro renders words you can actually read. Almost every other image model turns text into scrambled letters.",
+      "close": "Which is why it can make *your covers and your thumbnails*.",
+      "icon": "textimage"
+    },
+    {
+      "headline": "IT TURNS A PHOTO INTO *a video*",
+      "body": "Upload one still to Kling, describe the motion you want, and get moving footage back a minute later.",
+      "close": "Most of the b roll you scroll past *started as a single image*.",
+      "icon": "tovideo"
+    },
+    {
+      "headline": "COMMENT *HIDDEN*",
+      "body": "I will send you all five with the links, plus which ones are free.",
+      "close": "No email needed. Save this and *send it to someone who thinks AI is just chatbots*."
+    }
+  ]
+}

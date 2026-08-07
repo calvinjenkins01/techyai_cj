@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# rendered carousel video slides, re render with make_editorial_video.py
+carousel-maker/out/*.mp4
+carousel-maker/out/*FULL*.mp4

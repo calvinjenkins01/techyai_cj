@@ -1,0 +1,45 @@
+{
+  "name": "things-claude-part3",
+  "slides": [
+    {
+      "headline": "THINGS YOU DIDN'T KNOW *Claude could do*",
+      "body": "Part 3. Five features almost nobody touches, from a software developer who uses it every day.",
+      "close": "Parts 1 and 2 are on my page. *Number 4 is the one that got me.*"
+    },
+    {
+      "headline": "IT MAKES *real files*",
+      "body": "Ask for a budget and you get an actual spreadsheet with working formulas, not a table you have to rebuild yourself.",
+      "close": "Same for docs, slides, and PDFs. They *open and they work*.",
+      "icon": "file"
+    },
+    {
+      "headline": "IT READS *your screenshots*",
+      "body": "Paste a photo of a receipt, a graph, or a page too dense to read and it pulls the values out.",
+      "close": "Not a guess at the numbers. *The actual numbers.*",
+      "icon": "image"
+    },
+    {
+      "headline": "IT *remembers you*",
+      "body": "Turn memory on in settings and it carries what it learns about you from one chat to the next.",
+      "close": "You stop re explaining your job *every single morning*.",
+      "icon": "chip"
+    },
+    {
+      "headline": "IT DOES *real research*",
+      "body": "Switch on research and it goes and reads dozens of sources, then writes you a report with the links it used.",
+      "close": "A few minutes of waiting *beats an afternoon of tabs*.",
+      "icon": "search"
+    },
+    {
+      "headline": "IT CONNECTS TO *your inbox*",
+      "body": "Hook up your email and calendar and it can look at what is actually in there before it answers you.",
+      "close": "Ask what am I missing this week and it *actually knows*.",
+      "icon": "inbox"
+    },
+    {
+      "headline": "COMMENT *THREE*",
+      "body": "I will send you all five written out with exactly where to find each one.",
+      "close": "Free, no email needed. Parts 1 and 2 are on my page, and *part 4 drops next week*."
+    }
+  ]
+}

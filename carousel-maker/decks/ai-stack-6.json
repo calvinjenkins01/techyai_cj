@@ -1,0 +1,53 @@
+{
+  "name": "ai-stack-6",
+  "slides": [
+    {
+      "headline": "AI TOOLS *you didn't know about*",
+      "body": "Six of them, quietly running real work right now.",
+      "icon": "constellation",
+      "hero": true,
+      "close": "You've heard of maybe two. *Number 3 is the one that breaks people.*"
+    },
+    {
+      "headline": "ELEVENLABS *clones your voice*",
+      "body": "Record about a minute of yourself talking. It builds a copy of your voice, then reads anything you type in it. Your accent, your pacing, the way you pause.",
+      "close": "Then it speaks Spanish and Japanese in that voice. *Languages you have never spoken.*",
+      "icon": "clone"
+    },
+    {
+      "headline": "NOTEBOOKLM MAKES *a podcast about you*",
+      "body": "Upload your notes, your PDFs, a messy folder of research. Hit audio overview and two hosts start discussing your files, with tangents and interruptions like a real show.",
+      "close": "A podcast about documents *only you have ever read*.",
+      "icon": "docwave"
+    },
+    {
+      "headline": "LOVABLE *builds the whole app*",
+      "body": "Type what you want in plain English. It writes the code, builds the pages, sets up the database, puts the thing on the internet, and hands you a working link.",
+      "close": "People are launching real products from their phone. *No editor, no server, no code.*",
+      "icon": "window"
+    },
+    {
+      "headline": "CURSOR *writes code with you*",
+      "body": "A real code editor with AI wired into every keystroke. It reads your entire project before it touches anything, so what it writes matches the code you already have.",
+      "close": "One sentence from you and it edits *nine files at once*.",
+      "icon": "code"
+    },
+    {
+      "headline": "N8N *wires your apps together*",
+      "body": "Drag boxes onto a canvas and draw lines between them. Now a form fills your spreadsheet, sends the email, and texts your phone without you being there.",
+      "close": "It runs while you sleep and *you never wrote a line of code*.",
+      "icon": "nodes"
+    },
+    {
+      "headline": "FIGMA *builds it while you watch*",
+      "body": "The design tool every company already uses. Describe a screen and it generates a real layout you can click through, not a flat picture of one.",
+      "close": "The distance between an idea and something you can tap *is basically gone*.",
+      "icon": "shapes"
+    },
+    {
+      "headline": "COMMENT *STACK*",
+      "body": "I will send you all six with the links and which ones have a real free tier you can use today.",
+      "close": "No email needed. Save this and *send it to whoever keeps asking what to learn*."
+    }
+  ]
+}
