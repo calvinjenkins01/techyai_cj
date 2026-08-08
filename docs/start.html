@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Prompts For When You Can't Start | techyai_cj</title>
+<meta name="description" content="Not motivation. Five prompts that make the first move small enough to actually take.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .card {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px 14px 12px; margin-bottom: 10px;
+  }
+  .card .num { color: #78c8a0; font-size: 12px; margin-bottom: 6px; }
+  .card p { font-size: 14px; line-height: 1.55; color: var(--white); }
+  .where { color: var(--amber); font-size: 13px; line-height: 1.55; margin-top: 10px; }
+  .copy {
+    margin-top: 10px; background: #12291c; color: var(--green);
+    border: 1px solid #2e7a4f; border-radius: 7px; font: inherit;
+    font-size: 12px; padding: 6px 12px; cursor: pointer;
+  }
+  .copy:active { transform: scale(.97); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  /* Dark theme for the Kit signup form */
+  .formkit-form[data-uid="56db943269"] {
+    background: #131920 !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 10px !important;
+  }
+  .formkit-form[data-uid="56db943269"] * {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-header,
+  .formkit-form[data-uid="56db943269"] .formkit-header h1,
+  .formkit-form[data-uid="56db943269"] .formkit-header h2 {
+    color: var(--green) !important; font-weight: bold !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader,
+  .formkit-form[data-uid="56db943269"] .formkit-subheader p,
+  .formkit-form[data-uid="56db943269"] .formkit-guarantee,
+  .formkit-form[data-uid="56db943269"] .formkit-guarantee p {
+    color: var(--dim) !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-input {
+    background: #0e1116 !important; color: var(--white) !important;
+    border: 1px solid var(--line) !important; border-radius: 7px !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit,
+  .formkit-form[data-uid="56db943269"] .formkit-submit span {
+    background: #12291c !important; color: var(--green) !important;
+    border: 1px solid #2e7a4f !important; border-radius: 7px !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-alert,
+  .formkit-form[data-uid="56db943269"] .formkit-alert-success {
+    background: #12291c !important; color: var(--green) !important;
+    border: 1px solid #2e7a4f !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit,
+  .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/cant-start</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">← back to guides</a>
+    <h1>When you can&rsquo;t make yourself start 🧠</h1>
+    <p class="intro">From @techyai_cj. It's almost never the work that's hard, it's the first move. These are the five I actually use. None of them are motivational and none of them ask you to feel differently.</p>
+
+    <h2>01 · Make the first step embarrassingly small</h2>
+    <div class="h2sub">the one I use most</div>
+    <div class="card"><p>Most tasks feel impossible because you're holding the whole thing in your head at once. This forces it down to one move.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="s1">Here's what I have to do: [task]. Break it into the smallest possible first step &mdash; something I could finish in under five minutes. Just one step. Don't give me the full plan, don't give me a list, and don't tell me it'll be fine once I get going. One step.</p>
+      <button class="copy" data-target="s1">copy</button></div>
+    <h2>02 · Match the work to the energy you actually have</h2>
+    <div class="h2sub">instead of the energy you wish you had</div>
+    <div class="card"><p>Some days the answer isn't the important task, it's the one you can actually do right now.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="s2">I have about [20] minutes and honestly not much energy. Here's my list: [paste]. Tell me the one thing to do right now that fits what I've actually got, not what I should be doing. If the honest answer is that nothing on the list fits, say that and tell me what to do instead.</p>
+      <button class="copy" data-target="s2">copy</button></div>
+    <h2>03 · Get it out of your head one question at a time</h2>
+    <div class="h2sub">for when it's too tangled to explain</div>
+    <div class="card"><p>Sometimes you can't start because you can't articulate the thing. Don't try to write it all out &mdash; get interviewed instead.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="s3">I need to do something and I can't get it straight in my head. Ask me one question at a time, waiting for each answer, until you understand what I'm actually trying to do. Don't give advice yet. When you've got it, tell it back to me in three sentences.</p>
+      <button class="copy" data-target="s3">copy</button></div>
+    <h2>04 · Reorder the list so it's doable</h2>
+    <div class="h2sub">your order is usually the problem</div>
+    <div class="card"><p>Lists get written in the order things occurred to you, which is almost never the order they should be done in.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="s4">Here's my to-do list: [paste]. Rewrite it in the order I should actually do things, taking into account what blocks what and what's quick. Put one genuinely easy thing first so I get moving. Mark anything that doesn't need doing at all.</p>
+      <button class="copy" data-target="s4">copy</button></div>
+    <h2>05 · Negotiate, don't push through</h2>
+    <div class="h2sub">for the thing you've avoided for a week</div>
+    <div class="card"><p>This one sounds too simple to work. It works anyway.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="s5">I've been avoiding [task] for about a week now and I don't fully know why. Ask me two questions to work out what's actually stopping me. Then talk me into doing ten minutes of it &mdash; not the whole thing, ten minutes. No pep talk, no motivational language, just make the ten minutes sound manageable.</p>
+      <button class="copy" data-target="s5">copy</button></div>
+
+    <p class="note">These work better if your profile is filled in &mdash; it stops the answers coming back generic. There's a separate guide for that.</p>
+    <p class="note">None of this is medical or professional advice. It's just what I use to get moving on days I otherwise wouldn't.</p>
+
+    <div style="margin-top:28px">
+      <script async data-uid="56db943269" src="https://techyaicj.kit.com/56db943269/index.js"></script>
+    </div>
+
+    <div class="cta">
+      <p>I'm a software developer and I post what I actually use every day.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> 🚀<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">© 2026 CJ · free to use, send it to whoever needs it</p>
+  </main>
+</div>
+<script>
+  document.querySelectorAll(".copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var text = document.getElementById(btn.dataset.target).innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = "copied ✓";
+        setTimeout(function () { btn.textContent = "copy"; }, 1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>
