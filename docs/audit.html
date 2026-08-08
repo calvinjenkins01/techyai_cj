@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Subscription Audit | techyai_cj</title>
+<meta name="description" content="One bank statement export and a handful of prompts. Find the recurring charges you forgot about.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .card {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px 14px 12px; margin-bottom: 10px;
+  }
+  .card .num { color: #78c8a0; font-size: 12px; margin-bottom: 6px; }
+  .card p { font-size: 14px; line-height: 1.55; color: var(--white); }
+  .where { color: var(--amber); font-size: 13px; line-height: 1.55; margin-top: 10px; }
+  .copy {
+    margin-top: 10px; background: #12291c; color: var(--green);
+    border: 1px solid #2e7a4f; border-radius: 7px; font: inherit;
+    font-size: 12px; padding: 6px 12px; cursor: pointer;
+  }
+  .copy:active { transform: scale(.97); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  /* Dark theme for the Kit signup form */
+  .formkit-form[data-uid="56db943269"] {
+    background: #131920 !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 10px !important;
+  }
+  .formkit-form[data-uid="56db943269"] * {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-header,
+  .formkit-form[data-uid="56db943269"] .formkit-header h1,
+  .formkit-form[data-uid="56db943269"] .formkit-header h2 {
+    color: var(--green) !important; font-weight: bold !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader,
+  .formkit-form[data-uid="56db943269"] .formkit-subheader p,
+  .formkit-form[data-uid="56db943269"] .formkit-guarantee,
+  .formkit-form[data-uid="56db943269"] .formkit-guarantee p {
+    color: var(--dim) !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-input {
+    background: #0e1116 !important; color: var(--white) !important;
+    border: 1px solid var(--line) !important; border-radius: 7px !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit,
+  .formkit-form[data-uid="56db943269"] .formkit-submit span {
+    background: #12291c !important; color: var(--green) !important;
+    border: 1px solid #2e7a4f !important; border-radius: 7px !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-alert,
+  .formkit-form[data-uid="56db943269"] .formkit-alert-success {
+    background: #12291c !important; color: var(--green) !important;
+    border: 1px solid #2e7a4f !important;
+  }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit,
+  .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/subscription-audit</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">← back to guides</a>
+    <h1>The subscription audit 💸</h1>
+    <p class="intro">From @techyai_cj. One export, four prompts, about fifteen minutes. Most people find at least one thing they genuinely forgot they were paying for.</p>
+
+    <h2>00 · Before you paste anything</h2>
+    <div class="h2sub">read this first, it takes ten seconds</div>
+    <div class="card"><p>Export a statement, then <strong>delete your full account number, sort code, and running balance</strong> before it goes anywhere. You only need the date, the merchant, and the amount. Nothing else is required to do this and nothing else should be in there.</p>
+      <p class="where">HOW: most banks let you export CSV or PDF from the statements page. Open it, delete the columns you don't need, save a copy.</p></div>
+    <h2>01 · Find everything recurring</h2>
+    <div class="h2sub">start wide</div>
+    <div class="card"><p>Recurring charges hide because they're small and they're regular &mdash; the two things that make your eye skip them.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="a1">Here are my transactions for the last three months. Find every charge that looks recurring &mdash; same merchant, roughly the same amount, roughly monthly or yearly. List them as a table: merchant, amount, how often, and my estimated annual spend on each. Sort by annual spend, highest first. Include anything that only appeared once or twice if it looks like a subscription that just started.</p>
+      <button class="copy" data-target="a1">copy</button></div>
+    <h2>02 · The one that hurts</h2>
+    <div class="h2sub">what you're paying for and not using</div>
+    <div class="card"><p>Ask it to make you defend each one. It's uncomfortable and that's the point.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="a2">From that list, go through them one at a time and ask me when I last actually used it. Just one at a time, wait for my answer. At the end, give me three columns: cancel now, worth keeping, and think about it. Total up what cancelling the first column would save me per year.</p>
+      <button class="copy" data-target="a2">copy</button></div>
+    <h2>03 · Silent price rises</h2>
+    <div class="h2sub">the sneaky one</div>
+    <div class="card"><p>Subscriptions go up quietly and the email announcing it goes to a folder you never open.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="a3">Looking at the same merchants over the whole period: did any of them change price? Show me the old amount, the new amount, when it changed, and what the increase costs me per year. Flag anything that went up more than 10%.</p>
+      <button class="copy" data-target="a3">copy</button></div>
+    <h2>04 · Actually cancel them</h2>
+    <div class="h2sub">where these audits usually die</div>
+    <div class="card"><p>Knowing is not saving. The list is worthless if it sits there.</p>
+      <p class="where" style="color:var(--dim)">Copy:</p>
+      <p id="a4">For each thing on my cancel list, tell me exactly where to go to cancel it &mdash; the specific page or setting, not just &lsquo;contact support&rsquo;. Order them by how much they cost me, most expensive first. If any of them are known for being difficult to cancel, warn me and tell me what to expect.</p>
+      <button class="copy" data-target="a4">copy</button></div>
+    <h2>05 · Put it on a repeat</h2>
+    <div class="h2sub">so it doesn't creep back</div>
+    <div class="card"><p>Subscriptions accumulate again. Six months from now there'll be new ones. Set a reminder to run this exact process twice a year and you'll never be more than six months out of date.</p></div>
+
+    <p class="note">Redact first. Date, merchant, amount &mdash; that's genuinely all this needs.</p>
+    <p class="note">If your bank exports CSV, this whole thing takes about fifteen minutes. If it's PDF only, you may need to convert it first.</p>
+
+    <div style="margin-top:28px">
+      <script async data-uid="56db943269" src="https://techyaicj.kit.com/56db943269/index.js"></script>
+    </div>
+
+    <div class="cta">
+      <p>I'm a software developer and I post what I actually use every day.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> 🚀<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">© 2026 CJ · free to use, send it to whoever needs it</p>
+  </main>
+</div>
+<script>
+  document.querySelectorAll(".copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var text = document.getElementById(btn.dataset.target).innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = "copied ✓";
+        setTimeout(function () { btn.textContent = "copy"; }, 1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>
