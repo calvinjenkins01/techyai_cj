@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>25 Claude Automations | techyai_cj</title>
+<meta name="description" content="25 things you can automate with Claude this weekend, with how to start each one. Four of them run on my machine today.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  .intro b { color: var(--green); }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 10px; }
+  .item {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 13px 14px 11px; margin-bottom: 9px;
+  }
+  .item .t { font-size: 14px; line-height: 1.5; color: var(--white); font-weight: bold; }
+  .item .t em { font-style: normal; color: var(--green); font-size: 13px; }
+  .item .h { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--dim); }
+  .item .h a { color: var(--green); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  .formkit-form[data-uid="56db943269"] { background: #131920 !important; border: 1px solid var(--line) !important; border-radius: 10px !important; }
+  .formkit-form[data-uid="56db943269"] * { font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-header, .formkit-form[data-uid="56db943269"] .formkit-header h1, .formkit-form[data-uid="56db943269"] .formkit-header h2 { color: var(--green) !important; font-weight: bold !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader, .formkit-form[data-uid="56db943269"] .formkit-subheader p, .formkit-form[data-uid="56db943269"] .formkit-guarantee, .formkit-form[data-uid="56db943269"] .formkit-guarantee p { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input { background: #0e1116 !important; color: var(--white) !important; border: 1px solid var(--line) !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit, .formkit-form[data-uid="56db943269"] .formkit-submit span { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-alert, .formkit-form[data-uid="56db943269"] .formkit-alert-success { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit, .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/automations</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">← back to guides</a>
+    <h1>25 Claude automations 🤖</h1>
+    <p class="intro">From @techyai_cj. Everything on this list is buildable in a weekend, most in an evening. The <b>✓ running on mine</b> tags are real: those four run on my machine today, and each links to the full guide. Start with exactly one. Mine started with the morning text.</p>
+
+    <h2>Mornings</h2>
+    <div class="item"><div class="t">01 Your day, planned, sent to you before you wake up</div>
+      <div class="h">A scheduled task reads your calendar and notes, writes a brief, delivers it. The whole build, no coding: <a href="agent.html">the morning agent guide</a>.</div></div>
+    <div class="item"><div class="t">02 Inbox triage, the two emails that matter pulled out</div>
+      <div class="h">Connect Gmail, schedule one prompt that pulls out only what needs you. The filter prompts: <a href="inbox.html">the inbox brief guide</a>.</div></div>
+    <div class="item"><div class="t">03 A text with your checklist for the day <em>✓ running on mine, six am</em></div>
+      <div class="h">Mine writes a text file on a schedule and an iPhone Shortcut texts it to me at six. The simple version is the morning agent guide with SMS as the delivery.</div></div>
+    <div class="item"><div class="t">04 Weather and commute in one line before you leave</div>
+      <div class="h">Add weather to the morning brief prompt: one line, leave time, umbrella yes or no. Works inside automation 01, not as a separate build.</div></div>
+    <div class="item"><div class="t">05 A news digest of only your topics, hype removed</div>
+      <div class="h">Scheduled prompt: my three topics, five bullets, skip anything that is an announcement of an announcement. Start in the Claude app's scheduled tasks.</div></div>
+
+    <h2>Work</h2>
+    <div class="item"><div class="t">06 A work log written at six pm <em>✓ running on mine</em></div>
+      <div class="h">End of day it writes what you worked on, what finished, and what quietly ate the time. Two minute version and my automated one: <a href="log.html">the work log guide</a>.</div></div>
+    <div class="item"><div class="t">07 Tomorrow's meetings briefed the night before</div>
+      <div class="h">Scheduled evening prompt against your calendar: who, what they'll want, the one thing to prepare. Needs the calendar connector on.</div></div>
+    <div class="item"><div class="t">08 The weekly review that writes its own first draft</div>
+      <div class="h">Friday task: read my work logs from the week and draft the review, wins first. Five daily logs in, one review out, you edit instead of remember.</div></div>
+    <div class="item"><div class="t">09 Follow up nudges for emails nobody answered</div>
+      <div class="h">Weekly prompt over sent mail: everything unanswered after four days, drafted nudge for each, kind and short. Gmail connector, read first, you press send.</div></div>
+    <div class="item"><div class="t">10 Meeting notes turned into a task list automatically</div>
+      <div class="h">Paste or forward the notes, one saved prompt: owners, deadlines, and what I personally owe. Save it as a Project so the format sticks.</div></div>
+
+    <h2>Money</h2>
+    <div class="item"><div class="t">11 Monthly statement roundup, everything recurring listed</div>
+      <div class="h">Export the statement, one prompt lists every recurring charge with amounts. The exact prompts: <a href="audit.html">the subscription audit guide</a>.</div></div>
+    <div class="item"><div class="t">12 Price rise flagger, what quietly got more expensive</div>
+      <div class="h">Same export, second pass: compare against last month, flag anything that went up without telling me. Two statements in, one list out.</div></div>
+    <div class="item"><div class="t">13 Receipts filed into a spreadsheet as they arrive</div>
+      <div class="h">Forward receipts to one folder, weekly prompt turns them into rows: date, merchant, amount, category. Start manual weekly before automating the trigger.</div></div>
+    <div class="item"><div class="t">14 The big purchase interrogation before you buy</div>
+      <div class="h">Five questions, then an honest answer on whether you need it. The full prompt with copy button: <a href="routine.html">the life admin guide</a>, number five.</div></div>
+    <div class="item"><div class="t">15 Renewal warnings two weeks before they hit</div>
+      <div class="h">Keep one renewals note with dates. Weekly scheduled prompt: anything inside fourteen days, tell me now with the cancel path from the audit guide.</div></div>
+
+    <h2>Files</h2>
+    <div class="item"><div class="t">16 The Friday folder sweep, renamed and sorted, nothing deleted without asking</div>
+      <div class="h">Claude Code over your downloads folder: propose renames and moves, apply only after you approve. The never delete rule goes in your <a href="claude-code.html">memory file</a>.</div></div>
+    <div class="item"><div class="t">17 Screenshots described and filed where you'd actually look for them</div>
+      <div class="h">Point Claude Code at the screenshots folder: describe each, rename to what it shows, file by topic. Run it monthly, it pays for itself the first time.</div></div>
+    <div class="item"><div class="t">18 One naming rule enforced across every project</div>
+      <div class="h">Write the rule once in your memory file, then a scheduled sweep flags violations instead of fixing them silently. Boring, and it compounds.</div></div>
+    <div class="item"><div class="t">19 Scattered notes merged into one organized doc</div>
+      <div class="h">Drop the fragments into a Project, one prompt merges and organizes with headings, flagging contradictions instead of guessing. Run per topic.</div></div>
+    <div class="item"><div class="t">20 A backup check that flags anything missing</div>
+      <div class="h">Weekly Claude Code task: compare the backup folder against the source, report anything missing or stale. Report only, restore stays manual.</div></div>
+
+    <h2>Personal</h2>
+    <div class="item"><div class="t">21 Posts and slides rendered from a text file <em>✓ running on mine</em></div>
+      <div class="h">This whole account runs on it: deck text goes in a file, a build script renders every slide. The pattern: Claude Code plus a template, then <a href="claude-code.html">the starter guide</a>.</div></div>
+    <div class="item"><div class="t">22 YouTube videos watched for you, answers with timestamps <em>✓ running on mine</em></div>
+      <div class="h">A free skill, two commands to install. Paste a link, ask what you want to know: <a href="watch.html">the watch guide</a>.</div></div>
+    <div class="item"><div class="t">23 Study quizzes drilled from your own notes</div>
+      <div class="h">One Project with your material, then: quiz me one question at a time and do not move on until I get it right. Full system: <a href="study.html">the study guide</a>.</div></div>
+    <div class="item"><div class="t">24 Fridge contents turned into dinners and a grocery list</div>
+      <div class="h">Three dinners under thirty minutes plus the list for the week. Full prompt with copy button: <a href="routine.html">the life admin guide</a>, number one.</div></div>
+    <div class="item"><div class="t">25 Packing lists built from your trip dates and the weather</div>
+      <div class="h">Trip dates, destination, what's booked: a packing list sorted by bag, with the two things you always forget on top. Save yours as a reusable Project.</div></div>
+
+    <p class="note">The honest pattern in all 25: schedule one prompt, keep the output somewhere you already look, and let it run for a week before you trust it. Anything touching money or deletion stays read only until you've watched it be right a few times.</p>
+
+    <div style="margin-top:28px">
+      <script async data-uid="56db943269" src="https://techyaicj.kit.com/56db943269/index.js"></script>
+    </div>
+
+    <div class="cta">
+      <p>I'm a software developer and I post what I actually run.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> 🚀<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">© 2026 CJ · free to use, send it to the friend who says they have no time</p>
+  </main>
+</div>
+</body>
+</html>
