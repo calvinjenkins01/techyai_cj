@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The content machine | techyai_cj</title>
+<meta name="description" content="How one phone take becomes six videos, captions, covers and a live guide page — the exact Claude Code pipeline I run, station by station, and the first piece to automate yourself.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  .intro b { color: var(--green); }
+  .go {
+    display: block; margin-top: 18px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 14px; text-align: center;
+    color: var(--green); text-decoration: none; font-size: 15px; font-weight: bold;
+  }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .item {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 13px 14px 11px; margin-bottom: 9px;
+  }
+  .item .t { font-size: 14px; line-height: 1.5; color: var(--white); font-weight: bold; }
+  .item .t em { font-style: normal; color: var(--green); font-size: 13px; }
+  .item .h { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--dim); }
+  .item .h a { color: var(--green); }
+  .step { color: var(--white); font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+  .step b { color: var(--green); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  .formkit-form[data-uid="56db943269"] { background: #131920 !important; border: 1px solid var(--line) !important; border-radius: 10px !important; }
+  .formkit-form[data-uid="56db943269"] * { font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-header, .formkit-form[data-uid="56db943269"] .formkit-header h1, .formkit-form[data-uid="56db943269"] .formkit-header h2 { color: var(--green) !important; font-weight: bold !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader, .formkit-form[data-uid="56db943269"] .formkit-subheader p, .formkit-form[data-uid="56db943269"] .formkit-guarantee, .formkit-form[data-uid="56db943269"] .formkit-guarantee p { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input { background: #0e1116 !important; color: var(--white) !important; border: 1px solid var(--line) !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit, .formkit-form[data-uid="56db943269"] .formkit-submit span { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-alert, .formkit-form[data-uid="56db943269"] .formkit-alert-success { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit, .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/machine</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">&larr; back to guides</a>
+    <h1>The content machine &#9881;&#65039;</h1>
+    <p class="intro">From @techyai_cj. I'm a software developer, and my whole posting workflow is <b>one phone take</b> handed to <b>Claude Code</b>. It cuts the footage, builds every format, writes the captions, and ships a page like this one. Here is the machine, station by station, and the first piece worth building yourself.</p>
+
+    <a class="go" href="https://code.claude.com" target="_blank" rel="noopener">Claude Code docs: code.claude.com &rarr;</a>
+
+    <h2>The five stations</h2>
+    <div class="h2sub">each one is Claude Code running scripts in one repo</div>
+    <div class="item"><div class="t">01 &mdash; The cut</div>
+      <div class="h">Transcribes every take locally (<b>faster-whisper</b>), proposes the cuts as a reviewable plan, then applies them: fillers, pauses, retakes, even frames where I look away. <b>ffmpeg</b> does the actual cutting; captions are rebased automatically so nothing drifts.</div></div>
+    <div class="item"><div class="t">02 &mdash; Frame QC</div>
+      <div class="h">Face-crop contact sheets of the whole cut, checked frame by frame. The transcript can't see a dropped eyeline or a blink held too long &mdash; the frames can. Cuts get verified the same way before anything renders.</div></div>
+    <div class="item"><div class="t">03 &mdash; The formats</div>
+      <div class="h">One master cut becomes six versions &mdash; from my terminal-card look to real screen captures in browser chrome. Each format is HTML that renders to video (<b>HyperFrames</b>), so a change is a code edit, not a re-edit.</div></div>
+    <div class="item"><div class="t">04 &mdash; The package</div>
+      <div class="h">Captions for TikTok and Instagram with the keyword line first, cover frames, and the paste-ready DM reply for whoever comments the keyword.</div></div>
+    <div class="item"><div class="t">05 &mdash; The guide page</div>
+      <div class="h">Every keyword points at a real page on this site, built and pushed live in the same run. You are reading station five right now.</div></div>
+
+    <h2>Build station one first</h2>
+    <div class="h2sub">the highest-leverage hour you can spend</div>
+    <p class="step"><b>1.</b> Install <a href="https://code.claude.com" target="_blank" rel="noopener">Claude Code</a> and open an empty folder. That folder becomes your machine.</p>
+    <p class="step"><b>2.</b> Ask it to build a cut pipeline: transcribe with faster-whisper, propose cuts as a reviewable list, apply with ffmpeg. Make it show you the plan before it cuts &mdash; that review step is the difference between an assistant and a slot machine.</p>
+    <p class="step"><b>3.</b> Write a preferences file. Every correction you give it goes in there once, and it reads the file every run. That is how "edit it, you know the drill" becomes a real instruction.</p>
+    <p class="step"><b>4.</b> Only then add stations: formats, captions, covers. One station at a time, on real footage.</p>
+    <p class="note">The machine is not an app you can download &mdash; it is a repo that grows around how you actually work. Mine took shape one correction at a time.</p>
+
+    <div style="margin-top:28px">
+      <script async data-uid="56db943269" src="https://techyaicj.kit.com/56db943269/index.js"></script>
+    </div>
+
+    <div class="cta">
+      <p>I'm a software developer and I post what I actually run.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> &#128640;<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">&copy; 2026 CJ &middot; free to use, send it to whoever keeps asking how you post so much</p>
+  </main>
+</div>
+</body>
+</html>
