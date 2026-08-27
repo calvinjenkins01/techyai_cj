@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI tools that earn their keep in a small business | techyai_cj</title>
+<meta name="description" content="The honest small-business AI list: five tools, what each one is actually for, and which one to set up first depending on your most boring job.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  .intro b { color: var(--green); }
+  .go {
+    display: block; margin-top: 18px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 14px; text-align: center;
+    color: var(--green); text-decoration: none; font-size: 15px; font-weight: bold;
+  }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .item {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 13px 14px 11px; margin-bottom: 9px;
+  }
+  .item .t { font-size: 14px; line-height: 1.5; color: var(--white); font-weight: bold; }
+  .item .t em { font-style: normal; color: var(--green); font-size: 13px; }
+  .item .h { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--dim); }
+  .item .h a { color: var(--green); }
+  .step { color: var(--white); font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+  .step b { color: var(--green); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  .formkit-form[data-uid="56db943269"] { background: #131920 !important; border: 1px solid var(--line) !important; border-radius: 10px !important; }
+  .formkit-form[data-uid="56db943269"] * { font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-header, .formkit-form[data-uid="56db943269"] .formkit-header h1, .formkit-form[data-uid="56db943269"] .formkit-header h2 { color: var(--green) !important; font-weight: bold !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader, .formkit-form[data-uid="56db943269"] .formkit-subheader p, .formkit-form[data-uid="56db943269"] .formkit-guarantee, .formkit-form[data-uid="56db943269"] .formkit-guarantee p { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input { background: #0e1116 !important; color: var(--white) !important; border: 1px solid var(--line) !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit, .formkit-form[data-uid="56db943269"] .formkit-submit span { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-alert, .formkit-form[data-uid="56db943269"] .formkit-alert-success { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit, .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/biz</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">&larr; back to guides</a>
+    <h1>AI tools that earn their keep in a small business &#128295;</h1>
+    <p class="intro">From @techyai_cj. I'm a software developer and this is the <b>honest list</b>, not the sponsored one. Five tools, what each one is actually for, and the rule that makes any of them work: <b>start with one tool on one boring job</b>.</p>
+
+    <h2>The five</h2>
+    <div class="h2sub">in the order I'd explain them to a friend</div>
+    <div class="item"><div class="t">1. Claude <em>the front desk brain</em></div>
+      <div class="h">Quotes written, customer replies handled, the email you've been avoiding answered in your tone. Start at <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> &mdash; and set it up properly with my <a href="setup.html">five-minute setup guide</a>.</div></div>
+    <div class="item"><div class="t">2. Claude Cowork <em>works the files, not just the chat</em></div>
+      <div class="h">Hand it the folder: invoices, quotes, the filing you never get to. It works across your files and tools and hands back finished work for review. It's Anthropic's own product &mdash; <a href="https://claude.com/product/cowork" target="_blank" rel="noopener">claude.com/product/cowork</a>.</div></div>
+    <div class="item"><div class="t">3. Lovable <em>your website from one paragraph</em></div>
+      <div class="h">Describe the business in a paragraph and it builds the site &mdash; live the same day. I've watched it do it. <a href="https://lovable.dev" target="_blank" rel="noopener">lovable.dev</a>.</div></div>
+    <div class="item"><div class="t">4. make.com <em>the quiet one that saves the most hours</em></div>
+      <div class="h">Wires your apps together so the follow-ups send themselves: form comes in, invoice goes out, reminder fires, nobody touched anything. <a href="https://www.make.com" target="_blank" rel="noopener">make.com</a>.</div></div>
+    <div class="item"><div class="t">5. ElevenLabs <em>voiceovers without a studio</em></div>
+      <div class="h">A clean voiceover for your ads without recording ten takes or renting a booth. Type the script, pick a voice. <a href="https://elevenlabs.io" target="_blank" rel="noopener">elevenlabs.io</a>.</div></div>
+
+    <h2>What to set up first</h2>
+    <div class="h2sub">the part that actually decides whether this works</div>
+    <p class="step"><b>1.</b> Pick your most boring recurring job. Not the most impressive one &mdash; the one you keep putting off. Usually it's replying to the same kind of email or chasing the same kind of follow-up.</p>
+    <p class="step"><b>2.</b> Match ONE tool to that job. Email and quotes &rarr; Claude. A folder of filing &rarr; Cowork. No website or an embarrassing one &rarr; Lovable. Follow-ups falling through the cracks &rarr; make.com. Ads you keep not recording &rarr; ElevenLabs.</p>
+    <p class="step"><b>3.</b> Run it on real work the same day. Ten minutes on an actual customer email beats an hour of playing with demos.</p>
+    <p class="step"><b>4.</b> Only add tool number two after tool number one has quietly saved you an hour. That's the whole trick.</p>
+    <p class="note">If the boring job is email, my <a href="inbox.html">inbox guide</a> goes deeper. If it's "we have no website", start with Lovable tonight.</p>
+
+    <div style="margin-top:28px">
+      <script async data-uid="56db943269" src="https://techyaicj.kit.com/56db943269/index.js"></script>
+    </div>
+
+    <div class="cta">
+      <p>I'm a software developer and I post what I actually run.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> &#128640;<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">&copy; 2026 CJ &middot; free to use, send it to whoever runs the business you keep telling about AI</p>
+  </main>
+</div>
+</body>
+</html>
