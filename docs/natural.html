@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The three lines that fix any prompt | techyai_cj</title>
+<meta name="description" content="Stop writing prompts like a robot. Three lines that fix almost any prompt, plus a real before and after from the same request asked two ways.">
+<style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  .intro b { color: var(--green); }
+  .go {
+    display: block; margin-top: 18px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 14px; text-align: center;
+    color: var(--green); text-decoration: none; font-size: 15px; font-weight: bold;
+  }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .item {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 13px 14px 11px; margin-bottom: 9px;
+  }
+  .item .t { font-size: 14px; line-height: 1.5; color: var(--white); font-weight: bold; }
+  .item .t em { font-style: normal; color: var(--green); font-size: 13px; }
+  .item .h { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--dim); }
+  .item .h a { color: var(--green); }
+  .step { color: var(--white); font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+  .step b { color: var(--green); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  .formkit-form[data-uid="56db943269"] { background: #131920 !important; border: 1px solid var(--line) !important; border-radius: 10px !important; }
+  .formkit-form[data-uid="56db943269"] * { font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-header, .formkit-form[data-uid="56db943269"] .formkit-header h1, .formkit-form[data-uid="56db943269"] .formkit-header h2 { color: var(--green) !important; font-weight: bold !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader, .formkit-form[data-uid="56db943269"] .formkit-subheader p, .formkit-form[data-uid="56db943269"] .formkit-guarantee, .formkit-form[data-uid="56db943269"] .formkit-guarantee p { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input { background: #0e1116 !important; color: var(--white) !important; border: 1px solid var(--line) !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit, .formkit-form[data-uid="56db943269"] .formkit-submit span { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-alert, .formkit-form[data-uid="56db943269"] .formkit-alert-success { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit, .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span>cj@techyai:~/guides/natural</span>
+  </div>
+  <main>
+    <a class="back" href="guides.html">&larr; back to guides</a>
+    <h1>The three lines that fix any prompt 🗣️</h1>
+    <p class="intro">From @techyai_cj. Most people write prompts like they are filling in a form, and the answer comes back sounding like a form. You do not need a magic template. You need to <b>talk to it like you would brief a smart friend</b>, and then tell it how to sound. Here are the three lines, and a real before and after so you can see the difference.</p>
+
+    <h2>The three lines</h2>
+    <div class="h2sub">use them in this order, every time</div>
+
+    <div class="item"><div class="t">1. Here&rsquo;s the situation <em>give it the real context</em></div>
+      <div class="h">Say what is actually going on, the way you would say it out loud. Who it is for, what already happened, what the constraint is. Most bad answers are not a model problem, they are a context problem.</div></div>
+
+    <div class="item"><div class="t">2. Here&rsquo;s what I need, here&rsquo;s what I don&rsquo;t want</div>
+      <div class="h">Both halves. The second one is the half everybody skips, and it is the half that kills the corporate voice. &ldquo;No bullet points.&rdquo; &ldquo;Do not over apologise.&rdquo; &ldquo;No blanks for me to fill in.&rdquo; Say it and it stops.</div></div>
+
+    <div class="item"><div class="t">3. Write it how I talk, plain words, no corporate language <em>put this last</em></div>
+      <div class="h">One line at the very end. This is the one that changes the voice of the output more than anything else on this page. If you only take one thing, take this.</div></div>
+
+    <h2>The real before and after</h2>
+    <div class="h2sub">same job, asked two ways, both run on 1 September 2026</div>
+
+    <p class="note">Both of these are real answers, not examples I wrote. The task both times: an email telling a client a project is going to be late.</p>
+
+    <div class="item"><div class="t">Asked like a robot</div>
+      <div class="h"><b>The prompt:</b> &ldquo;Act as an expert communications strategist. Optimize for professional tone and stakeholder alignment. Draft an email informing a client their project deadline will be delayed.&rdquo;<br><br>
+      <b>What came back:</b> &ldquo;Hi [Name], I want to flag a change to our timeline before it affects your planning. We will not hit the [original date] delivery date. The new target is [new date].&rdquo;<br><br>
+      That email had <b>13 blanks</b> in it. It is a template, not an email. You still have to write it.</div></div>
+
+    <div class="item"><div class="t">Asked like a person <em>same job</em></div>
+      <div class="h"><b>The prompt:</b> &ldquo;Here&rsquo;s the situation: I&rsquo;m a freelance web designer and I&rsquo;m going to be about a week late delivering a client&rsquo;s site, because their photographer still hasn&rsquo;t sent me the photos. I need to email them today. Here&rsquo;s what I need: a short email that gives them the new date and doesn&rsquo;t sound like I&rsquo;m making excuses. Here&rsquo;s what I don&rsquo;t want: corporate language, over-apologizing, or a bunch of blanks I have to fill in myself. Write it how I talk, plain words, no corporate language.&rdquo;<br><br>
+      <b>What came back:</b> &ldquo;Quick update on the site. I&rsquo;m still waiting on the photos from your photographer, and I can&rsquo;t finish the gallery and hero sections without them. Everything else is built. Here&rsquo;s the plan: the full site will be done and live by Friday, September 11. If the photos come in before then, great. If not, I&rsquo;ll launch with temporary images in those spots and swap in the real ones the same day they arrive, no extra cost or delay on your end.&rdquo;<br><br>
+      <b>One blank.</b> The client&rsquo;s name, because I never told it. Everything else was filled in, including a plan I did not ask for.</div></div>
+
+    <h2>Why it works</h2>
+    <div class="h2sub">the boring reason</div>
+    <p class="step"><b>1.</b> &ldquo;Act as an expert&rdquo; adds no information. It does not know which expert, about what, for whom. Your situation does.</p>
+    <p class="step"><b>2.</b> &ldquo;Optimize for engagement&rdquo; is a wish, not an instruction. &ldquo;No corporate language&rdquo; is an instruction, because it can be checked.</p>
+    <p class="step"><b>3.</b> Blanks come from missing context. Give it the real details and there is nothing left to bracket.</p>
+    <p class="note">The same three lines work for captions, DMs, job applications, texts you are avoiding, and anything you would normally rewrite three times. Try it on the last thing you asked it to write.</p>
+
+    <div style="margin-top:28px">
+      <script async data-uid="56db943269" src="https://techyaicj.kit.com/56db943269/index.js"></script>
+    </div>
+
+    <div class="cta">
+      <p>I&rsquo;m a software developer and I post what I actually run.<br>
+      Follow <a href="https://www.tiktok.com/@techyai_cj" target="_blank" rel="noopener">@techyai_cj on TikTok</a> and <a href="https://www.instagram.com/techyai_cj" target="_blank" rel="noopener">Instagram</a> 🚀<br>
+      More free guides: <a href="guides.html">see all of them</a></p>
+    </div>
+    <p class="foot">&copy; 2026 CJ &middot; free to use, send it to whoever keeps writing prompts like a robot</p>
+  </main>
+</div>
+</body>
+</html>
