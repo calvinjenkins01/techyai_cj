@@ -1,5 +1,8 @@
 # CJ Content System Rules
 
+> Videos, carousels and the weekly studio run live in `~/dev/hyperframes-editor` (its AGENTS.md and studio/PROMPTS.md). This repo is the funnel and knowledge base only.
+
+
 ## Writing style: ABSOLUTE RULES
 - NEVER use dashes of any kind in ANY generated content. This means the hyphen "-",
   the en dash "–", and the em dash "—". Applies to everything: X posts, TikTok and
