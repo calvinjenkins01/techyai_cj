@@ -39,8 +39,13 @@
   strict numbering (part 3, part 4, ...) forever; the visible catalog is
   the follow driver. Differentiator vs faceless series accounts: CJ's
   face, developer credential, and same day news speed
-- Workflow videos: the exact prompt goes in the caption word for word
-  (Prompt 👇 style), copyable text drives saves
+- Captions and replies (Calvin, September 16, 2026): use a few relevant
+  emojis and a short benefit teaser. Start with the comment keyword and
+  promise a guide that matches the video. Put the full prompts and walkthrough
+  on the GitHub Pages guide, and link directly to that specific guide in the
+  keyword DM. Keep relevant access limits in the caption. Don’t paste the full
+  tutorial into the caption. This replaces the earlier prompt in caption rule.
+  A public “sent” reply is used only after the DM was actually delivered.
 - VOICE RULE for every script: write it like CJ is telling ONE friend about
   something he just found, not addressing an audience. Contractions always.
   Short fragments for emphasis. Include at least one real reaction or aside
