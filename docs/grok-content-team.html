@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your Grok Bot content team | techyai_cj</title><meta name="description" content="Four prompts for a Grok Bot content team: research, writing, post preparation and a morning routine. Keep your review in every handoff."><style>
+  :root {
+    --green: #56f091; --dim: #8ca5af; --white: #ebf0ee;
+    --amber: #ffbd2e; --bg0: #080a0e; --bg1: #0d1418;
+    --card: #0e1116; --line: #465560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: linear-gradient(180deg, var(--bg0), var(--bg1));
+    color: var(--white); min-height: 100vh;
+    display: flex; justify-content: center; padding: 24px 16px 60px;
+  }
+  .terminal {
+    width: 100%; max-width: 640px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .bar { background: #181d24; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .bar span { margin: 0 auto; color: #96a0aa; font-size: 13px; }
+  main { padding: 28px 22px 34px; }
+  a.back { color: var(--dim); font-size: 13px; text-decoration: none; }
+  h1 { color: var(--green); font-size: 24px; margin-top: 14px; line-height: 1.3; }
+  .intro { color: var(--dim); font-size: 14px; margin-top: 10px; line-height: 1.55; }
+  .intro b { color: var(--green); }
+  .go {
+    display: block; margin-top: 18px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 14px; text-align: center;
+    color: var(--green); text-decoration: none; font-size: 15px; font-weight: bold;
+  }
+  h2 { color: var(--amber); font-size: 16px; margin: 30px 0 6px; }
+  .h2sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  .item {
+    background: #131920; border: 1px solid var(--line);
+    border-radius: 10px; padding: 13px 14px 11px; margin-bottom: 9px;
+  }
+  .item .t { font-size: 14px; line-height: 1.5; color: var(--white); font-weight: bold; }
+  .item .t em { font-style: normal; color: var(--green); font-size: 13px; }
+  .item .h { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--dim); }
+  .item .h a { color: var(--green); }
+  .step { color: var(--white); font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+  .step b { color: var(--green); }
+  .note { color: var(--dim); font-size: 13px; line-height: 1.6; margin-top: 14px; }
+  .cta {
+    margin-top: 30px; background: #12291c; border: 1px solid #2e7a4f;
+    border-radius: 10px; padding: 18px; text-align: center;
+  }
+  .cta p { color: var(--green); font-size: 14px; line-height: 1.5; }
+  .cta a { color: var(--amber); }
+  .foot { margin-top: 24px; color: var(--dim); font-size: 12px; text-align: center; }
+
+  .formkit-form[data-uid="56db943269"] { background: #131920 !important; border: 1px solid var(--line) !important; border-radius: 10px !important; }
+  .formkit-form[data-uid="56db943269"] * { font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-header, .formkit-form[data-uid="56db943269"] .formkit-header h1, .formkit-form[data-uid="56db943269"] .formkit-header h2 { color: var(--green) !important; font-weight: bold !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-subheader, .formkit-form[data-uid="56db943269"] .formkit-subheader p, .formkit-form[data-uid="56db943269"] .formkit-guarantee, .formkit-form[data-uid="56db943269"] .formkit-guarantee p { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input { background: #0e1116 !important; color: var(--white) !important; border: 1px solid var(--line) !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-input::placeholder { color: var(--dim) !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-submit, .formkit-form[data-uid="56db943269"] .formkit-submit span { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; border-radius: 7px !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-alert, .formkit-form[data-uid="56db943269"] .formkit-alert-success { background: #12291c !important; color: var(--green) !important; border: 1px solid #2e7a4f !important; }
+  .formkit-form[data-uid="56db943269"] .formkit-powered-by-convertkit, .formkit-form[data-uid="56db943269"] [class*="powered-by"] { opacity: .35 !important; }
+
+  a { color: var(--green); overflow-wrap: anywhere; }
+  .eyebrow { color: var(--amber); font-size: 12px; letter-spacing: .06em; margin-top: 24px; }
+  h1 { font-size: clamp(24px, 5vw, 32px); }
+  .intro, .step, .note, .item .h { line-height: 1.7; }
+  .route { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 22px 0; font-size: 13px; color: var(--green); }
+  .route b { padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; }
+  .access { border-left: 3px solid var(--amber); padding: 12px 15px; background: #181a18; font-size: 13px; line-height: 1.65; margin: 18px 0; }
+  .prompt { margin: 16px 0 22px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .promptbar { display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 12px; background: #18221e; }
+  .promptbar strong { font-size: 13px; color: var(--green); }
+  .copy { flex: none; min-height: 44px; background: #20372a; color: var(--green); border: 1px solid #527860; padding: 9px 12px; border-radius: 7px; font: inherit; font-size: 12px; cursor: pointer; }
+  .copy:hover { background: #2a4735; } .copy:focus-visible, a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 18px; font: inherit; font-size: 13px; line-height: 1.7; color: var(--white); }
+  li { color: var(--dim); font-size: 14px; line-height: 1.65; margin: 8px 0; }
+  ul { padding-left: 22px; } li b { color: var(--white); }
+  .sources { border-top: 1px solid var(--line); margin-top: 32px; padding-top: 18px; }
+  .sources p { font-size: 12px; line-height: 1.65; color: var(--dim); margin-top: 9px; }
+  #copy-status { color: var(--green); min-height: 20px; font-size: 12px; }
+  .terminal, main, .prompt { min-width: 0; }
+  @media (max-width: 400px) { main { padding: 24px 16px 30px; } .bar span { font-size: 11px; } .route { gap: 5px; font-size: 11px; } }
+</style></head><body><div class="terminal"><div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>cj@techyai:~/guides/agent</span></div><main>
+<a class="back" href="guides.html">← All free guides</a>
+<p class="eyebrow">🤖 AGENT GUIDE · GROK BOT</p>
+<h1>Give your content its own team.</h1>
+<p class="intro">Start with a bot that researches your niche. Once its work is useful, add a writer and a bot that prepares your posts. Here are the prompts for the setup from my video. 👇</p>
+<div class="route" aria-label="Workflow"><b>Research</b><span>→</span><b>Writing</b><span>→</span><b>Post drafts</b></div>
+<a class="go" href="#research">Copy the research prompt ↓</a>
+<div class="access"><b>Before you start:</b> Check that your account has Grok Bot access and install the app using the <a href="https://docs.x.ai/grok-bot/get-started">official setup instructions</a>. Connected services may have their own costs. This is my proposed workflow based on the documentation; I have not tested this exact setup.</div>
+<h2>1. Give the researcher one job 🔎</h2>
+<p class="step">Create a bot with a short name, a research role and clear instructions. Give it your niche, audience, approved sources and past topic list. Run the first request yourself and open the links it returns.</p>
+<p class="note">For X research, sign in through the X connector. The documented connection can search posts and check mentions. A popular post still needs its claims checked against the original source.</p>
+<div class="prompt"><div class="promptbar"><strong>Research a topic</strong><button class="copy" type="button" data-copy="research" aria-label="Copy research a topic prompt">Copy prompt</button></div><pre id="research">You research content ideas for my audience: [describe audience].
+
+Find three useful developments in [niche] since [date]. For each, give me the original source link, publication date, what changed and a practical video angle.
+
+Check my supplied past topic list and avoid repeats. Separate verified facts from suggestions. Flag anything you cannot verify.
+
+Leave the ideas here for my review. Wait for me to choose a topic before handing anything to the writing bot.</pre></div>
+<h2>2. Add a writer with your voice ✍️</h2>
+<p class="step">Choose a topic yourself, then give the writer that research and a few scripts you like. Those examples give it a voice to aim for. Read the result out loud and revise anything you would not actually say.</p>
+<div class="prompt"><div class="promptbar"><strong>Write the approved topic</strong><button class="copy" type="button" data-copy="writer" aria-label="Copy write the approved topic prompt">Copy prompt</button></div><pre id="writer">Use only the research item I approved and its sources. Draft a video script for [platform and target length].
+
+Use these approved scripts as examples of how I talk: [attach or paste examples]. Keep the language conversational, as if I am explaining this to one friend.
+
+Never invent a personal test, statistic or result. Mark claims that still need checking. Return the script for my approval before handing it to the post preparation bot.</pre></div>
+<h2>3. Prepare drafts for each platform 📝</h2>
+<p class="step">Give the third bot the approved script. Its job is to prepare captions and assets for your review. In this setup, you make the final edits and publish the posts yourself.</p>
+<div class="prompt"><div class="promptbar"><strong>Prepare the post package</strong><button class="copy" type="button" data-copy="posts" aria-label="Copy prepare the post package prompt">Copy prompt</button></div><pre id="posts">Take the script and assets I approved. Draft one TikTok caption, one Instagram caption and a hook for X.
+
+Match my voice using [approved examples]. Adapt each draft to its platform. Include the source links, asset list and anything still missing.
+
+Put the package in [our group chat or approved destination] for my review. Keep everything as a draft. Do not publish, schedule or message anyone outside this group. If a tool cannot complete the request, report that clearly.</pre></div>
+<p id="copy-status" role="status" aria-live="polite"></p>
+<h2>4. Put the handoffs in a group</h2>
+<p class="step">Put the relevant bots in a group chat. Tell them the order: researcher → your topic choice → writer → your script review → post preparation → your final review. Ask them to wait at each review point.</p>
+<p class="note">Some tools need a plugin or a browser sign in. Connect what the current job needs, then test that task. If a connection cannot perform an action, the bot should say so.</p>
+<h2>5. Add the morning routine last ⏰</h2>
+<p class="step">Run the research task manually a few times first. When you are happy with its results, ask the research bot to create a routine. Set a specific time and timezone. Use the routine’s test run and inspect its first scheduled result.</p>
+<div class="prompt"><div class="promptbar"><strong>Research every morning</strong><button class="copy" type="button" data-copy="morning" aria-label="Copy research every morning prompt">Copy prompt</button></div><pre id="morning">Every morning, find three AI updates from the last day, with a source link for each. Then wait for me to pick one before you hand it to the writer.
+
+Schedule: [time and timezone]
+Sources: [approved sources]
+Past topics to avoid: [list or file]
+Deliver the ideas in: [conversation]
+
+If a source is unavailable or you cannot verify an update, say so. Do not substitute an old story without labeling its date. Keep publishing manual.</pre></div>
+<h2>What a useful result looks like ✅</h2>
+<ul><li>Each idea links to a current original source.</li><li>The writer uses your selected topic and does not invent a personal experience.</li><li>The post drafts match the approved script.</li><li>The bots stop for your review and report missing sources or failed tasks.</li></ul>
+<p class="note">The official Social Media Manager example prepares posts for you to publish. This guide keeps that same boundary. Posting tools and permissions vary by platform; the X research connector is not proof that a bot can publish everywhere.</p>
+<div class="cta"><p>Start with one research task you can check today. Add the other roles when that works. 🤖<br><br><a href="https://docs.x.ai/grok-bot/get-started">Open the official setup guide ↗</a></p></div>
+<div class="sources"><p><b>Sources checked September 17, 2026</b></p><p>
+<a href="https://x.ai/news/introducing-grok-bot">Grok Bot: roles and group collaboration</a><br>
+<a href="https://docs.x.ai/grok-bot/get-started">Create a bot and give it a first task</a><br>
+<a href="https://x.ai/news/grok-bot-and-x">The X connection</a><br>
+<a href="https://x.ai/bot/use-cases">Writing and social media role examples</a><br>
+<a href="https://docs.x.ai/grok-bot/skills-routines-and-automations">Skills, routines and testing</a></p><p>The prompts are suggested instructions you can adapt. Check your results and current product access.</p></div>
+<p class="foot">From @techyai_cj · Free to use and share<br><a href="guides.html">Browse all guides</a></p>
+</main></div><script>
+for (const button of document.querySelectorAll('[data-copy]')) {
+ button.addEventListener('click', async () => {
+  const prompt = document.getElementById(button.dataset.copy);
+  const status = document.getElementById('copy-status');
+  try { await navigator.clipboard.writeText(prompt.textContent); button.textContent = 'Copied ✓'; status.textContent = 'Prompt copied. Replace the brackets with your details in Grok Bot.'; }
+  catch { const range = document.createRange(); range.selectNodeContents(prompt); const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); button.textContent = 'Text selected'; status.textContent = 'Copy the selected prompt with your device’s copy command.'; }
+ });
+}
+</script></body></html>
